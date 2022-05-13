@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 
-df = pd.read_csv("stimuli/stimuli.csv")
+df = pd.read_csv("experiment/stimuli/stimuli.csv")
 
 entries = []
 
@@ -19,7 +19,7 @@ for index,row in df.iterrows():
     final_dict["options"] = options
     entries.append(final_dict)
 
-with open('stimuli/itkonen-stims.js', 'w') as stimlist:
+with open('experiment/stimuli/itkonen-stims.js', 'w') as stimlist:
     s = json.dumps(entries, indent=4)
     stimlist.write("var all_stims = ")
     stimlist.write(s)

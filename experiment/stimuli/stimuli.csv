@@ -1,6 +1,15 @@
 item,type,voice,sentence,nom,gen
 kappalainen,existential,active,"Olen luullut jokaisessa seurakunnassa olevan ...","kappalainen","kappalaisen"
-harvinaisen erikoistapaus,existential,active,"Kirjoittaja arvelee kyseessä olevan ...","harvinaisen erikoistapaus","harvinaisen erikoistapauksen"
+harvinainen erikoistapaus,existential,active,"Kirjoittaja arvelee kyseessä olevan ...","harvinainen erikoistapaus","harvinaisen erikoistapauksen"
 valtio valitossa,existential,active,Kirjoittaja väittää TVH:sta tulleen ...,valtio valtiossa,valtion valtiossa
 persikka,existential,active,Hän kertoi vadille jääneen ...,persikka,persikan
 tulipalo,existential,active,Pelkäsin siellä syttyneen ...,tulipalo,tulipalon
+jokin,existential,active,Toivoisi levyissä olevan ... myös levytyshetkestä,jokin maininta,jonkin maininnan
+persoonallinen,existential,active,Kirjailijoilla luulisi olevan tyyliin ...,persoonallinen suhde,persoonallisen suhteen
+kappalainen,existential,passive,Jokaisessa seurakunnassa luultiin olevan ..., kappalainen, kappalaisen
+harvinainen,existential,passive,Yleensä arveltiin kyseessä olevan ...,harvinainen erikoistapaus,harvinaisen erikoistapauksen
+valtio,existential,passive,Kirjoituksessa väitettiin TVH:sta tulleen ...,valtio valtiossa,valtion valtiossa
+persikka,existential,passive,Vadille kerrottiin jääneen ...,persikka,persikan
+tulipalo,existential,passive,Siellä pelättiin syttyneen...,tulipalo,tulipalon
+jokin,existential,passive,Levyissä toivottiin olevan ... myös levytyshetkestä,jokin maininta,jonkin maininnan
+persoonallinen,existential,passive,Kirjailijoilla luultiin olevan tyyliin ...,persoonallinen sudhe,persoonallisen suhteen
