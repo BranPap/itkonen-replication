@@ -1,0 +1,108 @@
+Here's the translation, page by page. Please run it by Paul just in case.
+
+Arto
+
+PAGE 1
+
+Tässä kokeessa saat luettavaksesi 22 lausetta, joista puuttuu sana tai
+lauseke. Tehtäväsi on täydentää lause käyttämällä yhtä annetuista
+vaihtoehdoista. Kiitos tarkkaavaisuudestasi!
+
+Huom. Et voi käyttää Firefox-selainta.
+
+Suostumuslomake
+
+PAGE 2
+
+Ohjeet
+
+Seuraavilla sivuilla on lauseita, joista puuttuu sana tai lauseke, joka on merkitty viivalla. Valitse sana/sanaryhmä, joka mielestäsi parhaiten täydentää lauseen.
+
+Aloitetaan esimerkillä!
+
+Jatka
+
+PAGE 3
+
+Esimerkki
+
+Valitse sana, joka mielestäsi parhaiten täydentää lauseen.
+
+PAGE 4
+
+Voimme aloittaa!
+
+Hienoa! Nyt voimme aloittaa varsinaisen kokeen.
+
+Tässä ohjeet vielä kerran:
+
+Seuraavilla sivuilla on lauseita, joista puuttuu sana tai lauseke, joka on merkitty viivalla. Valitse sana/sanaryhmä, joka mielestäsi parhaiten täydentää lauseen.
+
+Tärkeää: Yritä tehdä koe yhdeltä istumalta ilman taukoja. Kokeen ei pitäisi kestää 15 minuuttia kauempaa.
+
+Jatka
+
+PAGE 5
+
+Valitse sana, joka mielestäsi parhaiten täydentää lauseen.
+
+LAST PAGE
+
+Lisätietoja:
+
+Seuraaviin kysymyksiin vastaaminen on vapaaehtoista, mutta auttaa meitä vastaustesi tulkinnassa.
+
+Luitko ohjeet ja uskotko tehneesi kokeen oikein?
+- en
+- kyllä
+- en ymmärtänyt koetta
+
+Sukupuoli:
+- mies
+- nainen
+- muu
+- en halua vastata
+
+Ikä:
+
+Koulutustaso:
+- lukio, mutta ei ylioppilas
+- ylioppilas
+- ylioppilastutkinnon jälkeisiä opintoja esim. yliopistossa, ammattikorkeakoulussa, tai muussa oppilaitoksessa
+- perustutkinto esim. yliopistosta, ammattikorkeakoulusta, tai muusta oppilaitoksesta
+- ylempi korkeakoulututkinto
+
+Äidinkieli:
+
+Kotikielet lapsuudessa:
+
+Oliko korvaus kokeen tekemisestä mielestäsi riittävä?
+- liian pieni
+- riittävä
+
+Oliko koe miellyttävä kokemus?
+- normaalia epämiellyttävämpi
+- normaali
+- normaalia miellyttävämpi
+
+Otamme mielellämme vastaan palautetta kokeesta. Voit kirjoittaa palautteesi tähän:
+
+From: Bran Papineau <branpap@stanford.edu>
+Sent: Friday, May 13, 2022 12:39 PM
+To: Arto Tapani Anttila <anttila@stanford.edu>
+Subject: Version for Translation
+ 
+Everything in here in English needs a translation!
+ 
+The example sentence would be great if we could get some kind of equivalent in Finnish!
+ 
+https://branpap.github.io/itkonen-replication/experiment/experiment.html
+ 
+Bran[don] Papineau
+PhD Student, Linguistics
+Stanford University
+www.branpap.com
+---
+My pronouns are they/them
+More information at: pronoun.is
+ 

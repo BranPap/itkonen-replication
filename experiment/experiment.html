@@ -39,15 +39,15 @@
     <!-- <img src="../_shared/images/cocologo.png" alt="Stanford CoCoLab" id="cocologo"></img> -->
     <p id="cocolab">Stanford Linguistics</p>
     <p id="instruct-text">
-      In this experiment, you will read 22 sentences, each of which is missing a word or phrase. Your task is to complete the sentence using one of the options provided.
-      Please pay attention, thanks!<br>
-      <strong>Please note that this experiment cannot be completed in the FireFox browser.</strong>
+      Tässä kokeessa saat luettavaksesi 22 lausetta, joista puuttuu sana tai lauseke. Tehtäväsi on täydentää lause käyttämällä yhtä annetuista vaihtoehdoista. Kiitos tarkkaavaisuudestasi!
+      <br>
+      <strong>Huom. Et voi käyttää Firefox-selainta.</strong>
     </p>
     <input id="start_button" type="button" class="button" value="Start Experiment">
 
     <p class="left">
       <strong><br>
-      LEGAL INFORMATION</strong>:<br>
+        Suostumuslomake</strong>:<br>
       <br>
       <strong>TUTKIMUKSEN KUVAUS:</strong> Pyydämme sinua osallistumaan kielen tuottamista ja ymmärtämistä koskevaan tutkimukseen. Tutkimuksessa sinua pyydetään suorittamaan kielellisiä tehtäviä tietokonetta käyttämällä, esim. lukemaan lauseita ja sanoja, nimeämään kuvissa esiintyviä esineitä, kuvailemaan tilanteita, tuottamaan itse lauseita, ja osallistumaan yksinkertaisiin kielellisiin peleihin.
       <br>
@@ -79,27 +79,27 @@
 
   <div class="slide" id="instructions">
 
-		<h3>Instructions</h3>
-    <p>On the following pages, you will always see a sentence which is missing a word or phrase, indicated by a blank line. Please select the word or words that you feel best completes the sentence.</p>
+		<h3>Ohjeet</h3>
+    <p>Seuraavilla sivuilla on lauseita, joista puuttuu sana tai lauseke, joka on merkitty viivalla. Valitse sana/sanaryhmä, joka mielestäsi parhaiten täydentää lauseen.</p>
 
-    <p>Let's start with an example!</p>
+    <p>Aloitetaan esimerkillä!</p>
 
 
 
-    <input type="button" class="button" value="Continue" onclick="exp.go();">
+    <input type="button" class="button" value="Jatka" onclick="exp.go();">
 
   </div>
 
   <div class="slide" id="example">
-    <h3>Example</h3>
-    <p>Select the word which most appropriately completes the sentence.</p>
+    <h3>Esimerkki</h3>
+    <p>Valitse sana, joka mielestäsi parhaiten täydentää lauseen.</p>
 
     <div id="comprehension-question-example">
 
 			<p id="comprehension-question-q-example" class="question"></p>
-      <input type="button" value="shop" id="test-response-1-example" class="response-buttons button">
-      <input type="button" value="hiking" id="test-response-2-example" class="response-buttons button">
-      <input type="button" value="reading" id="test-response-3-example" class="response-buttons button">
+      <input type="button" value="olen" id="test-response-1-example" class="response-buttons button">
+      <input type="button" value="velho" id="test-response-2-example" class="response-buttons button">
+      <input type="button" value="kissa" id="test-response-3-example" class="response-buttons button">
 		</div>
     <br>
     <div class="invisible_err" style="display: block;" id="example_err_1">Please select the correct answer to continue.</div>
@@ -107,19 +107,19 @@
 
 <div class="slide" id="almost">
 
-  <h3>Let's Get Started!</h3>
-  <p>Great job! Now we can really get going.</p>
-  <p><strong>To reiterate:</strong> on the following pages, you will always see a sentence which is missing a word or phrase, indicated by a blank line. Please select the word or words that you feel best completes the sentence.</p>
+  <h3>Voimme aloittaa!</h3>
+  <p>Hienoa! Nyt voimme aloittaa varsinaisen kokeen.</p>
+  <p><strong>Tässä ohjeet vielä kerran:</strong> Seuraavilla sivuilla on lauseita, joista puuttuu sana tai lauseke, joka on merkitty viivalla. Valitse sana/sanaryhmä, joka mielestäsi parhaiten täydentää lauseen.</p>
 
-  <p><strong>Important</strong>: Please try to complete the experiment in one session without any interruptions. It should take at most 15mins.</p>
+  <p><strong>Tärkeää</strong>: Yritä tehdä koe yhdeltä istumalta ilman taukoja. Kokeen ei pitäisi kestää 15 minuuttia kauempaa.</p>
 
-  <input type="button" class="button" value="Continue" onclick="exp.go();">
+  <input type="button" class="button" value="Jatka" onclick="exp.go();">
 
 </div>
 
   <div class="slide" id="trial">
 
-		<p>Select the word which most appropriately completes the sentence.</p>
+		<p>Valitse sana, joka mielestäsi parhaiten täydentää lauseen.</p>
 
     <div id="comprehension-question">
 
@@ -135,101 +135,102 @@
   <div class="slide" id="subj_info">
     <div class="long_form">
       <div class="subj_info_title">
-        Additional information
+        Lisätietoja
       </div>
 
       <p class="info">
-        Answering these questions is optional, but will help us understand your answers.
+        Seuraaviin kysymyksiin vastaaminen on vapaaehtoista, mutta auttaa meitä vastaustesi tulkinnassa.
       </p>
 
       <p>
-        Did you read the instructions and do you think you did the study correctly?
+        Luitko ohjeet ja uskotko tehneesi kokeen oikein?
       </p>
 
-      <label><input type="radio" name="assess" value="No">No</label>
-      <label><input type="radio" name="assess" value="Yes">Yes</label>
-      <label><input type="radio" name="assess" value="Confused">I was confused</label>
+      <label><input type="radio" name="assess" value="No">En</label>
+      <label><input type="radio" name="assess" value="Yes">Kyllä</label>
+      <label><input type="radio" name="assess" value="Confused">En ymmärtänyt koetta</label>
 
       <p>
-        Gender: <select id="gender">
+        Sukupuoli: <select id="gender">
           <option value="">
           </option>
           <option value="Male">
-            male
+            mies
           </option>
           <option value="Female">
-            female
+            nainen
           </option>
           <option value="Other">
-            other
+            muu
           </option>
           <option value="no-say">
-            prefer not to say
+            en halua vastata
           </option>
         </select>
       </p>
 
       <p>
-        Age: <input type="text" id="age">
+        Ikä: <input type="text" id="age">
       </p>
 
       <p>
-        Level of education: <select id="education">
+        Koulutustaso: <select id="education">
           <option value="-1">
           </option>
           <option value="0">
-            Some high school
+            lukio, mutta ei ylioppilas
           </option>
           <option value="1">
-            Graduated high school
+            ylioppilas
           </option>
           <option value="2">
-            Some college
+            ylioppilastutkinnon jälkeisiä opintoja esim. yliopistossa, ammattikorkeakoulussa, tai muussa oppilaitoksessa
           </option>
           <option value="3">
-            Graduated college
+            perustutkinto esim. yliopistosta, ammattikorkeakoulusta, tai muusta oppilaitoksesta
           </option>
           <option value="4">
-            Hold a higher degree
+            ylempi korkeakoulututkinto
           </option>
         </select>
       </p>
 
       <p>
-        Native language: <input type="text" id="language">
-      </p><label>(the language(s) spoken at home when you were a child)</label><br>
+        Äidinkieli: <input type="text" id="language">
+      </p><label>(Kotikielet lapsuudessa)</label><br>
 
       <p>
-        Do you think the payment was fair?
+        Oliko korvaus kokeen tekemisestä mielestäsi riittävä?
       </p><select id="fairprice">
         <option value="-1">
         </option>
         <option value="0">
-          The payment was too low
+          liian pieni
         </option>
         <option value="1">
-          The payment was fair
+          riittävä
+
         </option>
       </select>
 
       <p>
-        Did you enjoy the experiment?
+        Oliko koe miellyttävä kokemus?
       </p><select id="enjoyment">
         <option value="-1">
         </option>
         <option value="0">
-          Worse than the average experiment
+          normaalia epämiellyttävämpi
         </option>
         <option value="1">
-          An average experiment
+          normaali
         </option>
         <option value="2">
-          Better than average experiment
+          normaalia miellyttävämpi
         </option>
       </select>
 
       <p>
-        We would be interested in any comments you have about this experiment. Please type them here:
+        Otamme mielellämme vastaan palautetta kokeesta. Voit kirjoittaa palautteesi tähän:
       </p>
       <textarea id="comments" rows="3" cols="50"></textarea><br>
       <button onclick="_s.submit()">Submit</button>

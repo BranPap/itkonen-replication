@@ -32,13 +32,13 @@ function make_slides(f) {
 
       // var name = this.name;
       //
-      var individual_question = "Lewis likes to _____.";
+      var individual_question = "Minä ... todella hauska.";
 
       $("#comprehension-question-q-example").text(individual_question).show();
 
       console.log('question',individual_question)
 
-      this.correct ="shop";
+      this.correct ="olen";
     },
 
     button : function(response) {
