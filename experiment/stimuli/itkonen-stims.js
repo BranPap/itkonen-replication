@@ -4,9 +4,11 @@ var all_stims = [
         "type": "existential",
         "voice": "active",
         "sentence": "Olen luullut jokaisessa seurakunnassa olevan ...",
+        "polarity": "positive",
         "options": [
             "kappalainen",
-            "kappalaisen"
+            "kappalaisen",
+            "SKIP"
         ]
     },
     {
@@ -14,9 +16,11 @@ var all_stims = [
         "type": "existential",
         "voice": "active",
         "sentence": "Kirjoittaja arvelee kyseess\u00e4 olevan ...",
+        "polarity": "positive",
         "options": [
             "harvinainen erikoistapaus",
-            "harvinaisen erikoistapauksen"
+            "harvinaisen erikoistapauksen",
+            "SKIP"
         ]
     },
     {
@@ -24,9 +28,11 @@ var all_stims = [
         "type": "existential",
         "voice": "active",
         "sentence": "Kirjoittaja v\u00e4itt\u00e4\u00e4 TVH:sta tulleen ...",
+        "polarity": "positive",
         "options": [
             "valtio valtiossa",
-            "valtion valtiossa"
+            "valtion valtiossa",
+            "SKIP"
         ]
     },
     {
@@ -34,9 +40,11 @@ var all_stims = [
         "type": "existential",
         "voice": "active",
         "sentence": "H\u00e4n kertoi vadille j\u00e4\u00e4neen ...",
+        "polarity": "positive",
         "options": [
             "persikka",
-            "persikan"
+            "persikan",
+            "SKIP"
         ]
     },
     {
@@ -44,9 +52,11 @@ var all_stims = [
         "type": "existential",
         "voice": "active",
         "sentence": "Pelk\u00e4sin siell\u00e4 syttyneen ...",
+        "polarity": "positive",
         "options": [
             "tulipalo",
-            "tulipalon"
+            "tulipalon",
+            "SKIP"
         ]
     },
     {
@@ -54,9 +64,11 @@ var all_stims = [
         "type": "existential",
         "voice": "active",
         "sentence": "Toivoisi levyiss\u00e4 olevan ... my\u00f6s levytyshetkest\u00e4",
+        "polarity": "positive",
         "options": [
             "jokin maininta",
-            "jonkin maininnan"
+            "jonkin maininnan",
+            "SKIP"
         ]
     },
     {
@@ -64,9 +76,11 @@ var all_stims = [
         "type": "existential",
         "voice": "active",
         "sentence": "Kirjailijoilla luulisi olevan tyyliin ...",
+        "polarity": "positive",
         "options": [
             "persoonallinen suhde",
-            "persoonallisen suhteen"
+            "persoonallisen suhteen",
+            "SKIP"
         ]
     },
     {
@@ -74,9 +88,11 @@ var all_stims = [
         "type": "existential",
         "voice": "passive",
         "sentence": "Jokaisessa seurakunnassa luultiin olevan ...",
+        "polarity": "positive",
         "options": [
             " kappalainen",
-            " kappalaisen"
+            " kappalaisen",
+            "SKIP"
         ]
     },
     {
@@ -84,9 +100,11 @@ var all_stims = [
         "type": "existential",
         "voice": "passive",
         "sentence": "Yleens\u00e4 arveltiin kyseess\u00e4 olevan ...",
+        "polarity": "positive",
         "options": [
             "harvinainen erikoistapaus",
-            "harvinaisen erikoistapauksen"
+            "harvinaisen erikoistapauksen",
+            "SKIP"
         ]
     },
     {
@@ -94,9 +112,11 @@ var all_stims = [
         "type": "existential",
         "voice": "passive",
         "sentence": "Kirjoituksessa v\u00e4itettiin TVH:sta tulleen ...",
+        "polarity": "positive",
         "options": [
             "valtio valtiossa",
-            "valtion valtiossa"
+            "valtion valtiossa",
+            "SKIP"
         ]
     },
     {
@@ -104,9 +124,11 @@ var all_stims = [
         "type": "existential",
         "voice": "passive",
         "sentence": "Vadille kerrottiin j\u00e4\u00e4neen ...",
+        "polarity": "positive",
         "options": [
             "persikka",
-            "persikan"
+            "persikan",
+            "SKIP"
         ]
     },
     {
@@ -114,9 +136,11 @@ var all_stims = [
         "type": "existential",
         "voice": "passive",
         "sentence": "Siell\u00e4 pel\u00e4ttiin syttyneen...",
+        "polarity": "positive",
         "options": [
             "tulipalo",
-            "tulipalon"
+            "tulipalon",
+            "SKIP"
         ]
     },
     {
@@ -124,9 +148,11 @@ var all_stims = [
         "type": "existential",
         "voice": "passive",
         "sentence": "Levyiss\u00e4 toivottiin olevan ... my\u00f6s levytyshetkest\u00e4",
+        "polarity": "positive",
         "options": [
             "jokin maininta",
-            "jonkin maininnan"
+            "jonkin maininnan",
+            "SKIP"
         ]
     },
     {
@@ -134,9 +160,11 @@ var all_stims = [
         "type": "existential",
         "voice": "passive",
         "sentence": "Kirjailijoilla luultiin olevan tyyliin ...",
+        "polarity": "positive",
         "options": [
             "persoonallinen sudhe",
-            "persoonallisen suhteen"
+            "persoonallisen suhteen",
+            "SKIP"
         ]
     },
     {
@@ -144,9 +172,11 @@ var all_stims = [
         "type": "predicative",
         "voice": "active",
         "sentence": "Min\u00e4 ainakin luulin sen miehen olevan ...",
+        "polarity": "positive",
         "options": [
             "kappalainen",
-            "kappalaisen"
+            "kappalaisen",
+            "SKIP"
         ]
     },
     {
@@ -154,9 +184,11 @@ var all_stims = [
         "type": "predicative",
         "voice": "active",
         "sentence": "H\u00e4n arveli t\u00e4m\u00e4n ilmi\u00f6n olevan ...",
+        "polarity": "positive",
         "options": [
             "harvinainen erikoistapaus",
-            "harvinaisen erikoistapauksen"
+            "harvinaisen erikoistapauksen",
+            "SKIP"
         ]
     },
     {
@@ -164,9 +196,11 @@ var all_stims = [
         "type": "predicative",
         "voice": "active",
         "sentence": "Kirjoittaja v\u00e4itt\u00e4\u00e4 TVH:n olevan ...",
+        "polarity": "positive",
         "options": [
             "valtio valitossa",
-            "valtion valtiossa"
+            "valtion valtiossa",
+            "SKIP"
         ]
     },
     {
@@ -174,9 +208,11 @@ var all_stims = [
         "type": "predicative",
         "voice": "active",
         "sentence": "H\u00e4n sanoi sen hedelm\u00e4n olevan ...",
+        "polarity": "positive",
         "options": [
             "persikka",
-            "persikan"
+            "persikan",
+            "SKIP"
         ]
     },
     {
@@ -184,9 +220,11 @@ var all_stims = [
         "type": "predicative",
         "voice": "passve",
         "sentence": "Joissakin kyliss\u00e4 luultiin sen miehen olevan ...",
+        "polarity": "positive",
         "options": [
             "kappalainen",
-            "kappalaisen"
+            "kappalaisen",
+            "SKIP"
         ]
     },
     {
@@ -194,9 +232,11 @@ var all_stims = [
         "type": "predicative",
         "voice": "passive",
         "sentence": "Yleens\u00e4 on arveltu t\u00e4m\u00e4n ilmi\u00f6n olevan ...",
+        "polarity": "positive",
         "options": [
             "harvinainen erikoistapaus",
-            "harvinaisen erikoistapauksen"
+            "harvinaisen erikoistapauksen",
+            "SKIP"
         ]
     },
     {
@@ -204,9 +244,11 @@ var all_stims = [
         "type": "predicative",
         "voice": "passive",
         "sentence": "Kirjoituksessa v\u00e4itet\u00e4\u00e4n TVH:n olevan ...",
+        "polarity": "positive",
         "options": [
             "valtio valtiossa",
-            "valtion valtiossa"
+            "valtion valtiossa",
+            "SKIP"
         ]
     },
     {
@@ -214,9 +256,11 @@ var all_stims = [
         "type": "predicative",
         "voice": "passive",
         "sentence": "Sen hedelm\u00e4n sanottiin olevan ...",
+        "polarity": "positive",
         "options": [
             "persikka",
-            "persikan"
+            "persikan",
+            "SKIP"
         ]
     }
 ]

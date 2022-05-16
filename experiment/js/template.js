@@ -88,6 +88,7 @@ function make_slides(f) {
 
       $("#choice-1").show();
       $("#choice-2").show();
+      $("#choice-3").show();
 
       console.log('this.stim.type',this.stim)
 
@@ -101,9 +102,19 @@ function make_slides(f) {
       var buttons = _.shuffle(this.stim.options);
       var button_1 = buttons.pop();
       var button_2 = buttons.pop();
+      var button_3 = buttons.pop();
 
       document.getElementById("choice-1").value = button_1;
       document.getElementById("choice-2").value = button_2;
+      document.getElementById("choice-3").value = button_3;
+
+      if (document.getElementById("choice-1").value == "SKIP") {
+        $("#choice-1").hide()
+      } else if (document.getElementById("choice-2").value == "SKIP") {
+        $("#choice-2").hide()
+      } else if (document.getElementById("choice-3").value == "SKIP") {
+        $("#choice-3").hide()
+      }
 
       console.log("choice-1: ",document.getElementById("choice-1").value);
 
@@ -120,6 +131,7 @@ function make_slides(f) {
           "type": this.stim.type,
           "item": this.stim.item,
           "voice": this.stim.voice,
+          "polarity": this.stim.polarity,
           "response": this.response,
           "trial_no": trial_counter,
         });
@@ -127,6 +139,61 @@ function make_slides(f) {
       }
   });
 
+  //neg trial slides
+
+  slides.neg_trial = slide({
+    name: "neg_trial",
+    present: exp.neg_stimuli,
+    present_handle: function(stim) {
+      this.stim = stim;
+      console.log('this.stim.condition',this.stim)
+
+      $("#choice-1-neg").show();
+      $("#choice-2-neg").show();
+      $("#choice-3-neg").show();
+
+      console.log('this.stim.type',this.stim)
+
+      var individual_question = this.stim.sentence;
+
+      $("#neg-comprehension-question-q").text(individual_question).show();
+
+      console.log('question',individual_question);
+
+      //randomize button orders
+      var buttons = _.shuffle(this.stim.options);
+      var button_1 = buttons.pop();
+      var button_2 = buttons.pop();
+      var button_3 = buttons.pop();
+
+      document.getElementById("choice-1-neg").value = button_1;
+      document.getElementById("choice-2-neg").value = button_2;
+      document.getElementById("choice-3-neg").value = button_3;
+
+      console.log("choice-1-neg: ",document.getElementById("choice-1-neg").value);
+
+    },
+
+    button : function(response) {
+      this.response = response;
+      this.log_responses();
+      _stream.apply(this);
+    },
+
+    log_responses : function() {
+        exp.data_trials.push({
+          "type": this.stim.type,
+          "item": this.stim.item,
+          "voice": this.stim.voice,
+          "polarity": this.stim.polarity,
+          "response": this.response,
+          "trial_no": trial_counter,
+        });
+        trial_counter++;
+      }
+  });
+
+  //Demographic slides
   
   slides.subj_info =  slide({
     name : "subj_info",
@@ -170,8 +237,10 @@ function init() {
   exp.catch_trials = [];
   var stimuli = all_stims;
   exp.stimuli = _.shuffle(stimuli);//can randomize between subject conditions here
-  var example_stim = example_stims;
-  exp.example_stim = example_stim;
+  var neg_stimuli = neg_stims;
+  exp.neg_stimuli = _.shuffle(neg_stimuli);
+  // var example_stim = example_stims;
+  // exp.example_stim = example_stim;
   exp.system = {
       Browser : BrowserDetect.browser,
       OS : BrowserDetect.OS,
@@ -181,7 +250,7 @@ function init() {
       screenUW: exp.width
     };
   //blocks of the experiment:
-  exp.structure=["i0",  "instructions", 'example', 'almost', "trial", 'subj_info', 'thanks'];
+  exp.structure=["i0",  "instructions", 'example', 'almost', "trial", 'neg_trial', 'subj_info', 'thanks'];
 
   exp.data_trials = [];
   //make corresponding slides:

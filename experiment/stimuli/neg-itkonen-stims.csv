@@ -1,0 +1,17 @@
+item,type,voice,sentence,nom,gen,part,polarity
+kappalainen,existential,active,En ole luullut jokaisessa seurakunnassa olevan  ...,kappalainen,kappalaisen,kappalaista,negative
+harvinainen erikoistapaus,existential,active,Kirjoittaja ei arvele kyseessä olevan ...,harvinainen erikoistapaus,harvinaisen erikoistapauksen,harvinaista erikoistapausta,negative
+valtio valtiossa,existential,active,Kirjoittaja ei väitä TVH:sta tulleen,valtio valtiossa,valtion valtiossa,valtiota valtiossa,negative
+persikka,existential,active,Hän ei kertonut vadille jääneen ...,persikka,persikan,persikkaa,negative
+tulipalo,existential,active,En pelännyt siellä syttyneen ...,tulipalo,tulipalon,tulipaloa,negative
+jokin,existential,active,Ei toivoisi levyissä olevan __ myös levytyshetkestä,mikään maininta,minkään maininnan,mitään mainintaa,negative
+persoonallinen,existential,active,Kirjailijoilla ei luulisi olevan tyyliin ...,persoonallinen suhde,persoonallisen suhteen,persoonallista suhdetta,negative
+kappalainen,existential,passive,Jokaisessa seurakunnassa ei luultu olevan ..., kappalainen,kappalaisen,kappalaista,negative
+harvinainen,existential,passive,Yleensä ei arveltu kyseessä olevan ...,harvinainen erikoistapaus,harvinaisen erikoistapauksen,harvinaista erikoistapausta,negative
+valtio,existential,passive,Kirioituksessa ei väitetty TVH:sta tulleen ...,valtio valtiossa,valtion valtiossa,valtiota valtiossa,negative
+persikka,existential,passive,Vadille ei kerrottu jääneen ...,persikka,persikan,persikkaa,negative
+tulipalo,existential,passive,Siellä ei pelätty syttyneen...,tulipalo,tulipalon,tulipaloa,negative
+jokin,existential,passive,Levyissä ei toivottu olevan ... myös levytyshetkestä,jokin maininta,jonkin maininnan,mitään mainintaa,negative
+persoonallinen,existential,passive,Kirjailijoilla ei luultu olevan tyyliin ...,persoonallinen sudhe,persoonallisen suhteen,persoonallista suhdetta,negative
+jokin2,existential,active,Levyissä toivoisi olevan ... myös levytyshetkestä,jokin maininta,jonkin maininnan,positive
+jokin2,existential,active,Levyissä ei toivoisi olevan ... myös levytyshetkestä,mikään maininta,minkään maininnan,mitään mainintaa,negative
