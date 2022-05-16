@@ -1,0 +1,66 @@
+
+Table 1
+
+a.
+
+sentence: En ole luullut jokaisessa seurakunnassa olevan  __
+Partitive form of noun: kappalaista
+
+sentence: kirjoittaja ei arvele kyseessä olevan __
+Partitive form of noun: harvinaista erikoistapausta
+
+Sentence: kirjoittaja ei väitä TVH:sta tulleen  __
+Partitive form of noun: valtiota valtiossa
+
+Sentence: hän ei kertonut vadille jääneen __
+Partitive form of noun: persikkaa
+
+Sentence: En pelännyt siellä syttyneen __
+Partitive form of noun: tulipaloa
+
+The object in the next sentence contains an indefinite, which becomes an NPI in the negated version, so Arto included the options for the NPI object in nom/gen/partitive:
+
+Sentence: Ei toivoisi levyissä olevan __ myös levytyshetkestä
+Nominative form of noun: mikään maininta 
+Genitive form of noun: minkään maininnan
+Partitive form of noun: mitään mainintaa
+
+For the sentence above (sentence 6 from table 1(a), Arto prefers a different word order (in both the negated and non-negated sentences):
+
+Non-negated sentence: Levyissä toivoisi olevan __ myös levytyshetkestä
+Nominative form of noun: jokin maininta
+Genitive form of noun: jonkin maininnan 
+
+Negated sentence: Levyissä ei toivoisi olevan __ myös levytyshetkestä
+Nominative form of noun: mikään maininta 
+Genitive form of noun: minkään maininnan
+Partitive form of noun: mitään mainintaa
+
+
+Sentence: Kirjailijoilla ei luulisi olevan tyyliin __
+Partitive form of noun: persoonallista suhdetta
+
+B. 
+
+sentence: Jokaisessa seurakunnassa ei luultu olevan __
+Partitive form of noun: kappalaista
+
+sentence: Yleensä ei arveltu kyseessä olevan __
+Partitive form of noun: harvinaista erikoistapausta
+
+sentence: Kirioituksessa ei väitetty TVH:sta tulleen __
+Partitive form of noun: valtiota valtiossa
+
+Sentence: Vadille ei kerrottu jääneen __
+Partitive form of noun: persikkaa
+
+Sentence: siellä ei pelätty syttyneen __
+Partitive form of noun: tulipaloa
+
+Sentence: Levyissä ei toivottu olevan __ myös levytyshetkestä
+Partitive form of noun: mitään mainintaa
+
+sentence: Kirjailijoilla ei luultu olevan tyyliin __
+Partitive form of noun: persoonallista suhdetta
+
+
