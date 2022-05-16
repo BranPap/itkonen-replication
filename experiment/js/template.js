@@ -170,6 +170,14 @@ function make_slides(f) {
       document.getElementById("choice-2-neg").value = button_2;
       document.getElementById("choice-3-neg").value = button_3;
 
+      if (document.getElementById("choice-1-neg").value == "SKIP") {
+        $("#choice-1-neg").hide()
+      } else if (document.getElementById("choice-2-neg").value == "SKIP") {
+        $("#choice-2-neg").hide()
+      } else if (document.getElementById("choice-3-neg").value == "SKIP") {
+        $("#choice-3-neg").hide()
+      }
+
       console.log("choice-1-neg: ",document.getElementById("choice-1-neg").value);
 
     },

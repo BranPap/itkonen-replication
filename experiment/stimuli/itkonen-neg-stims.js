@@ -150,8 +150,8 @@ var neg_stims = [
         "sentence": "Levyiss\u00e4 ei toivottu olevan ... my\u00f6s levytyshetkest\u00e4",
         "polarity": "negative",
         "options": [
-            "jokin maininta",
-            "jonkin maininnan",
+            "mik\u00e4\u00e4n maininta",
+            "mink\u00e4\u00e4n maininnan",
             "mit\u00e4\u00e4n mainintaa"
         ]
     },
@@ -172,11 +172,11 @@ var neg_stims = [
         "type": "existential",
         "voice": "active",
         "sentence": "Levyiss\u00e4 toivoisi olevan ... my\u00f6s levytyshetkest\u00e4",
-        "polarity": NaN,
+        "polarity": "positive",
         "options": [
             "jokin maininta",
             "jonkin maininnan",
-            "positive"
+            "SKIP"
         ]
     },
     {
