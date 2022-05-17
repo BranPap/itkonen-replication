@@ -162,7 +162,7 @@ var neg_stims = [
         "sentence": "Kirjailijoilla ei luultu olevan tyyliin ...",
         "polarity": "negative",
         "options": [
-            "persoonallinen sudhe",
+            "persoonallinen suhde",
             "persoonallisen suhteen",
             "persoonallista suhdetta"
         ]

@@ -12,6 +12,6 @@ valtio,existential,passive,Kirioituksessa ei väitetty TVH:sta tulleen ...,valti
 persikka,existential,passive,Vadille ei kerrottu jääneen ...,persikka,persikan,persikkaa,negative
 tulipalo,existential,passive,Siellä ei pelätty syttyneen...,tulipalo,tulipalon,tulipaloa,negative
 jokin,existential,passive,Levyissä ei toivottu olevan ... myös levytyshetkestä,mikään maininta,minkään maininnan,mitään mainintaa,negative
-persoonallinen,existential,passive,Kirjailijoilla ei luultu olevan tyyliin ...,persoonallinen sudhe,persoonallisen suhteen,persoonallista suhdetta,negative
+persoonallinen,existential,passive,Kirjailijoilla ei luultu olevan tyyliin ...,persoonallinen suhde,persoonallisen suhteen,persoonallista suhdetta,negative
 jokin2,existential,active,Levyissä toivoisi olevan ... myös levytyshetkestä,jokin maininta,jonkin maininnan,SKIP,positive
 jokin2,existential,active,Levyissä ei toivoisi olevan ... myös levytyshetkestä,mikään maininta,minkään maininnan,mitään mainintaa,negative

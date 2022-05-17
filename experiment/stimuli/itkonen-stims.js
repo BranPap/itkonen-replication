@@ -162,7 +162,7 @@ var all_stims = [
         "sentence": "Kirjailijoilla luultiin olevan tyyliin ...",
         "polarity": "positive",
         "options": [
-            "persoonallinen sudhe",
+            "persoonallinen suhde",
             "persoonallisen suhteen",
             "SKIP"
         ]
