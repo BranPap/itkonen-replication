@@ -133,6 +133,7 @@ function make_slides(f) {
           "voice": this.stim.voice,
           "polarity": this.stim.polarity,
           "response": this.response,
+          "attention": "critical",
           "trial_no": trial_counter,
         });
         trial_counter++;
@@ -178,12 +179,23 @@ function make_slides(f) {
         $("#choice-3-neg").hide()
       }
 
+      if (this.stim.type == "attention") {
+        this.correct = this.stim.polarity;
+      } 
+
       console.log("choice-1-neg: ",document.getElementById("choice-1-neg").value);
 
     },
 
     button : function(response) {
       this.response = response;
+      if (this.stim.type == "attention") {
+        if (this.response == this.correct) {
+          this.attention = 1;
+        } else this.attention = 0;
+      } else {
+        this.attention = "critical";
+      };
       this.log_responses();
       _stream.apply(this);
     },
@@ -195,6 +207,7 @@ function make_slides(f) {
           "voice": this.stim.voice,
           "polarity": this.stim.polarity,
           "response": this.response,
+          "attention": this.attention,
           "trial_no": trial_counter,
         });
         trial_counter++;

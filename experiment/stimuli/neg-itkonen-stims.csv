@@ -15,3 +15,6 @@ jokin,existential,passive,Levyissä ei toivottu olevan ... myös levytyshetkest�
 persoonallinen,existential,passive,Kirjailijoilla ei luultu olevan tyyliin ...,persoonallinen suhde,persoonallisen suhteen,persoonallista suhdetta,negative
 jokin2,existential,active,Levyissä toivoisi olevan ... myös levytyshetkestä,jokin maininta,jonkin maininnan,SKIP,positive
 jokin2,existential,active,Levyissä ei toivoisi olevan ... myös levytyshetkestä,mikään maininta,minkään maininnan,mitään mainintaa,negative
+attention,attention,attention,Sinä ... velho,olet,olen,on,olet
+attention,attention,attention,Minä ... kaunis,olen,on,olet,olen
+attention,attention,attention,Se ... käärme,on,olet,olen,on

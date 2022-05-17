@@ -190,5 +190,41 @@ var neg_stims = [
             "mink\u00e4\u00e4n maininnan",
             "mit\u00e4\u00e4n mainintaa"
         ]
+    },
+    {
+        "item": "attention",
+        "type": "attention",
+        "voice": "attention",
+        "sentence": "Sin\u00e4 ... velho",
+        "polarity": "olet",
+        "options": [
+            "olet",
+            "olen",
+            "on"
+        ]
+    },
+    {
+        "item": "attention",
+        "type": "attention",
+        "voice": "attention",
+        "sentence": "Min\u00e4 ... kaunis",
+        "polarity": "olen",
+        "options": [
+            "olen",
+            "on",
+            "olet"
+        ]
+    },
+    {
+        "item": "attention",
+        "type": "attention",
+        "voice": "attention",
+        "sentence": "Se ... k\u00e4\u00e4rme",
+        "polarity": "on",
+        "options": [
+            "on",
+            "olet",
+            "olen"
+        ]
     }
 ]
