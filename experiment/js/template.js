@@ -214,6 +214,7 @@ function make_slides(f) {
         age : $("#age").val(),
         enjoyment : $("#enjoyment").val(),
         education : $("#education").val(),
+        region: $("#region").val(),
         party_alignment : $("input[name='number']:checked").val(),
         price : $("#fairprice").val(),
         asses: $('input[name="assess"]:checked').val(),
