@@ -24,7 +24,7 @@ var all_stims = [
         ]
     },
     {
-        "item": "valtio valitossa",
+        "item": "valtio valtiossa",
         "type": "existential",
         "voice": "active",
         "sentence": "Kirjoittaja v\u00e4itt\u00e4\u00e4 TVH:sta tulleen ...",
@@ -192,13 +192,13 @@ var all_stims = [
         ]
     },
     {
-        "item": "valtio valitossa",
+        "item": "valtio valtiossa",
         "type": "predicative",
         "voice": "active",
         "sentence": "Kirjoittaja v\u00e4itt\u00e4\u00e4 TVH:n olevan ...",
         "polarity": "positive",
         "options": [
-            "valtio valitossa",
+            "valtio valtiossa",
             "valtion valtiossa",
             "SKIP"
         ]

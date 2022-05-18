@@ -1,7 +1,7 @@
 item,type,voice,sentence,nom,gen,polarity
 kappalainen,existential,active,"Olen luullut jokaisessa seurakunnassa olevan ...","kappalainen","kappalaisen",positive
 harvinainen erikoistapaus,existential,active,"Kirjoittaja arvelee kyseessä olevan ...","harvinainen erikoistapaus","harvinaisen erikoistapauksen",positive
-valtio valitossa,existential,active,Kirjoittaja väittää TVH:sta tulleen ...,valtio valtiossa,valtion valtiossa,positive
+valtio valtiossa,existential,active,Kirjoittaja väittää TVH:sta tulleen ...,valtio valtiossa,valtion valtiossa,positive
 persikka,existential,active,Hän kertoi vadille jääneen ...,persikka,persikan,positive
 tulipalo,existential,active,Pelkäsin siellä syttyneen ...,tulipalo,tulipalon,positive
 jokin,existential,active,Toivoisi levyissä olevan ... myös levytyshetkestä,jokin maininta,jonkin maininnan,positive
@@ -15,7 +15,7 @@ jokin,existential,passive,Levyissä toivottiin olevan ... myös levytyshetkestä
 persoonallinen,existential,passive,Kirjailijoilla luultiin olevan tyyliin ...,persoonallinen suhde,persoonallisen suhteen,positive
 kappalainen,predicative,active,Minä ainakin luulin sen miehen olevan ...,kappalainen,kappalaisen,positive
 harvinainen erikoistapaus,predicative,active,Hän arveli tämän ilmiön olevan ...,harvinainen erikoistapaus,harvinaisen erikoistapauksen,positive
-valtio valitossa,predicative,active,Kirjoittaja väittää TVH:n olevan ...,valtio valitossa,valtion valtiossa,positive
+valtio valtiossa,predicative,active,Kirjoittaja väittää TVH:n olevan ...,valtio valtiossa,valtion valtiossa,positive
 persikka,predicative,active,Hän sanoi sen hedelmän olevan ...,persikka,persikan,positive
 kappalainen,predicative,passve,Joissakin kylissä luultiin sen miehen olevan ...,kappalainen,kappalaisen,positive
 harvinainen erikoistapaus,predicative,passive,Yleensä on arveltu tämän ilmiön olevan ...,harvinainen erikoistapaus,harvinaisen erikoistapauksen,positive
