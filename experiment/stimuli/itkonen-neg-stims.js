@@ -12,7 +12,7 @@ var neg_stims = [
         ]
     },
     {
-        "item": "harvinainen erikoistapaus",
+        "item": "harvinainen",
         "type": "existential",
         "voice": "active",
         "sentence": "Kirjoittaja ei arvele kyseess\u00e4 olevan ...",
@@ -24,7 +24,7 @@ var neg_stims = [
         ]
     },
     {
-        "item": "valtio valtiossa",
+        "item": "valtio",
         "type": "existential",
         "voice": "active",
         "sentence": "Kirjoittaja ei v\u00e4it\u00e4 TVH:sta tulleen",

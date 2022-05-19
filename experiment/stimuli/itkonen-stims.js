@@ -12,7 +12,7 @@ var all_stims = [
         ]
     },
     {
-        "item": "harvinainen erikoistapaus",
+        "item": "harvinainen",
         "type": "existential",
         "voice": "active",
         "sentence": "Kirjoittaja arvelee kyseess\u00e4 olevan ...",
@@ -24,7 +24,7 @@ var all_stims = [
         ]
     },
     {
-        "item": "valtio valtiossa",
+        "item": "valtio",
         "type": "existential",
         "voice": "active",
         "sentence": "Kirjoittaja v\u00e4itt\u00e4\u00e4 TVH:sta tulleen ...",
@@ -91,7 +91,7 @@ var all_stims = [
         "polarity": "positive",
         "options": [
             " kappalainen",
-            " kappalaisen",
+            "kappalaisen",
             "SKIP"
         ]
     },
@@ -180,7 +180,7 @@ var all_stims = [
         ]
     },
     {
-        "item": "harvinainen erikoistapaus",
+        "item": "harvinainen",
         "type": "predicative",
         "voice": "active",
         "sentence": "H\u00e4n arveli t\u00e4m\u00e4n ilmi\u00f6n olevan ...",
@@ -192,7 +192,7 @@ var all_stims = [
         ]
     },
     {
-        "item": "valtio valtiossa",
+        "item": "valtio",
         "type": "predicative",
         "voice": "active",
         "sentence": "Kirjoittaja v\u00e4itt\u00e4\u00e4 TVH:n olevan ...",
@@ -218,7 +218,7 @@ var all_stims = [
     {
         "item": "kappalainen",
         "type": "predicative",
-        "voice": "passve",
+        "voice": "passive",
         "sentence": "Joissakin kyliss\u00e4 luultiin sen miehen olevan ...",
         "polarity": "positive",
         "options": [
@@ -228,7 +228,7 @@ var all_stims = [
         ]
     },
     {
-        "item": "harvinainen erikoistapaus",
+        "item": "harvinainen",
         "type": "predicative",
         "voice": "passive",
         "sentence": "Yleens\u00e4 on arveltu t\u00e4m\u00e4n ilmi\u00f6n olevan ...",
@@ -240,7 +240,7 @@ var all_stims = [
         ]
     },
     {
-        "item": "valtio valtiossa",
+        "item": "valtio",
         "type": "predicative",
         "voice": "passive",
         "sentence": "Kirjoituksessa v\u00e4itet\u00e4\u00e4n TVH:n olevan ...",

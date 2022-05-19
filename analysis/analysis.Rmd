@@ -1,0 +1,118 @@
+---
+title: "Itkonen Replication"
+author: "Brandon Papineau & Madelaine O'Reilly-Brown"
+output: html_notebook
+---
+
+#Preliminaries
+
+##Libraries Needed
+```{r}
+library(tidyverse)
+```
+
+```{r}
+bran_palette = c("#7ae7e5", "#fe5f55", "#B2A6DE", "#14342b", "#69385c")
+```
+
+
+```{r}
+pilot <- read.csv("itkonen_pilot-merged.csv") %>% 
+  filter(choice != "True") %>% 
+  mutate(item = case_when(
+    item == "harvinainen erikoistapaus" ~ "harvinainen",
+    item == "valtio valtiossa" ~ "valtio",
+    TRUE ~ paste(item)
+  )) %>% 
+  mutate(voice = case_when(
+    voice == "passve" ~ "passive", 
+    TRUE ~ paste(voice)
+  ))
+```
+
+```{r}
+nomForms = c("kappalainen","harvinainen erikoistapaus","valtio valtiossa","persikka","tulipalo","jokin maininta","mikään maininta","persoonallinen suhde"," kappalainen")
+```
+
+```{r}
+genForms = c("kappalaisen","harvinaisen erikoistapauksen","valtion valtiossa","persikan","tulipalon","jonkin maininnan","minkään maininnan","persoonallisen suhteen")
+```
+
+```{r}
+partForms = c("kappalaista","harvinaista erikoistapausta","valtiota valtiossa","persikkaa","tulipaloa","mitään mainintaa","persoonallista suhdetta")
+```
+
+```{r}
+attForms = c("on","olet","olen")
+```
+
+```{r}
+pilot <- pilot %>% 
+  mutate("responseCase" = case_when(
+    response %in% nomForms ~ "nom",
+    response %in% genForms ~ "gen",
+    response %in% partForms ~ "part",
+    response %in% attForms ~ "attn",
+    TRUE ~ "uncoded"
+  ))
+```
+
+```{r}
+pilot %>% 
+  filter(polarity == "positive") %>% 
+  filter(voice != "passve") %>% 
+  ggplot(aes(x=type,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  theme_minimal() + 
+  facet_wrap(~voice) + 
+  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Positive Items") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen","part")) 
+```
+
+```{r}
+pilot %>% 
+  filter(polarity == "negative") %>% 
+  filter(voice != "passve") %>% 
+  ggplot(aes(x=type,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  theme_minimal() + 
+  facet_wrap(~voice) + 
+  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Negative Items") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen","part")) 
+```
+
+```{r}
+pilot %>% 
+  filter(polarity == "positive") %>% 
+  filter(voice == "active") %>% 
+  ggplot(aes(x=type,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  theme_minimal() + 
+  facet_wrap(~item) + 
+  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Positive Items")
+```
+
+```{r}
+table(pilot$item,pilot$type)
+```
+
+
+```{r}
+ReplicationOnly <- pilot %>% 
+  filter(polarity == "positive") %>% 
+  filter(item != "jokin2")
+```
+
+
+```{r}
+ReplicationOnly %>% 
+  ggplot(aes(x=type,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  theme_minimal() + 
+  facet_wrap(~voice) + 
+  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Replication Results") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
+```
+
+
+
