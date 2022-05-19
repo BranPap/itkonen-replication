@@ -198,25 +198,31 @@
           <option value="-1">
           </option>
           <option value="0">
-            lukio, mutta ei ylioppilas
+            peruskoulu
           </option>
           <option value="1">
-            ylioppilas
+            lukio-opintoja, mutta ei ylioppilas
           </option>
           <option value="2">
-            ylioppilastutkinnon jälkeisiä opintoja esim. yliopistossa, ammattikorkeakoulussa, tai muussa oppilaitoksessa
+            ylioppilas
           </option>
           <option value="3">
-            perustutkinto esim. yliopistosta, ammattikorkeakoulusta, tai muusta oppilaitoksesta
+            ylioppilastutkinnon jälkeisiä opintoja esim. yliopistossa, ammattikorkeakoulussa, tai muussa oppilaitoksessa
           </option>
           <option value="4">
+            alempi korkeakoulututkinto esim. yliopistosta, ammattikorkeakoulusta, tai muusta oppilaitoksesta
+          </option>
+          <option value="5">
             ylempi korkeakoulututkinto
+          </option>
+          <option value="6">
+            jatkotutkinto (esim. tohtorin tutkinto)
           </option>
         </select>
       </p>
 
       <p>
-        Maakunta: <select id="region">
+        Mistä olet kotoisin? <select id="region">
           <option value="null">
           </option>
           <option value="Lappi">
@@ -276,7 +282,14 @@
           <option value="Ahvenanmaa">
             Ahvenanmaa
           </option>
+          <option value="Other">
+            Muualta
+          </option>
         </select>
+      </p>
+
+      <p>
+        Muualta: <input type="text" id="other-region">
       </p>
 
       <p>
