@@ -195,7 +195,7 @@ In our faithful replication of Itkonen's original study, we find similar pattern
 
 ### Changes Over Time
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE}
 compItems %>% 
   rename("Item" = "item",
          "Voice" = "voice",
