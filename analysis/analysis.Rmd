@@ -1,53 +1,95 @@
 ---
-title: "Itkonen Replication"
-author: "Brandon Papineau & Madelaine O'Reilly-Brown"
-output: html_notebook
+title: "Itkonen replication"
+author:
+  - Madelaine O'Reilly-Brown, Stanford University
+  - Brandon Papineau, Stanford University
+  - Arto Anttila, Stanford University
+  - Paul Kiparsky, Stanford University
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: rmdformats::readthedown
 ---
 
-#Preliminaries
+```{r include=FALSE}
 
-##Libraries Needed
-```{r}
-library(tidyverse)
+#This chode chunk loads the 4 libraries needed for the analysis and visualization
+
+library(tidyverse) #Tidy data, ggplot2, etc.
+library(mlogit) #logit function, for multinomial analyses
+library(lme4) #for mixed logistic binomial regressions
+library(formattable) #
+
+# Here's some custom visual styling stuff
+
+bran_palette = c("#7ae7e5", "#fe5f55", "#B2A6DE", "#14342b", "#69385c") #Defines a custom color palette we can use in ggplot graphs; stored as a list of hex codes
+
+theme_set(theme_bw()) #Sets the defaut theme of all ggplot objects to black & white
+
+customGreen = "#71CA97" #Another custom green for the formattable tables
+
 ```
 
-```{r}
-bran_palette = c("#7ae7e5", "#fe5f55", "#B2A6DE", "#14342b", "#69385c")
+```{r echo=FALSE}
+# I'm also importing a custom function from [https://mikeyharper.uk/about/] which allows us to collapse table rows when they have the same values 
+
+# Collapse the values within a grouped dataframe
+collapse_rows_df <- function(df, variable){
+
+  group_var <- enquo(variable)
+
+  df %>%
+    group_by(!! group_var) %>%
+    mutate(groupRow = 1:n()) %>%
+    ungroup() %>%
+    mutate(!!quo_name(group_var) := ifelse(groupRow == 1, as.character(!! group_var), "")) %>%
+    select(-c(groupRow))
+}
 ```
 
+<!-- Now we can read-in the experiment-generated csv. We also want to filter out the training trials (where choice == "True"), and rename the subject_information.demogrpahic columns to be more usable. While we do that, we will also make sure they get read into the data frame as factors, rather than characters. -->
 
-```{r}
-pilot <- read.csv("itkonen_pilot-merged.csv") %>% 
+```{r echo=FALSE}
+itkonen <- read.csv("itkonen-rep.csv") %>% 
   filter(choice != "True") %>% 
-  mutate(item = case_when(
-    item == "harvinainen erikoistapaus" ~ "harvinainen",
-    item == "valtio valtiossa" ~ "valtio",
-    TRUE ~ paste(item)
-  )) %>% 
-  mutate(voice = case_when(
-    voice == "passve" ~ "passive", 
-    TRUE ~ paste(voice)
-  ))
+  mutate(comments = subject_information.comments,
+         age = as.numeric(subject_information.age),
+         gender = as.factor(subject_information.gender),
+         region = as.factor(subject_information.region),
+         education = as.numeric(subject_information.education)) %>% 
+  select(-c("subject_information.gender","subject_information.comments","subject_information.age","subject_information.region","subject_information.education"))
 ```
 
-```{r}
+<!-- We also want to read in the by-item proportions from Itkonen's original study: -->
+
+```{r echo=FALSE}
+itkonenOriginal <- read.csv("itkonen-original.csv")
+```
+
+<!-- ### Set Response Cases -->
+
+<!-- This code creates the 4 bins of responses we have. The first three are lists of the different cases' realizations in the critical items. The last is the same, but will let us code for attention checks. -->
+
+```{r echo=FALSE}
 nomForms = c("kappalainen","harvinainen erikoistapaus","valtio valtiossa","persikka","tulipalo","jokin maininta","mikään maininta","persoonallinen suhde"," kappalainen")
 ```
 
-```{r}
+```{r echo=FALSE}
 genForms = c("kappalaisen","harvinaisen erikoistapauksen","valtion valtiossa","persikan","tulipalon","jonkin maininnan","minkään maininnan","persoonallisen suhteen")
 ```
 
-```{r}
+```{r echo=FALSE}
 partForms = c("kappalaista","harvinaista erikoistapausta","valtiota valtiossa","persikkaa","tulipaloa","mitään mainintaa","persoonallista suhdetta")
 ```
 
-```{r}
+```{r echo=FALSE}
 attForms = c("on","olet","olen")
 ```
 
-```{r}
-pilot <- pilot %>% 
+<!-- ### Mutate to add Response Case for each trial -->
+
+<!-- With that done, we can actually code all the responses in the whole new data frame for their case response, coded as responseCase -->
+
+```{r echo=FALSE}
+itkonen <- itkonen %>% 
   mutate("responseCase" = case_when(
     response %in% nomForms ~ "nom",
     response %in% genForms ~ "gen",
@@ -57,62 +99,373 @@ pilot <- pilot %>%
   ))
 ```
 
-```{r}
-pilot %>% 
-  filter(polarity == "positive") %>% 
-  filter(voice != "passve") %>% 
-  ggplot(aes(x=type,fill=responseCase)) + 
-  geom_bar(position='fill') + 
-  theme_minimal() + 
-  facet_wrap(~voice) + 
-  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Positive Items") + 
-  scale_fill_manual(values = bran_palette, limits=c("nom","gen","part")) 
+<!-- ## Exclusions -->
+
+<!-- *Generate Exclusion List* -->
+
+<!-- This code allows us to create an exclusion list, or a list of all participants who didn't score 100% on our three attention checks.  -->
+
+```{r echo=FALSE}
+exclusionList <- itkonen %>% 
+  filter(responseCase == "attn") %>% # Take only the attention trials
+  group_by(workerid) %>% # Group the data frame by each participant
+  summarise(accuracy = mean(as.numeric(attention))) %>% # For each participant, calculate a score between 0-1, the mean of their attention checks; 1 = passed attention check, 0 = failed attention check
+  mutate(exclude = ifelse(accuracy < 1,'Yes','No')) %>% #If that mean is anything lower than 1 (perfect attention), we want to give them the characteristic "EXCLUDE=TRUE"
+  filter(exclude == "Yes") #Now filter out all the people who passed, so we get a list of the people who failed only
 ```
 
-```{r}
-pilot %>% 
-  filter(polarity == "negative") %>% 
-  filter(voice != "passve") %>% 
-  ggplot(aes(x=type,fill=responseCase)) + 
-  geom_bar(position='fill') + 
-  theme_minimal() + 
-  facet_wrap(~voice) + 
-  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Negative Items") + 
-  scale_fill_manual(values = bran_palette, limits=c("nom","gen","part")) 
-```
+<!-- *Run Exclusion Filter* -->
 
-```{r}
-pilot %>% 
-  filter(polarity == "positive") %>% 
-  filter(voice == "active") %>% 
-  ggplot(aes(x=type,fill=responseCase)) + 
-  geom_bar(position='fill') + 
-  theme_minimal() + 
-  facet_wrap(~item) + 
-  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Positive Items")
-```
-
-```{r}
-table(pilot$item,pilot$type)
+```{r echo=FALSE}
+itkonen <- itkonen[!(itkonen$workerid %in% exclusionList$workerid),] #Now remove from the full dataframe all the participants who are listed on the list we just created
 ```
 
 
-```{r}
-ReplicationOnly <- pilot %>% 
+# Introduction
+
+## Itkonen's Original Results
+Before continuing, it's worth noting Itkonen's original results, which he published in 1976.
+
+```{r echo=FALSE}
+itkonenOriginal %>%
+  mutate(itemNomRateOriginal = 100*itemNomRateOriginal) %>% 
+  rename("Item" = item,
+         "Voice" = voice,
+         "Type" = type,
+         "Rate of Nominative (x/100)" = itemNomRateOriginal) %>% 
+  select(-c("itemGenRateOriginal")) %>% 
+  formattable(align=c("l"))
+```
+
+
+# Methods
+
+# Results
+
+```{r echo=FALSE}
+ReplicationOnly <- itkonen %>% 
   filter(polarity == "positive") %>% 
   filter(item != "jokin2")
 ```
+
+```{r include=FALSE}
+replicationItems <- ReplicationOnly %>% 
+  group_by(item,voice,type,responseCase) %>% 
+  count() %>% 
+  pivot_wider(names_from = responseCase,values_from = n) %>% 
+  replace_na(list(gen=0)) %>% 
+  summarize(itemNomRate = nom/(nom+gen),
+            itemGenRate = 1-itemNomRate)
+```
+
+```{r include=FALSE}
+compItems <- left_join(itkonenOriginal,replicationItems) 
+```
+
+```{r echo=FALSE}
+compItems <- compItems %>% 
+  mutate(itemNomRate = trunc(itemNomRate*10^2),
+         itemGenRate = trunc(itemGenRate*10^2),
+         itemNomRateOriginal = trunc(itemNomRateOriginal*10^2),
+         itemGenRateOriginal = trunc(itemGenRateOriginal*10^2),
+         nomChange = itemNomRate - itemNomRateOriginal) %>% 
+  select(-c("itemGenRate","itemGenRateOriginal")) 
+```
+
+## Replication Study 
+
+In our faithful replication of Itkonen's original study, we find similar patterns to those in the original study, with regard to voice, structure, and item effects. We take each of these in turn here, before turning to the issue of changes between Itkonen's results and our own.
+
+### Voice
+
+### Structure
+
+### Items
+
+### Changes Over Time
+
+```{r echo=FALSE}
+compItems %>% 
+  rename("Item" = "item",
+         "Voice" = "voice",
+         "Structure" = "type",
+         "Nominative Proportion (1976)" = "itemNomRateOriginal",
+         "Nominative Proportion (2022)" = "itemNomRate",
+         "Change (1976 -> 2022)" = "nomChange") %>% 
+  group_by(Item) %>%
+  slice(1:4) %>% 
+  select(Item, everything()) %>%
+  collapse_rows_df(Item) %>%
+  formattable(align = c("l"), list(
+  area(col = "Change (1976 -> 2022)") ~ color_tile("transparent", customGreen)))
+```
+
+# Discussion
+
+# Conclusion
+
+
+# Working Space
+
+```{r echo=FALSE}
+replicationItems %>% 
+  ggplot(aes(x=item,y=itemNomRate,fill=voice)) +
+  geom_bar(stat = "identity",position = position_dodge()) + 
+  facet_wrap(~type) + 
+  theme(axis.text.x = element_text(angle=80,vjust = .6))
+```
+
+```{r}
+ReplicationOnly <- itkonen %>% 
+  filter(polarity == "positive") %>% 
+  filter(item != "jokin2")
+```
+
+```{r}
+replicationItems <- ReplicationOnly %>% 
+  group_by(item,voice,type,responseCase) %>% 
+  count() %>% 
+  pivot_wider(names_from = responseCase,values_from = n) %>% 
+  replace_na(list(gen=0)) %>% 
+  summarize(itemNomRate = nom/(nom+gen),
+            itemGenRate = 1-itemNomRate)
+```
+
+```{r}
+replicationItems %>% 
+  ggplot(aes(x=item,y=itemNomRate,fill=voice)) +
+  geom_bar(stat = "identity",position = position_dodge()) + 
+  facet_wrap(~type) + 
+  theme(axis.text.x = element_text(angle=80,vjust = .6))
+```
+
+
+```{r}
+compItems <- left_join(itkonenOriginal,replicationItems) 
+```
+
+```{r}
+compItems <- compItems %>% 
+  mutate(itemNomRate = trunc(itemNomRate*10^2),
+         itemGenRate = trunc(itemGenRate*10^2),
+         itemNomRateOriginal = trunc(itemNomRateOriginal*10^2),
+         itemGenRateOriginal = trunc(itemGenRateOriginal*10^2),
+         nomChange = itemNomRate - itemNomRateOriginal) %>% 
+  select(-c("itemGenRate","itemGenRateOriginal")) 
+```
+
+
+```{r}
+compItems %>% 
+  rename("Item" = "item",
+         "Voice" = "voice",
+         "Structure" = "type",
+         "Nominative Proportion (1976)" = "itemNomRateOriginal",
+         "Nominative Proportion (2022)" = "itemNomRate",
+         "Change (1976 -> 2022)" = "nomChange") %>% 
+  group_by(Item) %>%
+  slice(1:4) %>% 
+  select(Item, everything()) %>%
+  collapse_rows_df(Item) %>%
+  formattable(align = c("l"), list(
+  area(col = "Change (1976 -> 2022)") ~ color_tile("transparent", customGreen)))
+```
+
+
+
 
 
 ```{r}
 ReplicationOnly %>% 
   ggplot(aes(x=type,fill=responseCase)) + 
   geom_bar(position='fill') + 
-  theme_minimal() + 
+  theme_bw() + 
   facet_wrap(~voice) + 
-  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Replication Results") + 
+  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Replication Results: Voice & Structure") + 
   scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
 ```
 
+```{r}
+ReplicationOnly <- ReplicationOnly %>% 
+  mutate(ResponseBinary = case_when(
+    responseCase == "nom" ~ 1,
+    responseCase == "gen" ~ 0,
+   ))
+```
 
+
+```{r}
+ReplicationModel = glmer(ResponseBinary ~ voice*type + (1|workerid) + (1|item),data=ReplicationOnly,family="binomial")
+```
+
+```{r}
+summary(ReplicationModel)
+```
+
+
+
+```{r}
+ReplicationOnly %>% 
+  ggplot(aes(x=type,fill=responseCase)) + 
+  geom_bar(position=position_dodge()) +
+  facet_wrap(~voice) + 
+  labs(x="Structure",y="Number of Responses",fill="Response Case",title="Replication Results: Voice & Structure") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen"))
+```
+
+```{r}
+ReplicationOnly %>% 
+  ggplot(aes(x=type,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Replication Results: Structure") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
+```
+
+```{r}
+ReplicationOnly %>% 
+  ggplot(aes(x=voice,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  labs(x="Voice",y="Proportion of Responses",fill="Response Case",title="Replication Results: Voice") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
+```
+
+```{r}
+ReplicationOnly %>% 
+  ggplot(aes(x=voice,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  labs(x="Voice",y="Proportion of Responses",fill="Response Case",title="Replication Results: Voice") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) + 
+  facet_wrap(~item)
+```
+
+```{r}
+nomRates <- ReplicationOnly %>% 
+  group_by(workerid,responseCase) %>% 
+  count() %>% 
+  pivot_wider(names_from = responseCase,values_from = n) %>% 
+  summarize(NomRate = nom/22)
+```
+
+```{r}
+ReplicationOnly <- left_join(ReplicationOnly,nomRates)
+```
+
+```{r}
+ReplicationOnly %>% 
+  ggplot(aes(x=age,y=NomRate)) + 
+  geom_point() + 
+  geom_smooth(method="lm")
+```
+
+
+
+
+```{r}
+ReplicationOnly %>% 
+  filter(education != -1) %>% 
+  ggplot(aes(x=education,y=NomRate)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+## New Data
+
+```{r}
+itkonen %>% 
+  filter(polarity == "negative") %>% 
+  ggplot(aes(x=type,fill=responseCase)) + 
+  geom_bar(position=position_dodge()) + 
+  facet_wrap(~voice) + 
+  labs(x="Structure",y="Number of Responses",fill="Response Case",title="Negative Items") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen","part"))  
+```
+
+
+```{r}
+neg <- itkonen %>% 
+  filter(polarity == "negative")
+```
+
+
+## Demographic
+
+```{r}
+ItkonenDemographics <- ReplicationOnly %>% 
+  group_by(workerid) %>% 
+  summarize(comments = paste(unique(comments)),
+         age = paste(unique(age)),
+         gender = paste(unique(as.factor(gender))),
+         region = paste(unique(as.factor(region))),
+         education = paste(unique(as.factor(education)))) 
+```
+
+```{r}
+table(ItkonenDemographics$region)
+```
+
+### Comments
+
+```{r}
+ItkonenDemographics %>% 
+  filter(!is.na(comments))
+```
+
+```{r}
+ReplicationOnly %>% 
+  group_by(item,voice,type,responseCase) %>% 
+  count() %>% 
+  pivot_wider(names_from = responseCase,values_from = n) %>% 
+  replace_na(list(gen=0,nom=0)) %>% 
+  summarize(NomRate = nom/(nom+gen),
+            GenRate = 1-NomRate)
+```
+
+
+# Scratch
+
+```{r}
+ReplicationOnly %>% 
+  group_by(region) %>% 
+  summarize(MeanNomRate = mean(NomRate),
+            sd = sd(NomRate)) %>% 
+  ggplot(aes(x=region,y=MeanNomRate)) + 
+  geom_bar(stat="identity") + 
+  geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) + 
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+```{r}
+ReplicationOnly %>% 
+  group_by(education) %>% 
+  summarize(MeanNomRate = mean(NomRate),
+            sd = sd(NomRate)) %>% 
+  ggplot(aes(x=education,y=MeanNomRate)) + 
+  geom_bar(stat="identity") + 
+  geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2)
+```
+
+
+*Item Proportions* 
+
+
+```{r}
+negRates <- neg %>% 
+  group_by(workerid,age,education,region,responseCase) %>% 
+  count() %>% 
+  pivot_wider(names_from = responseCase,values_from = n) %>% 
+  replace_na(list(gen = 0, nom = 0, part = 0)) %>% 
+  summarize(NomRate = nom/(nom + gen + part))
+```
+
+
+```{r}
+negRates %>% 
+  group_by(region) %>% 
+  summarize(MeanNomRate = mean(NomRate),
+            sd = sd(NomRate)) %>% 
+  ggplot(aes(x=region,y=MeanNomRate)) + 
+  geom_bar(stat="identity") + 
+  geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) + 
+  theme(axis.text.x = element_text(angle = 45))
+```
 
