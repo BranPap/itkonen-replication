@@ -1,5 +1,5 @@
 ---
-title: "Itkonen replication"
+title: "Itkonen Structures 50 Years On"
 author:
   - Madelaine O'Reilly-Brown, Stanford University
   - Brandon Papineau, Stanford University
@@ -16,7 +16,9 @@ output: rmdformats::readthedown
 library(tidyverse) #Tidy data, ggplot2, etc.
 library(mlogit) #logit function, for multinomial analyses
 library(lme4) #for mixed logistic binomial regressions
-library(formattable) #
+library(formattable,DT) # Prettier tables
+library(rmdformats) # For the custom html output
+
 
 # Here's some custom visual styling stuff
 
@@ -120,10 +122,10 @@ exclusionList <- itkonen %>%
 itkonen <- itkonen[!(itkonen$workerid %in% exclusionList$workerid),] #Now remove from the full dataframe all the participants who are listed on the list we just created
 ```
 
-
 # Introduction
 
 ## Itkonen's Original Results
+
 Before continuing, it's worth noting Itkonen's original results, which he published in 1976.
 
 ```{r echo=FALSE}
@@ -134,11 +136,20 @@ itkonenOriginal %>%
          "Type" = type,
          "Rate of Nominative (x/100)" = itemNomRateOriginal) %>% 
   select(-c("itemGenRateOriginal")) %>% 
+  group_by(Item) %>%
+  slice(1:4) %>% 
+  select(Item, everything()) %>%
+  collapse_rows_df(Item) %>%
   formattable(align=c("l"))
 ```
 
-
 # Methods
+
+## Participants
+
+## Stimuli 
+
+## Procedure
 
 # Results
 
@@ -172,7 +183,7 @@ compItems <- compItems %>%
   select(-c("itemGenRate","itemGenRateOriginal")) 
 ```
 
-## Replication Study 
+## Replication Study
 
 In our faithful replication of Itkonen's original study, we find similar patterns to those in the original study, with regard to voice, structure, and item effects. We take each of these in turn here, before turning to the issue of changes between Itkonen's results and our own.
 
@@ -192,18 +203,19 @@ compItems %>%
          "Nominative Proportion (1976)" = "itemNomRateOriginal",
          "Nominative Proportion (2022)" = "itemNomRate",
          "Change (1976 -> 2022)" = "nomChange") %>% 
-  group_by(Item) %>%
-  slice(1:4) %>% 
-  select(Item, everything()) %>%
-  collapse_rows_df(Item) %>%
   formattable(align = c("l"), list(
-  area(col = "Change (1976 -> 2022)") ~ color_tile("transparent", customGreen)))
+  area(col = "Change (1976 -> 2022)") ~ color_tile("transparent", customGreen),
+  area(col = "Nominative Proportion (2022)") ~ color_tile("transparent", "#e38f8f"),
+  area(col = "Nominative Proportion (1976)") ~ color_tile("transparent", "#8fc4e3"))) %>% 
+  as.datatable(escape = FALSE,
+               options = list(scrollX = TRUE,
+                              pageLength = 100),
+               rownames = FALSE)
 ```
 
 # Discussion
 
 # Conclusion
-
 
 # Working Space
 
@@ -239,7 +251,6 @@ replicationItems %>%
   theme(axis.text.x = element_text(angle=80,vjust = .6))
 ```
 
-
 ```{r}
 compItems <- left_join(itkonenOriginal,replicationItems) 
 ```
@@ -253,7 +264,6 @@ compItems <- compItems %>%
          nomChange = itemNomRate - itemNomRateOriginal) %>% 
   select(-c("itemGenRate","itemGenRateOriginal")) 
 ```
-
 
 ```{r}
 compItems %>% 
@@ -270,10 +280,6 @@ compItems %>%
   formattable(align = c("l"), list(
   area(col = "Change (1976 -> 2022)") ~ color_tile("transparent", customGreen)))
 ```
-
-
-
-
 
 ```{r}
 ReplicationOnly %>% 
@@ -293,7 +299,6 @@ ReplicationOnly <- ReplicationOnly %>%
    ))
 ```
 
-
 ```{r}
 ReplicationModel = glmer(ResponseBinary ~ voice*type + (1|workerid) + (1|item),data=ReplicationOnly,family="binomial")
 ```
@@ -301,8 +306,6 @@ ReplicationModel = glmer(ResponseBinary ~ voice*type + (1|workerid) + (1|item),d
 ```{r}
 summary(ReplicationModel)
 ```
-
-
 
 ```{r}
 ReplicationOnly %>% 
@@ -357,9 +360,6 @@ ReplicationOnly %>%
   geom_smooth(method="lm")
 ```
 
-
-
-
 ```{r}
 ReplicationOnly %>% 
   filter(education != -1) %>% 
@@ -380,12 +380,10 @@ itkonen %>%
   scale_fill_manual(values = bran_palette, limits=c("nom","gen","part"))  
 ```
 
-
 ```{r}
 neg <- itkonen %>% 
   filter(polarity == "negative")
 ```
-
 
 ## Demographic
 
@@ -420,7 +418,6 @@ ReplicationOnly %>%
             GenRate = 1-NomRate)
 ```
 
-
 # Scratch
 
 ```{r}
@@ -444,9 +441,7 @@ ReplicationOnly %>%
   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2)
 ```
 
-
-*Item Proportions* 
-
+*Item Proportions*
 
 ```{r}
 negRates <- neg %>% 
@@ -456,7 +451,6 @@ negRates <- neg %>%
   replace_na(list(gen = 0, nom = 0, part = 0)) %>% 
   summarize(NomRate = nom/(nom + gen + part))
 ```
-
 
 ```{r}
 negRates %>% 
@@ -468,4 +462,3 @@ negRates %>%
   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) + 
   theme(axis.text.x = element_text(angle = 45))
 ```
-
