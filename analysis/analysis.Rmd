@@ -306,6 +306,14 @@ compItems %>%
 ```
 ## Additional Items
 
+### Negative Structures
+
+```{r}
+neg <- itkonen %>% 
+  filter(polarity == "negative")
+```
+
+
 # Discussion
 
 # Conclusion
