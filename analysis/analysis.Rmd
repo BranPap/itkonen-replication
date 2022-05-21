@@ -322,7 +322,7 @@ compItems %>%
 neg <- itkonen %>% 
   filter(polarity == "negative")
 ```
-
+We found that there was syntax.
 
 # Discussion
 
