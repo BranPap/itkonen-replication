@@ -9,6 +9,9 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: rmdformats::readthedown
 ---
 
+<!-- This bit above is kind of similar to a LaTeX preamble, except that libraries (packages) get loaded in the actual code, rather than up here: -->
+
+
 <!-- SETTING UP THE DATA: COMMENTED INSTRUCTIONS-->
 
 ```{r include=FALSE}
@@ -148,7 +151,7 @@ itkonenOriginal %>%
 # Methods
 
 ## Participants
-We used Itkonen's orignal sample size (n=126) as a benchmark for how many participants to recruit. Ultimately, 70 participants were recruited through the online recruitment platform [Prolific](https://Prolfic.co), all of whom self-identified as fluent and native speakers of Finnish. Participants were paid $2 for their participation in the study. 
+We used Itkonen's orignal sample size (n=126) as a benchmark for how many participants to recruit. Ultimately, 78 participants were recruited through the online recruitment platform [Prolific](https://Prolfic.co), all of whom self-identified as fluent and native speakers of Finnish. Participants were paid $2 for their participation in the study. 
 
 ## Stimuli 
 The first 22 trials of the study contained stimuli identical to that of Itkonen (1976). There were 7 stimulus frames, of which 4 appeared in all 4 possible voice & structure combinations: 
@@ -216,9 +219,69 @@ In our faithful replication of Itkonen's original study, we find similar pattern
 
 ### Voice
 
+```{r echo=FALSE}
+ReplicationOnly %>% 
+  ggplot(aes(x=voice,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  labs(x="Voice",y="Proportion of Responses",fill="Response Case",title="Replication Results: Voice") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
+```
+
 ### Structure
 
+```{r echo=FALSE}
+ReplicationOnly %>% 
+  ggplot(aes(x=type,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Replication Results: Structure") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
+```
+
 ### Items
+
+```{r echo=FALSE}
+ReplicationOnly %>% 
+  ggplot(aes(x=voice,fill=responseCase)) + 
+  geom_bar(position='fill') + 
+  labs(x="Voice",y="Proportion of Responses",fill="Response Case",title="Replication Results: Voice") + 
+  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) + 
+  facet_wrap(~item)
+```
+
+### Demographic Factors
+
+*Age*
+
+```{r include=FALSE}
+nomRates <- ReplicationOnly %>% 
+  group_by(workerid,responseCase) %>% 
+  count() %>% 
+  pivot_wider(names_from = responseCase,values_from = n) %>% 
+  summarize(NomRate = nom/22)
+```
+
+```{r include=FALSE}
+ReplicationOnly <- left_join(ReplicationOnly,nomRates)
+```
+
+```{r echo=FALSE, message=FALSE}
+ReplicationOnly %>% 
+  filter(!is.na(age)) %>% 
+#  filter(age < 60) %>% 
+  ggplot(aes(x=age,y=NomRate)) + 
+  geom_point() + 
+  geom_smooth(method="lm")
+```
+
+*Education*
+
+```{r echo=FALSE, message=FALSE}
+ReplicationOnly %>% 
+  filter(education != -1) %>% 
+  ggplot(aes(x=education,y=NomRate)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
 
 ### Changes Over Time
 
@@ -344,57 +407,6 @@ ReplicationOnly %>%
   scale_fill_manual(values = bran_palette, limits=c("nom","gen"))
 ```
 
-```{r}
-ReplicationOnly %>% 
-  ggplot(aes(x=type,fill=responseCase)) + 
-  geom_bar(position='fill') + 
-  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Replication Results: Structure") + 
-  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
-```
-
-```{r}
-ReplicationOnly %>% 
-  ggplot(aes(x=voice,fill=responseCase)) + 
-  geom_bar(position='fill') + 
-  labs(x="Voice",y="Proportion of Responses",fill="Response Case",title="Replication Results: Voice") + 
-  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
-```
-
-```{r}
-ReplicationOnly %>% 
-  ggplot(aes(x=voice,fill=responseCase)) + 
-  geom_bar(position='fill') + 
-  labs(x="Voice",y="Proportion of Responses",fill="Response Case",title="Replication Results: Voice") + 
-  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) + 
-  facet_wrap(~item)
-```
-
-```{r}
-nomRates <- ReplicationOnly %>% 
-  group_by(workerid,responseCase) %>% 
-  count() %>% 
-  pivot_wider(names_from = responseCase,values_from = n) %>% 
-  summarize(NomRate = nom/22)
-```
-
-```{r}
-ReplicationOnly <- left_join(ReplicationOnly,nomRates)
-```
-
-```{r}
-ReplicationOnly %>% 
-  ggplot(aes(x=age,y=NomRate)) + 
-  geom_point() + 
-  geom_smooth(method="lm")
-```
-
-```{r}
-ReplicationOnly %>% 
-  filter(education != -1) %>% 
-  ggplot(aes(x=education,y=NomRate)) + 
-  geom_point() + 
-  geom_smooth(method = "lm")
-```
 
 ## New Data
 
@@ -448,45 +460,48 @@ ReplicationOnly %>%
 
 # Scratch
 
-```{r}
-ReplicationOnly %>% 
-  group_by(region) %>% 
-  summarize(MeanNomRate = mean(NomRate),
-            sd = sd(NomRate)) %>% 
-  ggplot(aes(x=region,y=MeanNomRate)) + 
-  geom_bar(stat="identity") + 
-  geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) + 
-  theme(axis.text.x = element_text(angle = 45))
+# ```{r}
+# ReplicationOnly %>% 
+#   group_by(region) %>% 
+#   summarize(MeanNomRate = mean(NomRate),
+#             sd = sd(NomRate)) %>% 
+#   ggplot(aes(x=region,y=MeanNomRate)) + 
+#   geom_bar(stat="identity") + 
+#   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) + 
+#   theme(axis.text.x = element_text(angle = 45))
 ```
 
-```{r}
-ReplicationOnly %>% 
-  group_by(education) %>% 
-  summarize(MeanNomRate = mean(NomRate),
-            sd = sd(NomRate)) %>% 
-  ggplot(aes(x=education,y=MeanNomRate)) + 
-  geom_bar(stat="identity") + 
-  geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2)
-```
+<!-- ```{r} -->
+<!-- ReplicationOnly %>%  -->
+<!--   filter(education != -1) %>%  -->
+<!--   group_by(education) %>%  -->
+<!--   summarize(MeanNomRate = mean(NomRate), -->
+<!--             sd = sd(NomRate)) %>%  -->
+<!--   ggplot(aes(x=education,y=MeanNomRate)) +  -->
+<!--   geom_bar(stat="identity") +  -->
+<!--   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) -->
+<!-- ``` -->
 
-*Item Proportions*
+<!-- *Item Proportions* -->
 
-```{r}
-negRates <- neg %>% 
-  group_by(workerid,age,education,region,responseCase) %>% 
-  count() %>% 
-  pivot_wider(names_from = responseCase,values_from = n) %>% 
-  replace_na(list(gen = 0, nom = 0, part = 0)) %>% 
-  summarize(NomRate = nom/(nom + gen + part))
-```
+<!-- ```{r} -->
+<!-- negRates <- neg %>%  -->
+<!--   group_by(workerid,age,education,region,responseCase) %>%  -->
+<!--   count() %>%  -->
+<!--   pivot_wider(names_from = responseCase,values_from = n) %>%  -->
+<!--   replace_na(list(gen = 0, nom = 0, part = 0)) %>%  -->
+<!--   summarize(NomRate = nom/(nom + gen + part)) -->
+<!-- ``` -->
 
-```{r}
-negRates %>% 
-  group_by(region) %>% 
-  summarize(MeanNomRate = mean(NomRate),
-            sd = sd(NomRate)) %>% 
-  ggplot(aes(x=region,y=MeanNomRate)) + 
-  geom_bar(stat="identity") + 
-  geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) + 
-  theme(axis.text.x = element_text(angle = 45))
-```
+<!-- ```{r} -->
+<!-- negRates %>%  -->
+<!--   group_by(region) %>%  -->
+<!--   summarize(MeanNomRate = mean(NomRate), -->
+<!--             sd = sd(NomRate)) %>%  -->
+<!--   ggplot(aes(x=region,y=MeanNomRate)) +  -->
+<!--   geom_bar(stat="identity") +  -->
+<!--   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) +  -->
+<!--   theme(axis.text.x = element_text(angle = 45)) -->
+<!-- ``` -->
+
+
