@@ -128,6 +128,10 @@ itkonen <- itkonen[!(itkonen$workerid %in% exclusionList$workerid),] #Now remove
 ```
 
 # Introduction
+In 1976, Itkonen studied the case under embedding in certain structures...
+
+Here's another par
+
 
 ## Itkonen's Original Results
 
@@ -229,13 +233,17 @@ ReplicationOnly %>%
 
 ### Structure
 
+We found that...
+
 ```{r echo=FALSE}
 ReplicationOnly %>% 
   ggplot(aes(x=type,fill=responseCase)) + 
   geom_bar(position='fill') + 
-  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Replication Results: Structure") + 
+  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Itkonen Replication Results: Structure") + 
   scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
 ```
+
+
 
 ### Items
 
@@ -304,6 +312,8 @@ compItems %>%
                               pageLength = 100),
                rownames = FALSE)
 ```
+
+
 ## Additional Items
 
 ### Negative Structures
