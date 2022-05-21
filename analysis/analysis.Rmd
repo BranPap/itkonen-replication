@@ -146,10 +146,35 @@ itkonenOriginal %>%
 # Methods
 
 ## Participants
+We used Itkonen's orignal sample size (n=126) as a benchmark for how many participants to recruit. Ultimately, 70 participants were recruited through the online recruitment platform [Prolific](https://Prolfic.co), all of whom self-identified as fluent and native speakers of Finnish. Participants were paid $2 for their participation in the study. 
 
 ## Stimuli 
+The first 22 trials of the study contained stimuli identical to that of Itkonen (1976). There were 7 stimulus frames, of which 4 appeared in all 4 possible voice & structure combinations: 
+
+- Active-Existential
+- Active-Predicative
+- Passive-Existential
+- Passive-Predicative
+
+The remaining 3 stimulus frames occurred only in the existential forms.
+
+In the second half of the study, we added 15 negated sentences, which are predicted to only allow the partitive. The inclusion of these items was meant to investigate whether some speakers permit or produce the nominative or genitive, possibly by way of extension from the positive phrases. 
+
+We additionally included two re-formulated versions of the 'jokin' stimulus item, due to Itkonen's original wording being judged as non-standard by the third author.
+
+Finally, we included three attention check items in the second half of the study, all of which asked participants to inflect the copular verb for different persons. 
+
+All modifications to the study (negated sentences, 'jokin' restructures, and attention checks) were included in the second half so as to be as faithful to Itkonen's original study as possible.
+
 
 ## Procedure
+After providing informed consent, participants were instructed that they would be reading 40 sentences which needed to be completed, and that they should select one of the options provided to best complete the sentence. They then completed an example trial with a prescriptively correct answer, on the basis of verb inflection.
+
+After this, participants proceeded through the 40 trials, selecting one of two or three presented options to complete the sentence. The first 22 replicated Itkonen's original study; items in this chunk were randomized between participants, and the order of options provided were also randomized. The last 18 items, which deviated from and added on to Itkonen's study, were similarly randomized. 
+
+After completing the main study, participants were presented with a demographic questionnaire, which asked about age, education, gender, and county of Finland from which the participant came. All questions were optional.
+
+
 
 # Results
 
@@ -212,6 +237,7 @@ compItems %>%
                               pageLength = 100),
                rownames = FALSE)
 ```
+## Additional Items
 
 # Discussion
 
