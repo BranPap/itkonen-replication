@@ -243,7 +243,7 @@ ReplicationOnly %>%
 ReplicationOnly %>% 
   ggplot(aes(x=voice,fill=responseCase)) + 
   geom_bar(position='fill') + 
-  labs(x="Voice",y="Proportion of Responses",fill="Response Case",title="Replication Results: Voice") + 
+  labs(x="Voice",y="Proportion of Responses",fill="Response Case",title="Replication Results: Item") + 
   scale_fill_manual(values = bran_palette, limits=c("nom","gen")) + 
   facet_wrap(~item)
 ```
@@ -270,7 +270,8 @@ ReplicationOnly %>%
 #  filter(age < 60) %>% 
   ggplot(aes(x=age,y=NomRate)) + 
   geom_point() + 
-  geom_smooth(method="lm")
+  geom_smooth(method="lm") + 
+  labs(y="Rate of Nominative Produced",title="Replication Results: Age")
 ```
 
 *Education*
@@ -280,7 +281,8 @@ ReplicationOnly %>%
   filter(education != -1) %>% 
   ggplot(aes(x=education,y=NomRate)) + 
   geom_point() + 
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") + 
+  labs(y="Rate of Nominative Produced",title="Replication Results: Age")
 ```
 
 ### Changes Over Time
@@ -458,18 +460,18 @@ ReplicationOnly %>%
             GenRate = 1-NomRate)
 ```
 
-# Scratch
+<!-- # Scratch -->
 
-# ```{r}
-# ReplicationOnly %>% 
-#   group_by(region) %>% 
-#   summarize(MeanNomRate = mean(NomRate),
-#             sd = sd(NomRate)) %>% 
-#   ggplot(aes(x=region,y=MeanNomRate)) + 
-#   geom_bar(stat="identity") + 
-#   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) + 
-#   theme(axis.text.x = element_text(angle = 45))
-```
+<!-- # ```{r} -->
+<!-- # ReplicationOnly %>%  -->
+<!-- #   group_by(region) %>%  -->
+<!-- #   summarize(MeanNomRate = mean(NomRate), -->
+<!-- #             sd = sd(NomRate)) %>%  -->
+<!-- #   ggplot(aes(x=region,y=MeanNomRate)) +  -->
+<!-- #   geom_bar(stat="identity") +  -->
+<!-- #   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) +  -->
+<!-- #   theme(axis.text.x = element_text(angle = 45)) -->
+
 
 <!-- ```{r} -->
 <!-- ReplicationOnly %>%  -->
