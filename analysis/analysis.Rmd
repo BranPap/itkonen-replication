@@ -9,6 +9,8 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: rmdformats::readthedown
 ---
 
+<!-- SETTING UP THE DATA: COMMENTED INSTRUCTIONS-->
+
 ```{r include=FALSE}
 
 #This chode chunk loads the 4 libraries needed for the analysis and visualization
@@ -93,8 +95,8 @@ attForms = c("on","olet","olen")
 ```{r echo=FALSE}
 itkonen <- itkonen %>% 
   mutate("responseCase" = case_when(
-    response %in% nomForms ~ "nom",
-    response %in% genForms ~ "gen",
+    response %in% nomForms ~ "nom", #if the reponse case is available in the above-defined nominative list, create a new column with the value "nom" for that trial
+    response %in% genForms ~ "gen", # ... and the same for genitive and partitive, as well as attention
     response %in% partForms ~ "part",
     response %in% attForms ~ "attn",
     TRUE ~ "uncoded"
