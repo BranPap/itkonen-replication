@@ -130,7 +130,7 @@ itkonen <- itkonen[!(itkonen$workerid %in% exclusionList$workerid),] #Now remove
 # Introduction
 In 1976, Itkonen studied the case under embedding in certain structures...
 
-Here's another par
+Here's another paragraph
 
 
 ## Itkonen's Original Results
