@@ -174,7 +174,7 @@ After this, participants proceeded through the 40 trials, selecting one of two o
 
 After completing the main study, participants were presented with a demographic questionnaire, which asked about age, education, gender, and county of Finland from which the participant came. All questions were optional.
 
-
+A link to the experiment can be found [here](https://branpap.github.io/itkonen-replication/experiment/experiment.html). This version does **not** record responses, and is for demonstration purposes only.
 
 # Results
 
