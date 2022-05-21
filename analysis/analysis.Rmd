@@ -130,7 +130,7 @@ itkonen <- itkonen[!(itkonen$workerid %in% exclusionList$workerid),] #Now remove
 # Introduction
 In 1976, Itkonen studied the case under embedding in certain structures...
 
-Here's another paragraph
+Here's another paragraph that has more words...
 
 
 ## Itkonen's Original Results
@@ -322,7 +322,7 @@ compItems %>%
 neg <- itkonen %>% 
   filter(polarity == "negative")
 ```
-
+We found that there was syntax.
 
 # Discussion
 
