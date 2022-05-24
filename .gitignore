@@ -128,4 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .Rproj.user
-.DS_Store
+**.DS_Store
