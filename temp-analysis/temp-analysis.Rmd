@@ -33,6 +33,7 @@ theme_set(theme_bw()) #Sets the defaut theme of all ggplot objects to black & wh
 
 customGreen = "#71CA97" #Another custom green for the formattable tables
 
+source("helpers.R")
 ```
 
 ```{r echo=FALSE}
@@ -528,27 +529,29 @@ ReplicationOnly %>%
 
 <!-- # Scratch -->
 
-<!-- # ```{r} -->
-<!-- # ReplicationOnly %>%  -->
-<!-- #   group_by(region) %>%  -->
-<!-- #   summarize(MeanNomRate = mean(NomRate), -->
-<!-- #             sd = sd(NomRate)) %>%  -->
-<!-- #   ggplot(aes(x=region,y=MeanNomRate)) +  -->
-<!-- #   geom_bar(stat="identity") +  -->
-<!-- #   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) +  -->
-<!-- #   theme(axis.text.x = element_text(angle = 45)) -->
+```{r}
+ReplicationOnly %>%
+  group_by(workerid,region) %>%
+  summarize(MeanNomRate = mean(ResponseBinary)) %>% 
+  ggplot(aes(x=region,y=MeanNomRate)) +
+  geom_bar(stat="identity") +
+  geom_point(aes(x=region,y=MeanNomRate)) + 
+  geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) +
+  theme(axis.text.x = element_text(angle = 45))
+```
 
 
-<!-- ```{r} -->
-<!-- ReplicationOnly %>%  -->
-<!--   filter(education != -1) %>%  -->
-<!--   group_by(education) %>%  -->
-<!--   summarize(MeanNomRate = mean(NomRate), -->
-<!--             sd = sd(NomRate)) %>%  -->
-<!--   ggplot(aes(x=education,y=MeanNomRate)) +  -->
-<!--   geom_bar(stat="identity") +  -->
-<!--   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) -->
-<!-- ``` -->
+
+```{r}
+ReplicationOnly %>%
+  filter(education != -1) %>%
+  group_by(education) %>%
+  summarize(MeanNomRate = mean(ResponseBinary),
+            sd = sd(ResponseBinary)) %>%
+  ggplot(aes(x=education,y=MeanNomRate)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2)
+```
 
 <!-- *Item Proportions* -->
 
