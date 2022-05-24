@@ -610,8 +610,14 @@ fullNew <- itkonen %>%
   )) %>% 
   pivot_wider(values_from = negative, names_from = voice)
   
-  
+
+fullNew <- fullNew %>% 
+  mutate(genUser = case_when(
+    workerid %in% genUsers$workerid ~ "true",
+    TRUE ~ "false"
+  ))
 ```
+
 
 ```{r}
 fullNew %>% 
