@@ -226,10 +226,18 @@ In our faithful replication of Itkonen's original study, we find similar pattern
 
 ```{r echo=FALSE}
 ReplicationOnly %>% 
-  ggplot(aes(x=voice,fill=responseCase)) + 
-  geom_bar(position='fill') + 
-  labs(x="Voice",y="Proportion of Responses",fill="Response Case",title="Replication Results: Voice") + 
-  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
+  group_by(voice,responseCase) %>% 
+  count() %>% 
+  pivot_wider(values_from = n, names_from = responseCase) %>% 
+  summarize(nomRate = nom/(nom + gen)) %>% 
+  ggplot(aes(x=voice,y=nomRate, fill=voice)) + 
+  geom_bar(stat="identity") + 
+  labs(x="Voice",y="Proportion of Responses",title="Replication Results: Voice") + 
+  ylim(0,1) + 
+  geom_text(aes(x=voice,y=nomRate, vjust =-.5, label=trunc(nomRate*10^2))) + 
+  theme(legend.position = "none") + 
+  scale_fill_brewer(palette = "Paired") + 
+  theme_classic()
 ```
 
 ### Structure
@@ -238,10 +246,18 @@ We found that...
 
 ```{r echo=FALSE}
 ReplicationOnly %>% 
-  ggplot(aes(x=type,fill=responseCase)) + 
-  geom_bar(position='fill') + 
-  labs(x="Structure",y="Proportion of Responses",fill="Response Case",title="Itkonen Replication Results: Structure") + 
-  scale_fill_manual(values = bran_palette, limits=c("nom","gen")) 
+  group_by(type,responseCase) %>% 
+  count() %>% 
+  pivot_wider(values_from = n, names_from = responseCase) %>% 
+  summarize(nomRate = nom/(nom + gen)) %>% 
+  ggplot(aes(x=type,y=nomRate, fill=type)) + 
+  geom_bar(stat="identity") + 
+  labs(x="Voice",y="Proportion of Responses",title="Replication Results: Voice") + 
+  ylim(0,1) + 
+  geom_text(aes(x=type,y=nomRate, vjust =-.5, label=trunc(nomRate*10^2))) + 
+  theme(legend.position = "none") + 
+  scale_fill_brewer(palette = "Paired") + 
+  theme_classic()
 ```
 
 ### Crossed Voice x Structure
@@ -252,13 +268,15 @@ ReplicationOnly %>%
   count() %>% 
   pivot_wider(values_from = n, names_from = responseCase) %>% 
   summarize(nomRate = nom/(nom+gen)) %>% 
-  ggplot(aes(x=reorder(type, -nomRate),y=nomRate, fill=type)) + 
+  ggplot(aes(x=reorder(type, nomRate),y=nomRate, fill=type)) + 
   geom_bar(stat="identity") + 
   geom_text(aes(x=type,y=nomRate, vjust =-.5, label=trunc(nomRate*10^2))) +
-  labs(x="Item", y="Proportion of Nominative Responses", title="Nominative Rates of Replication Items: Existential Only") + 
+  labs(x="Item", y="Proportion of Nominative Responses", title="Nominative Rates of Replication Items: Voice x Structure") + 
   theme(legend.position = "none") + 
   scale_fill_brewer(palette="Paired") + 
-  facet_wrap(~voice)
+  facet_wrap(~voice) + 
+  theme_classic() +
+  ylim(0,1)
 ```
 
 
@@ -529,16 +547,16 @@ ReplicationOnly %>%
 
 <!-- # Scratch -->
 
-```{r}
-ReplicationOnly %>%
-  group_by(workerid,region) %>%
-  summarize(MeanNomRate = mean(ResponseBinary)) %>% 
-  ggplot(aes(x=region,y=MeanNomRate)) +
-  geom_bar(stat="identity") +
-  geom_point(aes(x=region,y=MeanNomRate)) + 
-  geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) +
-  theme(axis.text.x = element_text(angle = 45))
-```
+# ```{r}
+# ReplicationOnly %>%
+#   group_by(workerid,region) %>%
+#   summarize(MeanNomRate = mean(ResponseBinary)) %>% 
+#   ggplot(aes(x=region,y=MeanNomRate)) +
+#   geom_bar(stat="identity") +
+#   geom_point(aes(x=region,y=MeanNomRate)) + 
+#   geom_errorbar(aes(ymin=MeanNomRate-sd,ymax=MeanNomRate+sd),width=.2) +
+#   theme(axis.text.x = element_text(angle = 45))
+# ```
 
 
 
@@ -634,8 +652,33 @@ itkonen %>%
   mutate(genUser = case_when(
     workerid %in% genUsers$workerid ~ "true",
     TRUE ~ "false"
-  ))
+  )) %>% 
+  filter(polarity=="positive") %>% 
+  group_by(genUser,responseCase) %>% 
+  count() %>% 
+  pivot_wider(values_from = n, names_from = responseCase) %>% 
+  summarize(genRate = gen/(nom+gen)) %>% 
+  ggplot(aes(x=genUser,y=genRate)) + 
+  geom_bar(stat="identity")
 ```
 
+
+# General Findings: 
+
+Some Exploratory Findings:
+
+- Nominative under negation is more common with passives than with actives, and there is a correlation such that participants who use more nominative under negated passives also use more nominative under negated actives
+- Participants who use genitive under negation are slightly more likely to use genitive in positive polarity constructions than those who categorically avoid genitive under negation
+- 
+
+```{r}
+itkonenTable <- itkonen %>% 
+  filter(attention == "critical") %>% 
+  filter(item != "jokin2")
+```
+
+```{r}
+table(itkonenTable$responseCase,itkonenTable$polarity,itkonenTable$voice)
+```
 
 
