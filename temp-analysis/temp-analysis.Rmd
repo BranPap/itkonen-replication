@@ -903,4 +903,11 @@ ReplicationOnly %>%
 
 
 
+```{r}
+itkonen %>% 
+  group_by(workerid,region) %>% 
+  summarize(region = paste(unique(region)))
+```
+
+
 
