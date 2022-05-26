@@ -334,7 +334,7 @@ ReplicationOnly %>%
   geom_bar(stat="identity") + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
   geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
-  labs(x="Voice",y="Proportion of Responses",title="Replication Results: Voice") + 
+  labs(x="Voice",y="Proportion of Nominative Responses",title="Replication Results: Voice") + 
   ylim(0,1) + 
   geom_text(aes(x=voice,y=nomRate, vjust =-2, label=trunc(nomRate*10^2)/(10^2))) + 
   scale_fill_manual(values=voice_palette) + 
@@ -363,7 +363,7 @@ ReplicationOnly %>%
   geom_bar(stat="identity") + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
   geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
-  labs(x="Voice",y="Proportion of Responses",title="Replication Results: Voice") + 
+  labs(x="Voice",y="Proportion of Nominative Responses",title="Replication Results: Voice") + 
   ylim(0,1) + 
   geom_text(aes(x=type,y=nomRate, vjust =-1.5, label=trunc(nomRate*10^2)/10^2)) + 
   scale_fill_manual(values = type_palette) + 
@@ -477,8 +477,39 @@ ReplicationOnly %>%
   geom_point() + 
   geom_smooth(method="lm") + 
   geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
-  labs(y="Rate of Nominative Produced",title="Replication Results: Age") + 
+  labs(y="Proportion of Nominative Responses",title="Replication Results: Age") + 
   ylim(0,1) 
+```
+
+
+### Region
+
+```{r echo=FALSE, fig.align = 'center'}
+ReplicationOnly %>% 
+  filter(region != "null") %>% 
+  mutate(responseBinary = case_when(
+    responseCase == "nom" ~ 1,
+    responseCase == "gen" ~ 0,
+  )) %>% 
+  group_by(region) %>% 
+  summarize(
+    nomRate = mean(responseBinary),
+    CI.Low = ci.low(responseBinary),
+    CI.High = ci.high(responseBinary),
+    count = as.numeric(n()),
+  ) %>% 
+  mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
+  ggplot(aes(x=reorder(region,-nomRate),y=nomRate, alpha=count)) + 
+  geom_bar(stat="identity") + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
+  labs(x="Voice",y="Proportion of Nominative Responses",title="Replication Results: Region") + 
+  ylim(0,1) + 
+  geom_text(aes(x=region,y=nomRate, vjust =-1.5, label=trunc(nomRate*10^2)/10^2)) + 
+  theme_classic() + 
+  theme(axis.text.x = element_text(angle=45, vjust = .5))
+  
+  #theme(legend.position = "none") 
 ```
 
 <!-- *Education* -->
@@ -739,6 +770,58 @@ indiRates %>%
 <!-- ``` -->
 
 
+```{r echo=FALSE, fig.align = 'center', message=FALSE}
+neg %>% 
+  mutate(responseBinary = case_when(
+    responseCase == "nom" ~ 1,
+    responseCase != "nom" ~ 0,
+  )) %>% 
+  group_by(item,voice) %>% 
+  summarize(
+    nomRate = mean(responseBinary),
+    CI.Low = ci.low(responseBinary),
+    CI.High = ci.high(responseBinary),
+  ) %>% 
+  mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
+  ggplot(aes(x=reorder(item,-nomRate),y=nomRate, fill=item)) + 
+  geom_bar(stat="identity") + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
+  facet_wrap(~voice) + 
+  labs(x="Voice",y="Proportion of Nominative Responses",title="Negative Results: Item by Voice") + 
+  ylim(0,1) + 
+  geom_text(aes(x=item,y=nomRate, vjust =-3, label=trunc(nomRate*10^2)/(10^2))) + 
+  scale_fill_brewer(palette="Paired") +
+  theme_classic() +
+  theme(legend.position = "none") 
+```
 
 
+
+```{r echo=FALSE, fig.align = 'center', message=FALSE}
+neg %>% 
+  mutate(responseBinary = case_when(
+    responseCase == "nom" ~ 1,
+    responseCase != "nom" ~ 0,
+  )) %>% 
+  group_by(region) %>% 
+  summarize(
+    nomRate = mean(responseBinary),
+    CI.Low = ci.low(responseBinary),
+    CI.High = ci.high(responseBinary),
+    count = n()
+  ) %>% 
+  mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
+  ggplot(aes(x=reorder(region,-nomRate),y=nomRate, fill=region,alpha=count)) + 
+  geom_bar(stat="identity") + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
+  labs(x="Voice",y="Proportion of Nominative Responses",title="Negative Results: Item by Voice") + 
+  ylim(0,1) + 
+  geom_text(aes(x=region,y=nomRate, vjust =-3, label=trunc(nomRate*10^2)/(10^2))) + 
+  # scale_fill_brewer(palette="Paired") +
+  theme_classic() +
+  # theme(legend.position = "none") + 
+  theme(axis.text.x = element_text(angle=45, vjust = .5))
+```
 
