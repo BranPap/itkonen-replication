@@ -552,15 +552,65 @@ compItems %>%
 ```
 
 
+## New Items
+As mentioned above, we additionally tested a handful of new critical items, specifically looking at case assignment in negated Itkonen structures. While participants provided partitive, nominative, and genitive responses under negation (as displayed in the table below), we were primarily interested in the potential presence of nominative case under negation, so visualizations reflect this (i.e. partitive and genitive responses are conflated). This also allows for easier interpretability and comparison with the replication results.
 
+```{r echo=FALSE}
+neg <- itkonen %>%
+  filter(polarity == "negative") %>%
+  filter(item != "jokin2")
+```
 
-<!-- # Neg -->
+<!-- # ```{r echo=FALSE, message=FALSE} -->
+<!-- # neg %>%  -->
+<!-- #   group_by(voice,responseCase) %>%  -->
+<!-- #   count() %>%  -->
+<!-- #   pivot_wider(values_from = n, names_from = responseCase) %>%  -->
+<!-- #   rename(Voice = voice, Genitive = gen, Nominative = nom, Partitive = part) %>%  -->
+<!-- #   formattable(align=c("l"), list( -->
+<!-- #   area(row = 1, col=2:4) ~ color_tile("transparent", customGreen), -->
+<!-- #   area(row = 2, col=2:4) ~ color_tile("transparent", customGreen))) -->
+<!-- # ``` -->
 
-<!-- ```{r} -->
-<!-- neg <- itkonen %>%  -->
-<!--   filter(polarity == "negative") %>%  -->
-<!--   filter(item != "jokin2")  -->
-<!-- ``` -->
+```{r echo=FALSE, message=FALSE}
+neg %>% 
+  group_by(voice,responseCase) %>% 
+  count() %>% 
+  pivot_wider(values_from = n, names_from = responseCase) %>% 
+  mutate(genRate = trunc(gen/(nom+gen+part)*10^2)/10^2,
+         nomRate = trunc(nom/(nom+gen+part)*10^2)/10^2,
+         partRate = trunc(part/(nom+gen+part)*10^2)/10^2) %>% 
+  rename(Voice = voice, Genitive = genRate, Nominative = nomRate, Partitive = partRate) %>% 
+  select(-c("nom","gen","part")) %>% 
+  formattable(align=c("l"), list(
+  area(row = 1, col=2:4) ~ color_tile("transparent", customGreen),
+  area(row = 2, col=2:4) ~ color_tile("transparent", customGreen)))
+```
+
+```{r echo=FALSE, fig.align = 'center'}
+neg %>% 
+  mutate(responseBinary = case_when(
+    responseCase == "nom" ~ 1,
+    responseCase != "nom" ~ 0,
+  )) %>% 
+  group_by(voice) %>% 
+  summarize(
+    nomRate = mean(responseBinary),
+    CI.Low = ci.low(responseBinary),
+    CI.High = ci.high(responseBinary),
+  ) %>% 
+  mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
+  ggplot(aes(x=voice,y=nomRate, fill=voice)) + 
+  geom_bar(stat="identity") + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
+  labs(x="Voice",y="Proportion of Responses",title="Negative Results: Voice") + 
+  ylim(0,1) + 
+  geom_text(aes(x=voice,y=nomRate, vjust =-2, label=trunc(nomRate*10^2)/(10^2))) + 
+  scale_fill_manual(values=voice_palette) + 
+  theme_classic() +
+  theme(legend.position = "none") 
+```
 
 <!-- ```{r echo=FALSE} -->
 <!-- neg %>%  -->
@@ -604,44 +654,48 @@ compItems %>%
 <!--   )) -->
 <!-- ``` -->
 
-<!-- ```{r} -->
-<!-- indiGenRatesPos <- itkonen %>%  -->
-<!--   filter(attention=="critical") %>%  -->
-<!--   filter(polarity == "positive") %>%  -->
-<!--   filter(item != "jokin2") %>%  -->
-<!--   mutate(responseBinary = case_when( -->
-<!--     responseCase == "gen" ~ 1, -->
-<!--     responseCase != "gen" ~ 0, -->
-<!--   )) %>%  -->
-<!--   group_by(workerid,age,gender) %>%  -->
-<!--   summarize(indiGenRatePos = mean(responseBinary)) %>%  -->
-<!--   select(c("workerid","indiGenRatePos","age","gender")) -->
-<!-- ``` -->
+```{r echo=FALSE, message=FALSE}
+indiGenRatesPos <- itkonen %>%
+  filter(attention=="critical") %>%
+  filter(polarity == "positive") %>%
+  filter(item != "jokin2") %>%
+  mutate(responseBinary = case_when(
+    responseCase == "gen" ~ 1,
+    responseCase != "gen" ~ 0,
+  )) %>%
+  group_by(workerid,age,gender) %>%
+  summarize(indiGenRatePos = mean(responseBinary)) %>%
+  select(c("workerid","indiGenRatePos","age","gender"))
+```
 
-<!-- ```{r} -->
-<!-- indiNomRatesNeg <- itkonen %>%  -->
-<!--   filter(attention=="critical") %>%  -->
-<!--   filter(polarity == "negative") %>%  -->
-<!--   filter(item != "jokin2") %>%  -->
-<!--   mutate(responseBinary = case_when( -->
-<!--     responseCase == "nom" ~ 1, -->
-<!--     responseCase != "nom" ~ 0, -->
-<!--   )) %>%  -->
-<!--   group_by(workerid) %>%  -->
-<!--   summarize(indiNomRateNeg = mean(responseBinary)) %>%  -->
-<!--   select(c("workerid","indiNomRateNeg")) -->
-<!-- ``` -->
+```{r echo=FALSE, message=FALSE}
+indiNomRatesNeg <- itkonen %>%
+  filter(attention=="critical") %>%
+  filter(polarity == "negative") %>%
+  filter(item != "jokin2") %>%
+  mutate(responseBinary = case_when(
+    responseCase == "nom" ~ 1,
+    responseCase != "nom" ~ 0,
+  )) %>%
+  group_by(workerid) %>%
+  summarize(indiNomRateNeg = mean(responseBinary)) %>%
+  select(c("workerid","indiNomRateNeg"))
+```
 
-<!-- ```{r} -->
-<!-- indiRates <- left_join(indiGenRatesPos,indiNomRatesNeg) -->
-<!-- ``` -->
+```{r echo=FALSE, message=FALSE}
+indiRates <- left_join(indiGenRatesPos,indiNomRatesNeg)
+```
 
-<!-- ```{r} -->
-<!-- indiRates %>%  -->
-<!--   ggplot(aes(x=indiGenRatePos,indiNomRateNeg)) +  -->
-<!--   geom_point(alpha=0.5) +  -->
-<!--   geom_smooth(method = "lm") -->
-<!-- ``` -->
+```{r echo=FALSE, message=FALSE}
+indiRates %>%
+  ggplot(aes(x=indiGenRatePos,indiNomRateNeg)) +
+  geom_point(alpha=0.5) +
+  geom_smooth(method = "lm") + 
+  labs(x="Gen. Rate in Positive Constructions",y="Nom. Rate in Negative Constructions")
+```
+
+
+
 
 <!-- ```{r} -->
 <!-- indiRates %>%  -->
