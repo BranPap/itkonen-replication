@@ -686,11 +686,12 @@ indiNomRatesNeg <- itkonen %>%
 indiRates <- left_join(indiGenRatesPos,indiNomRatesNeg)
 ```
 
-```{r echo=FALSE, message=FALSE}
+```{r echo=FALSE, message=FALSE, fig.align = 'center'}
 indiRates %>%
   ggplot(aes(x=indiGenRatePos,indiNomRateNeg)) +
   geom_point(alpha=0.5) +
   geom_smooth(method = "lm") + 
+  geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
   labs(x="Gen. Rate in Positive Constructions",y="Nom. Rate in Negative Constructions")
 ```
 
