@@ -603,8 +603,10 @@ neg <- itkonen %>%
 <!-- #   area(row = 2, col=2:4) ~ color_tile("transparent", customGreen))) -->
 <!-- # ``` -->
 
+
 ```{r echo=FALSE, message=FALSE}
 neg %>% 
+  filter(responseCase != "uncoded") %>% # Bran remember to check this before presentation
   group_by(voice,responseCase) %>% 
   count() %>% 
   pivot_wider(values_from = n, names_from = responseCase) %>% 
@@ -793,7 +795,8 @@ neg %>%
   geom_text(aes(x=item,y=nomRate, vjust =-3, label=trunc(nomRate*10^2)/(10^2))) + 
   scale_fill_brewer(palette="Paired") +
   theme_classic() +
-  theme(legend.position = "none") 
+  theme(legend.position = "none") + 
+  theme(axis.text.x = element_text(angle=45, vjust=.6))
 ```
 
 
