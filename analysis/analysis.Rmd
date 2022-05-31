@@ -229,7 +229,7 @@ itkonenOriginal %>%
 # Methods
 
 ## Participants
-We used Itkonen's orignal sample size (n=126) as a benchmark for how many participants to recruit. Ultimately, 78 participants were recruited through the online recruitment platform [Prolific](https://Prolfic.co), all of whom self-identified as fluent and native speakers of Finnish. Participants were paid $2 for their participation in the study. 
+We used Itkonen's orignal sample size (n=126) as a benchmark for how many participants to recruit. Ultimately, 117 participants were recruited through the online recruitment platform [Prolific](https://Prolfic.co), all of whom self-identified as fluent and native speakers of Finnish. Participants were paid $2 for their participation in the study. 
 
 ## Stimuli 
 The first 22 trials of the study contained stimuli identical to that of Itkonen (1976). There were 7 stimulus frames, of which 4 appeared in all 4 possible voice & structure combinations: 
