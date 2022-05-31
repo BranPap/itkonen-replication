@@ -8,9 +8,12 @@ author:
   - ^1^*Stanford University*
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
-  html_document:
+  bookdown::html_document2:
       toc: true
       toc_float: true
+      number_sections: false
+header-includes: |
+    \usepackage{gb4e}
 ---
 
 <!-- This bit above is kind of similar to a LaTeX preamble, except that libraries (packages) get loaded in the actual code, rather than up here: -->
@@ -58,7 +61,7 @@ library(lme4,lmertest) #for mixed logistic binomial regressions
 library(formattable,DT) # Prettier tables
 library(rmdformats) # For the custom html output
 library(shiny) # interactive tabls
-
+library(lingglosses)
 
 # Here's some custom visual styling stuff
 
@@ -187,6 +190,15 @@ The results of our study show that nominative case appears at much higher freque
 
 Objects in Finnish can appear in one of four cases: partitive, accusative, genitive, and nominative. The only cases which appear in free variation on embedded objects of Itkonen structures are nominative and genitive, hence they will be the focus of this study. Itkonen structures are nonfinite propositional complements headed by participle forms of verbs including ‘say’ and ‘think’ (Vainikka & Brattico, 2014):
 
+(@itkonen-ex-1) Anttila & Kim 2017: Example 32^[Antilla & Kim (2017) gloss the nominative here with ?. However, given the results of our replication of Itkonen's study, we have removed this judgement.]
+```{r echo=FALSE}
+gloss_example(
+'Pekka luul-i [metsä-ssä ole-va-n **karhu~karhu-n**]',
+'Pekka.NOM think-PAST [forest-INE be-ACT.PRES-GEN **bear.NOM~bear-GEN**{]}',
+'Pekka thought there to be a bear in the forest',
+  italic_transliteration = FALSE
+)
+```
 
 At the time of the Itkonen (1976) study, not all Itkonen structures were equal when it came to the case assigned to the embedded object. Rather, the distribution of nominative and accusative case on embedded objects was influenced by both the voice of the matrix clause and the type of embedded verb, summarized below:
 
@@ -197,16 +209,18 @@ At the time of the Itkonen (1976) study, not all Itkonen structures were equal w
 - Matrix verb active, embedded clause predicative: NOM preferred
 - Matrix verb passive, embedded clause predicative: NOM strongly preferred
 
-Itkonen (1976) argued that genitive case was the historically dominant form, while nominative case was in the process of replacing genitive due to analogy to simplex clauses. His study found that nominative was more common under passives than under actives, and more common in predicatives than existentials. In their Optimality Theoretic account of object case variation, Vainikka & Brattico (2014) argue that the genitive-to-nominative shift began in predicative and passive matrix clauses, and is now proceeding through existential and active matrix clauses. That claim taken together with Itkonen (1976) makes the clear prediction that, in the results of our replication study and in comparison to the 1976 findings, we should find that: (1) the nominative will consistently appear at higher frequencies on the embedded object of Itkonen structures, and (2), if there is still variation in case assignment, we should observe the rate of nominative case increase from matrix active, embedded existential contexts to matrix passive, embedded predicative contexts.
+Itkonen (1976) argued that genitive case was the historically dominant form, while nominative case was in the process of replacing genitive due to analogy to simplex clauses. His study found that nominative was more common under passives than under actives, and more common in predicatives than existentials. In their Optimality Theoretic account of object case variation, Vainikka & Brattico (2014) argue that the genitive-to-nominative shift began in predicative and passive matrix clauses, and is now proceeding through existential and active matrix clauses. That claim taken together with Itkonen (1976) makes the clear prediction that, in the results of our replication study and in comparison to the 1976 findings, we should find that: (1) the nominative will consistently appear at higher frequencies on the embedded object of Itkonen structures, and (2), if there is still variation in case assignment, we should observe the rate of nominative case increase from matrix active, embedded existential contexts to matrix passive, embedded predicative contexts. This would result in a hierarchy like:
+
+(@hierarchy) active existential > passive existential > active predicative > passive predicative
 
 The second portion of our experiment concerns case assignment under negation. It is a general fact of Finnish that object DPs under the scope of negation receive partitive case (Vainikka & Brattico, 2014). Minimalist accounts of the Finnish free-variation case assignment phenomenon have generally attempted to derive it by arguing that it derives from distinct structures with differing levels of independence from the matrix clause, meaning that the object of the less independent clause receives case from some matrix element, while the object of the more independent clause receives case clause-internally. For example, Vainikka & Brattico (2014) argue that certain embedded clauses can optionally include an AgrP which is capable of assigning genitive case, while Ylinärä & Frascarelli (2020) argue that variation derives from ambiguity between verbal and nominalized structures, with the embedded argument of the nominalization actually being a subject which receives genitive case. Interestingly, those two accounts make opposite claims as to which case type correlates with which (more or less independent) embedded clause type. If it is indeed the case that the choice of case on the embedded object correlates with different structural configurations, in which the embedded object can be assigned case by a matrix or embedded element, and additionally that speakers are consistent as to which of those two structures they employ (this is shown to be the case in Itkonen (1976), in which speakers were consistent in preferring either genitive or nominative case), then we may expect differences in object case under negation. For example, if a speaker opts for the structure in which the embedded clause is able to assign case to its embedded object, we might expect the embedded object not to receive partitive case when the matrix clause is negated. On the other hand, if the embedded object receives case from the matrix clause, we might expect it occur with partitive case. Furthermore, we anticipate that a speaker’s preference in non-negated contexts will correlate with their preference in negated contexts.
 
 
 ## Itkonen's Original Results 
 
-Before continuing, it's worth noting Itkonen's original results, which he published in 1976.
+Before continuing, it's worth noting Itkonen's original results, which he published in 1976. The by-item proportions of nominative responses are provided below.
 
-```{r echo=FALSE, message=FALSE}
+```{r itkonen-original, echo=FALSE, message=FALSE}
 itkonenOriginal %>%
   mutate(itemNomRateOriginal = 100*itemNomRateOriginal) %>% 
   rename("Item" = item,
@@ -223,7 +237,8 @@ itkonenOriginal %>%
   as.datatable(escape = FALSE,
                options = list(scrollX = TRUE,
                               pageLength = 100),
-               rownames = FALSE)
+               rownames = FALSE,
+               caption = "Itkonen (1976)'s original nominative production proportions")
 ```
 
 # Methods
@@ -299,7 +314,7 @@ compItems <- compItems %>%
 
 In our faithful replication of Itkonen's original study, we find similar patterns to those in the original study, with regard to voice, structure, and item effects. We take each of these in turn here, which can be navigated to by clicking on the respective tabs below. 
 
-*Model Structure*
+**Model Structure**
 
 We fit a logistic mixed effects model which predicted nominative responses from fixed effects of voice (binary, reference level: "active"), structure type (binary, reference level:"existential"), and age (continuous). Finally, we included random intercepts for participant and lexical item. 
 
@@ -325,9 +340,9 @@ summary(full_model)
 
 ### Voice
 
-Just as in Itkonen (1976), we found a significant main effect of voice, such that passive sentences were more likely to be completed by a nominative DP than their active counterparts (p<.001). Passive sentences received nominative completion choices 91% of the time, compared to 78% of the time for active sentences.
+Just as in Itkonen (1976), we found a significant main effect of voice, such that passive sentences were more likely to be completed by a nominative DP than their active counterparts (p<.001). Passive sentences received nominative completion choices 91% of the time, compared to 78% of the time for active sentences. Proportions are provided in \@ref(fig:rep-fig-nom-voice).
 
-```{r echo=FALSE, fig.align = 'center'}
+```{r rep-fig-nom-voice, echo=FALSE, fig.align = 'center', fig.cap="Replication Results: proportion of nominative responses by voice"}
 ReplicationOnly %>% 
   mutate(responseBinary = case_when(
     responseCase == "nom" ~ 1,
@@ -354,9 +369,9 @@ ReplicationOnly %>%
 
 ### Structure
 
-We also found, as Itkonen (1976) did, a significant main effect of structure type, such that predicative sentences were more likely to be completed by a nominative DP than their existential counterparts (p<.001). Predicative sentences received nominative completion choices 96% of the time, compared to 78% of the time for existential sentences.
+We also found, as Itkonen (1976) did, a significant main effect of structure type, such that predicative sentences were more likely to be completed by a nominative DP than their existential counterparts (p<.001). Predicative sentences received nominative completion choices 96% of the time, compared to 78% of the time for existential sentences. Proportions are provided in \@ref(fig:rep-nom-structure).
 
-```{r echo=FALSE, fig.align = 'center'}
+```{r rep-nom-structure, echo=FALSE, fig.align = 'center', fig.cap="RReplication Results: proportion of nominative responses by sentence type"}
 ReplicationOnly %>% 
   mutate(responseBinary = case_when(
     responseCase == "nom" ~ 1,
@@ -373,7 +388,7 @@ ReplicationOnly %>%
   geom_bar(stat="identity") + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
   geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
-  labs(x="Voice",y="Proportion of Nominative Responses",title="Replication Results: Voice") + 
+  labs(x="Structure",y="Proportion of Nominative Responses",title="Replication Results: Structure") + 
   ylim(0,1) + 
   geom_text(aes(x=type,y=nomRate, vjust =-1.5, label=trunc(nomRate*10^2)/10^2)) + 
   scale_fill_manual(values = type_palette) + 
@@ -465,7 +480,7 @@ ReplicationOnly %>%
 
 ### Age
 
-Finally, we found a main effect of age, such that the younger a participant was, the more likely they were to provide nominative responses (p<.01). Descriptively, it is worth noting that of the 11 participants who provided **only** nominative responses, only three were over the age of 30. Similarly, all three participants who provided genitive responses at least 50% of the time were over the age of 37. These findings, taken together, provide an apparent-time snapshot of the language that indicates a change in progress, whereby the genitive case is giving way to nominative in Itkonen structures.
+Finally, we found a main effect of age, such that the younger a participant was, the more likely they were to provide nominative responses (p<.01, Figure \@ref(fig:rep-age)). Descriptively, it is worth noting that of the 11 participants who provided **only** nominative responses, only three were over the age of 30. Similarly, all three participants who provided genitive responses at least 50% of the time were over the age of 37. These findings, taken together, provide an apparent-time snapshot of the language that indicates a change in progress, whereby the genitive case is giving way to nominative in Itkonen structures.
 
 ```{r include=FALSE}
 nomRates <- ReplicationOnly %>% 
@@ -479,7 +494,7 @@ nomRates <- ReplicationOnly %>%
 ReplicationOnly <- left_join(ReplicationOnly,nomRates)
 ```
 
-```{r echo=FALSE, message=FALSE, fig.align = 'center'}
+```{r rep-age, echo=FALSE, message=FALSE, fig.align = 'center', fig.cap="Replication Results: nominative proportion by participant age"}
 ReplicationOnly %>% 
   filter(!is.na(age)) %>% 
 #  filter(age < 60) %>% 
@@ -535,7 +550,7 @@ ReplicationOnly %>%
 
 ## Replication Study: Changes Over Time
 
-Having now provided an overview of our findings, which largely pattern like those of Itkonen (1976), we turn to the issue of whether or not there are significant differences between our own results and Itkonen's. We indeed find the pattern which Itkonen himself predicted almost 50 years ago: for every single item and condition in our study, the proportion of nominative productions was larger than that of Itkonen's original study. Estimated means based on Itkonen's reported numbers (1976) are shown below in comparison with our own.
+Having now provided an overview of our findings, which largely pattern like those of Itkonen (1976), we turn to the issue of whether or not there are significant differences between our own results and Itkonen's. We indeed find the pattern which Itkonen himself predicted almost 50 years ago: for every single item and condition in our study, the proportion of nominative productions was larger than that of Itkonen's original study. Estimated means based on Itkonen's reported numbers (1976) are shown in comparison with our own in Figure \@ref(fig:rep-itkonen-change).
 
 ```{r echo=FALSE, message=FALSE}
 replicationConditions <- ReplicationOnly %>% 
@@ -560,7 +575,7 @@ dodge = position_dodge(.9)
 ```
 
 
-```{r echo=FALSE, fig.align = 'center'}
+```{r rep-itkonen-change, echo=FALSE, fig.align = 'center', fig.cap="Proportion of nominative responses by voice (x axis) and structure (facet) in Itkonen (1976; coral) and O'Reilly-Brown & Papineau (2022; teal)"}
 compConditions %>% 
   ggplot(aes(x=voice,y=nomRate,fill=year)) +
   geom_bar(stat="identity",position=position_dodge()) + 
@@ -615,7 +630,7 @@ neg <- itkonen %>%
 
 ### Case Assignment
 
-We found that participants overwhelmingly preferred the partitive under negation, with approximately 80% of responses being Partitive in both active and passive sentences. However, a significant proportion of responses were Nominative (16%), and we recevied about 3% Genitive responses. These proportions are provided in the table below. The following figure provides proportions of Nominative responses in the two negation sentence voices.
+We found that participants overwhelmingly preferred the partitive under negation, with approximately 80% of responses being Partitive in both active and passive sentences. However, a significant proportion of responses were Nominative (16%), and we recevied about 3% Genitive responses. These proportions are provided in the table below. Figure \@ref(fig:neg-voice) provides proportions of Nominative responses in the two negation sentence voices.
 
 ```{r echo=FALSE, message=FALSE}
 neg %>% 
@@ -633,7 +648,7 @@ neg %>%
   area(row = 2, col=2:4) ~ color_tile("transparent", customGreen)))
 ```
 
-```{r echo=FALSE, fig.align = 'center'}
+```{r neg-voice, echo=FALSE, fig.align = 'center', fig.cap="Negative Results: proportion of nominative responses by voice"}
 neg %>% 
   mutate(responseBinary = case_when(
     responseCase == "nom" ~ 1,
