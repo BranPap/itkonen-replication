@@ -425,6 +425,27 @@ ReplicationOnly %>%
   theme(legend.position = "none") 
 ```
 
+```{r}
+ReplicationOnly <- ReplicationOnly %>% 
+  mutate(responseCase = factor(responseCase,ordered = FALSE)) %>% 
+  mutate(voice = factor(voice,ordered = FALSE)) %>% 
+  mutate(type = factor(type,ordered = FALSE))
+
+
+ReplicationOnly$responseCase = relevel(ReplicationOnly$responseCase, ref="gen")
+ReplicationOnly$voice = relevel(ReplicationOnly$voice, ref="active")
+ReplicationOnly$type = relevel(ReplicationOnly$type, ref="existential")
+```
+
+
+```{r}
+mixedModelReplication <- glmer(as.factor(responseBinary)~voice*type + (1|workerid) + (1|item), data=ReplicationOnly, family="binomial")
+```
+
+```{r}
+summary(mixedModelReplication)
+```
+
 
 <!-- # ```{r echo=FALSE, message=FALSE, fig.align = 'center'} -->
 <!-- # ReplicationOnly %>%  -->
@@ -523,6 +544,7 @@ IndiMeans <- left_join(IndiMeansNoSpark,IndiMeansSpark)
 ```{r echo=FALSE}
 IndiMeans %>% 
   select(-c(2:5)) %>% 
+  rename("Anonymous Worker Identifier" = workerid, 'Rates of Nominative Productions' = Noms) %>% 
   formattable(align=c("l")) %>% 
   formattable::as.htmlwidget() %>%
   spk_add_deps()
@@ -1001,3 +1023,15 @@ The obvious question that the data on negated structures raise is whether they h
 In summary, our study found that nominative case is produced at higher rate in Itkonen structures than it was in Itkonen’s 1976 experiment. Our data support his prediction that there is a change in progress from a preference for genitive case to a preference for nominative case. The change seems to be progressing rapidly, with nominative case now being assigned over 50% of the time even in active existentials, the environment which is the most resistant to nominative case. Furthermore, our data follow the implicational hierarchy proposed in Anttila & Kim (2017), in which they argue that the change from nominative to genitive is progressing from passive predicatives to active existentials in the following manner: passive predicative >> active predicative >> passive existential >> active existential. The demographic information we collected on our participants showed that younger people produce nominative case more, further supporting the claim that this is a change in progress.
 
 Part two of the study produced the surprising finding that nominative case appears to be spreading in negated Itkonen structures as well, contrary to the expectation that embedded objects in such constructions would exclusively receive partitive case. Previous studies had not predicted that the growing nominative preference would encroach on other cases besides the genitive, and this finding could indicate a more major shift than was previously ever imagined. While one would want to collect more data in a variety of constructions before making any grandiose claims, one could imagine that the growing dominance of unmarked nominative case indicates a language-wide move away from Finnish’s current, complex case-marking system. However, the appearance of genitive case under negation a small, but non-negligible percentage of the time provides an additional, and as-of-yet unexplained complication. Additionally, current accounts of case variation in Finnish are not readily prepared to account for the variation observed in negated contexts, indicating that new accounts which can predict the spread of nominative case throughout the language may be needed.
+
+# Appendices
+
+## Participant Comments
+
+```{r echo=FALSE}
+ReplicationOnly %>% 
+  select(c("workerid","comments")) %>% 
+  group_by(comments) %>% 
+  summarize(comments = paste(unique(comments)))
+```
+
