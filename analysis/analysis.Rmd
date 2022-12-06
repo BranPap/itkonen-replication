@@ -258,7 +258,7 @@ The first 22 trials of the study contained stimuli identical to that of Itkonen 
 
 The remaining 3 stimulus frames occurred only in the existential forms.
 
-In the second half of the study, we added 15 negated sentences, which are predicted to only allow the partitive. The inclusion of these items was meant to investigate whether some speakers permit or produce the nominative or genitive, possibly by way of extension from the positive phrases. 
+In the second half of the study, we added 14 negated sentences, which are predicted to only allow the partitive. The inclusion of these items was meant to investigate whether some speakers permit or produce the nominative or genitive, possibly by way of extension from the positive phrases. 
 
 We additionally included two re-formulated versions of the 'jokin' stimulus item, due to Itkonen's original wording being judged as non-standard by the third author.
 
@@ -268,9 +268,9 @@ All modifications to the study (negated sentences, 'jokin' restructures, and att
 
 
 ## Procedure
-After providing informed consent, participants were instructed that they would be reading 40 sentences which needed to be completed, and that they should select one of the options provided to best complete the sentence. They then completed an example trial with a prescriptively correct answer, on the basis of verb inflection.
+After providing informed consent, participants were instructed that they would be reading 41 sentences which needed to be completed, and that they should select one of the options provided to best complete the sentence. They then completed an example trial with a prescriptively correct answer, on the basis of verb inflection.
 
-After this, participants proceeded through the 40 trials, selecting one of two or three presented options to complete the sentence. The first 22 replicated Itkonen's original study; items in this chunk were randomized between participants, and the order of options provided were also randomized. The last 18 items, which deviated from and added on to Itkonen's study, were similarly randomized. 
+After this, participants proceeded through the 41 trials, selecting one of two or three presented options to complete the sentence. The first 22 replicated Itkonen's original study; items in this chunk were randomized between participants, and the order of options provided were also randomized. The last 19 items, which deviated from and added on to Itkonen's study, were similarly randomized. 
 
 After completing the main study, participants were presented with a demographic questionnaire, which asked about age, education, gender, and county of Finland from which the participant came. All questions were optional.
 
