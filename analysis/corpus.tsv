@@ -1,0 +1,349 @@
+Reference	Sentence	Itkonen	Matrix	Embed	Case	Note
+wordpress.com	"<s> Lähdön jälkeen aloin jo ohjelmoimaan öljyn lisäystä varten jonkin BMW-huollon määränpääksi, mutta vilkaisin kuitenkin vielä uudestaan mitä pyörän tietokone tänään sanoo öljymäärästä, ja eihän se enää mitään herjannut, päinvastoin sanoi öljyn olevan OK. </s>"	TRUE	ACT	PRED	NOM	"NP is ""OK"""
+wordpress.com	<s> Eikö pitäisi ennemmin tutkia niiden vanhempien mielentila jotka eivät osaa lapsilleen kertoa kyseessä olevan fiktion? </s>	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+munfoorumi.com	"<s> "" Koska Kuulan Paavali -teologia lähtee päättelystä, ettei Jeesus ollut Paavalille Jumala, niin kirjalta putoaa pohja pois, koska Paavali kertoo Jeesuksen olevan Jumala. </s>"	TRUE	ACT	PRED	NOM	
+energiaperhe.fi	"<s> Olga on jo kerran ehtinyt kutsua paikalle huoltomiehen, kun luuli pumpun olevan rikki. </s>"	FALSE				"NP is ""rikki"""
+bellablogit.fi	"<s> Aina kun katsoin peiliin, aivoni lähettivät virheellisiä signaaleja luullessaan kultakorvisten olevan juhlaverme. </s>"	TRUE	ACT	PRED	NOM	"matrix verb ""luullessaan"" is nonfinite"
+co2-raportti.fi	"<s> Toteaisin vielä, että eihän edes IPCC väitä ilmastojärjestelmän olevan epästabiilin. </s>"	TRUE	ACT	PRED	GEN	
+ukkosmaine.com	"<s> Kävin ilmoittamassa asiasta dj-veikoille, ja he sanoivat homman olevan ok. </s>"	TRUE	ACT	PRED	NOM	"NP is ""OK"""
+saavutettava.fi	"<s> Ajattelin vaan olla masentamatta sivujen tekijöitä heti kättelyssä (tosin kättely viittaa jälleen atk-sanastossa ihan muualle, joten anteeksi kielikuva!:-) Totta on sekin, että ruudunluku kertoo kyseessä olevan grafiikan. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+lafiff.net	"<s> Kanoninkin olet polkenut tossusi alle, joten hän luulee sanasi olevan laki. </s>"	TRUE	ACT	PRED	NOM	
+kauhanoja.fi	"<s> Autot ne ajavat tuhatta ja sataa, luulisi Hattulanmäentien olevan Formularata. </s>"	TRUE	ACT	PRED	NOM	
+wordpress.com	"<s> Karkeasti sanottuna, jos kansa kuvittelee maapallon olevan pyöreä, yrityskonsultti sanoo maapallon olevan pannukakku. </s>"	TRUE	ACT	PRED	NOM/NOM	two examples!
+paintedbycakes.com	"<s> Ystäväni isä oli todella otettu kakusta ja hän itseasiassa luuli sitä ensin jonkinlaiseksi tauluksi, kunnes ystäväni kertoi kyseessä olevan kakku. </s>"	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+suhdesoppa.fi	"<s> Kumppanini tietää nykyisin ""vaatimuksestani"" ja sanoo asian olevan ok. </s>"	TRUE	ACT	PRED	NOM	"NP is ""OK"""
+hommaforum.org	"<s> Jos väität sinnikkäästi vastaan ja osoitat tilastoja, kohde vaan arvelee kyseessä olevan petoksen. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+pp.fi	<s> Suomen presidentin Mauno Koiviston vaimo on sanonut Koiviston olevan bernsteinilainen. </s>	TRUE	ACT	PRED	NOM	
+pokerlistings.fi	"<s> Tapaus oli niin outo, että luulin kyseessä olevan teeskentelyn. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+sley.fi	"<s> Asettamalla vaihtoehdoksi ""homous on valinta"" ja ""homous ei ole valinta"" mediaa seuraava lukiolainen valitsee jälkimmäisen vaihtoehdon ja ihmettelee kuinka mukaan voi väittää homouden olevan valinta. </s>"	TRUE	ACT	PRED	NOM	
+kotipetripaavola.com	"<s> Jumalaan uskovana en tuomitse homoja ihmisinä, vaan rakastan heitä Jumalan rakkaudella, mutta koska homous ja sen harjoittaminen on Jumalan sanan mukaan synti, niin silloin minun on Jumalan lapsena kerrottava tässä asiassa se mikä on totuus, eli Jumalan sanan totuus, joka kertoo homouden olevan synti. </s>"	TRUE	ACT	PRED	NOM	
+btcf.fi	"<s> Se, että mihin vedetään raja, että voidaan sanoa auton olevan loppu? </s>"	FALSE 				"NP is ""loppu"""
+ehdokkaasi.fi	<s> He jopa epätoivoisesti hakivat vääriä argumentteja myynnin tueksi väittämällä Ilpoistenahon olevan kiinteistöyhtiö. </s>	TRUE	ACT	PRED	NOM	"matrix "" väittämällä"", nonfinite"
+finnair.fi	<s> Perämies luuli kyseessä olevan moottorihäiriön. </s>	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+blogspot.fi	"<s> Liittäkää lähettämiinne kirjoihin saate, jossa kerrotaan kirjan olevan FINLANDIA-ehdokas. </s>"	TRUE	PASS	PRED	NOM	
+apu.fi	<s> Miehet olivat luulleet mittarin olevan rikki. </s>	FALSE				"NP is ""rikki"""
+munpalsta.com	"<s> Tilda oli oikein tyytyväinen viimeisen lapsensa sukupuolesta ja hätkähti, kun hoitajat kertoivat Alicen olevan metamorfimaagi. </s>"	TRUE	ACT	PRED	NOM	
+kotipetripaavola.com	<s> Mosab Hassan Yousef joka kääntyi Muslimista Herran Jeesuksen opetuslapseksi sanoi Islamin olevan valhe. </s>	TRUE	ACT	PRED	NOM	
+zygomatica.com	"<s> Toisaalla Iltalehti väitti Himasen olevan huippufilosofi . Oli niin tai näin, tuskin pystyin olemaan täysin objektiivinen. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Olihan mukana myös kirje, jossa kerrottiin lahjan olevan ystävänpäivä-lahjan. </s>"	TRUE	PASS	PRED	GEN	
+proboards.com	"<s> Koska en jaksanut alkaa putsailla varusteita tällä kertaa, sipsuttelin yläkertaan ja istahdin hieman kuluneelle sohvalle, vaaleatukkaisen tytön viereen joka kertoi nimensä olevan Lynn. </s>"	TRUE	ACT	PRED	NOM	
+tampereendemarinuoret.fi	"<s> Ei auta sanoa lapselle hauki, jos ei kerro hauen olevan kala. </s>"	TRUE	ACT	PRED	NOM	
+plaza.fi	<s> Ollessani naisen luona ylioppilasasuntolassa naytin asennon jota itse kutsun lantioseisonnaksi ja myöhemmin tyttöystäväni sanoi asennon olevan hartiaseisonta. </s>	TRUE	ACT	PRED	NOM	
+wordpress.com	<s> Pihan perinnekasvit -kirja kertoo kyseessä olevan ruohtosuopayrtti. </s>	TRUE	ACT	EXIST	NOM	
+blogspot.fi	"<s> Onneksi en huomannut, että takakansi sanoo kirjan olevan rikosmysteeri. </s>"	TRUE	ACT	PRED	NOM	
+solunetti.fi	<s> Jos translokaation yhteydessä perintöaines ei lisäänny eikä vähene sanotaan translokaation olevan balansoitunut. </s>	TRUE	PASS	PRED	NOM	
+ayrshire-finland.com	"<s> Ks-yhdistyksien listoilla Omppu-Limu on miinuksella kaikissa , Originaalia ei ole ollut hetkeen eikä näy tilastoissa , Prunnista Nauta-lehti sanoi annosten olevan loppu . Ruotsalaisiakaan ei ole Ainoa saatavilla oleva sonninisä on tällä hetkellä Mischief . Eli nyt pitäisi olla asialla </s>"	FALSE				"NP is ""loppu"""
+blogspot.fi	<s> En muistaakseni sanonut mikroveden olevan pääsanoma. </s>	TRUE	ACT	PRED	NOM	
+digisanakirjat.fi	<s> Romaani valittiin Norjassa vuoden 2005 merkittävimmäksi romaaniksi ja Nobel-komitean puheenjohtaja Horace Engdal on sanonut kirjan olevan mestariteos. </s>	TRUE	ACT	PRED	NOM	
+nordnetblogi.fi	"<s> Jos raportoit muuta, niin kerrot kyseessä olevan arvio. </s>"	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+blogspot.fi	<s> Juttelimme myös klinikalla erään todella mukavan naisen kanssa joka tykästyi Ramiin kuinka rauhallinen kaveri onkaan ja yllättyi kun kerroimme Ramin olevan lämppäri. </s>	TRUE	ACT	PRED	NOM	
+munpalsta.com	<s> Näyttöön vilkaisu kertoi soittajan olevan päätoimittaja. </s>	TRUE	ACT	PRED	NOM	
+marteam.fi	<s> Yleisesti on sanottu ihmisen olevan laumaeläin. </s>	TRUE	PASS	PRED	NOM	
+fitfashion.fi	"<s> Viime mittauksesta on aikaa, mutta uskaltaisin väittää pituuden olevan 165cm. </s>"	FALSE 				NP is a numeral
+skootterini.com	<s> Perus hyvä ruosteen poisto ja pinnoitus esim. por50? uretaani maalilla niin luulisi homman olevan ok. </s>	TRUE	ACT	PRED	NOM	"NP is ""OK"""
+wordpress.com	<s> Tyttäremme sanoi mun olevan kukkafriikki. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Nuorempana luulin aina että se oli jänis, mutta isäukkoni kertoi kyseessä olevan helmipöllön. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+nic.fi	"<s> "" Selvisi, että asiakas oli luullut hiiren olevan jalkapedaali. </s>"	TRUE	ACT	PRED	NOM	
+kolmashuone.fi	<s> Sanotaan nimen olevan ennekin. </s>	TRUE	PASS	PRED	NOM	
+blogaaja.fi	"<s> Toisaalta, jos toisen joukkueen kerroin on 1.2 ja toisen yli 5, niin luulisi veikkaamisenkin olevan läpihuutojuttu. </s>"	TRUE	ACT	PRED	NOM	
+claymountain.com	"<s> Sen jälkeen laita vaikka copypastella yhteen postauksen kaikki kohdat, joissa miespuolinen henkilö sanoo raiskauksen olevan ok. </s>"	TRUE	ACT	PRED	NOM	"NP is ""OK"""
+tohtori.fi	<s> Osalle kerrottiin koskettajan olevan nainen. </s>	TRUE	PASS	PRED	NOM	
+sub.fi	<s> Kätlin arveli kyseessä olevan syömistehtävän. </s>	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+apu.fi	<s> Lääkäri oli eri mieltä ja sanoi vian olevan lihasperäinen. </s>	TRUE	ACT	PRED	NOM	
+iltasanomat.fi	<s> He ovat vain katsoneet minua monttu auki kerrottuani pelin olevan suomalaiskeksintö. </s>	TRUE	ACT	PRED	NOM	"matrix ""kerrottuani"", nonfinite"
+co2-raportti.fi	"<s> Nykyiset kunnollisilla mittaustuloksilla olevat mittaukset kertovat sulamisnopeuden olevan n. 100Gt/a ja kuten sanoin, kyseinen data ei meille toistaiseksi muuta kerro. </s>"	FALSE 				NP is a numeral
+mbnet.fi	<s> - Tämä laite kertoo kyseessä olevan koiran. </s>	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+fiktiivisiakeskusteluja.com	"<s> Heistä 72 prosenttia sanoi ajanjakson olevan stressaava . "" ( IS ) </s>"	TRUE	ACT	PRED	NOM	
+wordpress.com	"<s> Asia ilmaistaan julkisuudessa niin, että kerrotaan kirjan olevan romaani. </s>"	TRUE	PASS	PRED	NOM	
+ellit.fi	"<s> Kaikkein pahimmillaan se ilmenee, kun puhutaan haasteista sen sijaan, että rehellisesti sanottaisiin asian olevan ongelma. </s>"	TRUE	PASS	PRED	NOM	
+jatkoaika.com	"<s> Takatukkaa se koutsi tosin vosi vielä hieman kasvattaa, tämän ei luulisi tsekille olevan ongelma. </s>"	TRUE	ACT	PRED	NOM	
+suntuubi.com	"<s> Susi varmaan jatkaisi saarnaansa nartusta tai alkaisi ivailla, vaikka olikin sanonut aiheen olevan loppuunkäsitelty. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> On vaikeaa siunata niitä, jotka satuttavat teitä, mutta tämä johtuu siitä, että luulette siunaamisen olevan tunneteko. </s>"	TRUE	ACT	PRED	NOM	
+vihrealanka.fi	"<s> Jos hyökkäyksen kohde voi osoittaa, että todellakaan mitään perustetta ei ole, voi hyökkääjä yksinkertaisesti väittää henkilön olevan piilorasisti. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Koe alkoi 8.15 ja minä heräilin tyytyväisenä kello 8.14 ja luulin kellon olevan 7.14. </s>	FALSE 	ACT	PRED	NOM	NP is a numeral
+vaestoliitonblogi.com	<s> Epätodelliseen samaistuminen on sama asia kuin luulisi elokuvan olevan dokumentti. </s>	TRUE	ACT	PRED	NOM	
+wordpress.com	<s> Luulen vastauksen olevan rasvanpuutos. </s>	TRUE	ACT	PRED	NOM	
+adressit.com	<s> Melko reippaasti ja heppoisesti kirjoittajat haukkuvat lastensuojelun ja väittävät Loikalan olevan vankila. </s>	TRUE	ACT	PRED	NOM	
+wordpress.com	"<s> Iltalenkillä tavattiin nimittäin koira ja omistaja, joka luuli naksuttimen olevan kaukosäädin. </s>"	TRUE	ACT	PRED	NOM	
+seppohyokki.fi	<s> Vasen olkapää oli useamman vuoden ollut kovasti kipeä ja lääkärit sanoivat olkanivelen olevan rikki. </s>	FALSE				"NP is ""rikki"""
+muropaketti.com	"<s> Lopulta poistettuani wlan-tikun ja pari ohjelmaa, joista päivityksen ""apuvelho"" valitti luulin homman olevan bueno. </s>"	TRUE	ACT	PRED	NOM	"NP is ""bueno"", cf. ""OK"""
+blogspot.fi	"<s> Tietysti Darille maistuu sokeri ja muutkin heppanamit, mutta luulisin omppunamien olevan ykkönen. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> (Ei, en tiedä, miksi joku luulisi tamponin olevan piirroshahmo. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.com.es	"<s> Noista tv-ohjelmista sen verran, että meinasin persuuksilleni lentää aikanaan kun kaverin 6v. sanoi salkkareiden olevan lemppariohjelmansa. </s>"	FALSE				TRUE but ambiguous NOM/GEN
+blogspot.fi	"<s> Lääkärit eivät kuitenkaan missään vaiheessa antaneet ymmärtää, että he olisivat arvelleet kyseessä olevan myrkytys. </s>"	TRUE	ACT	EXIST	NOM	
+blogspot.fi	<s> Norjalainen Dagbladet-lehti kertoo Breivikin olevan vapaamuurari. </s>	TRUE	ACT	PRED	NOM	
+proboards.com	"<s> Jos tätä olisi katsonut, olisi varmaankin sanonut kyseessä olevan mies. </s>"	TRUE	ACT	EXIST	NOM	
+wordpress.com	<s> Soini sanoi lapsen olevan tytön. </s>	TRUE	ACT	PRED	GEN	
+wordpress.com	"<s> Sekä autettavan, auttajan itsensä että kaikkien hänen kollegojensa kohtelussa – joihin auttamis- ja ihmistyössä kuuluu samanarvoisena myös ""esimies"" tai miksi viimekätistä vastuun taakaan kantajaa ikinä kutsutaankaan – luulisi inhimillisyyden olevan itsestäänselvyys. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Millasta toivoisit elämäsi olevan n. 10 vuoden kuluttua? </s>	FALSE				
+blogspot.fi	<s> Seuraavaksi tekstari kertoi matkahuollossa olevan paketin. </s>	TRUE	ACT	EXIST	GEN	
+ayrshire-finland.com	<s> Pläkkyri sanoi lehmän olevan suomenkarja. </s>	TRUE	ACT	PRED	NOM	
+wordpress.com	"<s> Otsikko kirkui: ""Professori vertaa talouden nykyistä ideologiaa fasismiin"" tavoitteenaan kenties kertoa Patomäen olevan helppoheikki. </s>"	TRUE	ACT	PRED	NOM	"matrix ""kertoa"", nonfinite"
+wordpress.com	"<s> Samainen Paul Krugman New York Times''in toisessa artikkelissa valaisi juttua keksityllä esimerkillä, jossa joku jengi väittää maapallon olevan suurin piirtein pyöreä, ja toinen jengi jengi väittää maapallon olevan pannukakku. </s>"	TRUE	ACT	PRED	NOM/NOM	two examples!
+demi.fi	<s> Hän katseli hetken aikaa Alexia kun toinen sanoi asian olevan sääli. </s>	FALSE				"NP is ""sääli"""
+pp.fi	"<s> Ihmisten tietämättömyyttä kuvaa kuitenkin myös se, että jopa 45 % NMT-puhelimia käyttävistä vastaajista sanoo puhelimessaan olevan tekstiviestimahdollisuuden. </s>"	TRUE	ACT	EXIST	GEN	
+hakkiradio.com	<s> Suomalaisia sukujuuria omaava Eric kertoi tittelinpuolustamisen olevan kunnia-asia. </s>	TRUE	ACT	PRED	NOM	
+helafiilis.fi	<s> Tai ainakin itse luulen kyseessä olevan uudissanan. </s>	TRUE	ACT	EXIST	GEN	
+nakokulma.net	<s> Ateistille luulisi vastauksen olevan itsestäänselvä. </s>	TRUE	ACT	PRED	NOM	
+genealogia.fi	<s> Jo monia kuukausia sitten kyseltiin toimituksen kautta Kiuruvedellä pitkään eläneestä sukunimestä Trumf . Kyselijä arveli nimen olevan sotilasnimi. </s>	TRUE	ACT	PRED	NOM	
+kertokaa-totuus.com	<s> Olen havainnut ettei kaikki uskovaiset sano Jumalan olevan persoona. </s>	TRUE	ACT	PRED	NOM	
+yykl.fi	<s> Valaskivi sanoi median olevan skandaalikone. </s>	TRUE	ACT	PRED	NOM	
+mistymode.fi	"<s> Poika nyökkäsi myöntävästi Chailynin veikkaukselle, jäämättä sen enempää ihmettelemään mistä päätellen tyttö arveli Rohkelikon olevan viidesluokkalainen. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Kertoivat vaunujen olevan kirpputoriostos. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Kyltti kertoi maun olevan taro . No, kysäisin myyjältä, ja hän kertoi kyseessä on aasialainen perunan vastine, juurikasvi. </s>"	TRUE	ACT	PRED	NOM	
+munpalsta.com	"<s> Syy ovien ohittamiseen selvisi pian, kun kaksikko saapui viimeisen oven luo: Floyd kertoi huoneen olevan lempihuoneensa. </s>"	FALSE				TRUE but ambiguous NOM/GEN
+21publish.com	"<s> Ystäväni Pets eli Peeter Marvet heräsi varhain perjantaiaamuna kotonaan Tallinnassa siihen, että hänen vaimonsa kertoi puutarhassa olevan minibussin. </s>"	TRUE	ACT	EXIST	GEN	
+wordpress.com	<s> Lähipiiristäkin kerrottiin laihduttamisen olevan tarpeen. </s>	FALSE				"NP is ""tarpeen"""
+blogs.fi	"<s> Lukiolaiset olivat lausumasta tietenkin hyvillään, mutta väitän lausahduksen olevan osatotuus. </s>"	TRUE	ACT	PRED	NOM	
+munpalsta.com	<s> Sadie kertoi äitinsä olevan aurori. </s>	TRUE	ACT	PRED	NOM	
+kalamies.com	<s> Hopean ja ruskean sävyt kertovat kalan olevan lyyra. </s>	TRUE	ACT	PRED	NOM	
+metropolia.fi	<s> Kumpikin kertoo opetustyön olevan sesonkiluonteista. </s>	FALSE				NP is PAR
+paakallo.fi	"<s> Jos ei sarjataulukkoa olisi katsonut, olisi voinut luulla Wirmon olevan sarjakärki. </s>"	TRUE	ACT	PRED	NOM	
+sub.fi	"<s> Marin ääni kantautui taas taloon, kun nainen kertoi Sarin olevan voittaja. </s>"	TRUE	ACT	PRED	NOM	
+telsu.fi	<s> Keski-ikäinen Janet puolestaan pelkää sydämensä olevan aikapommi. </s>	TRUE	ACT	PRED	NOM	
+lvs.fi	"<s> – Kuvailin linnun harmautta ja mustia silmiä, ja Alanko osasi kertoa linnun olevan tervapääsky. </s>"	TRUE	ACT	PRED	NOM	
+proboards.com	"<s> Jada oli ollut epäluuloinen, koska arveli Edmundin olevan ihminen. </s>"	TRUE	ACT	PRED	NOM	
+yle.fi	<s> Räpylämäiset takajalat ja litteä häntä kertovat majavan olevan uimataituri. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Uskallan melkein väittää syksyn olevan lempivuodenaikani. </s>	FALSE				TRUE but ambiguous NOM/GEN
+finfanfun.fi	<s> On tämä ficci kuitenkin hyvin kirjoitettu ja uskaltaisin väittää hahmojen olevan IC. : ) </s>	TRUE	ACT	PRED	NOM	
+ass.fi	"<s> Katsottuani pitkään ja kaihoisasti noihin isoihin, tummiin silmiin, arvelisin kyseessä olevan kellukkakuoriaisen. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+blogspot.fi	"<s> Olen Ilelle ikuisesti kiitollinen siitä, että hän kertoi äitinsä olevan fysioterapeutti. </s>"	TRUE	ACT	PRED	NOM	
+kuluttajavirasto.fi	"<s> Siksi kuluttajaa ei voi houkutella myyntitilaisuuteen arpajaisvoiton varjolla ilman, että kerrotaan kyseessä olevan kaupantekotilaisuus. </s>"	TRUE	PASS	EXIST	NOM	"""kyseessä olevan"" NP"
+finfanfun.fi	"<s> Tällainen tilanne olisi niin helppoa kuvitella tytölle, koska tytöthän tunnetusti ovat toisilleen pahimpia, joten harhauduin oikeasti luulemaan päähenkilön olevan tyttö. </s>"	TRUE	ACT	PRED	NOM	
+wordpress.com	<s> Kohta sen jälkeen ilmestyi FBI ovelle ja he ketoivat nimenomaan tuosta sivusta ja sanoivat miehen olevan ongelma. </s>	TRUE	ACT	PRED	NOM	
+avaruus.fi	<s> Ensin kerrottiin putken olevan loppu. </s>	FALSE				"NP is ""loppu"""
+blogspot.fi	<s> Kyläläiset väittävät sairauksien olevan kirous. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Youtubessa olevaan esittelyvideoon on jälkikäteen lisätty teksti, joka kertoo kuvan olevan simulaatio. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Asiasta ei kuitenkaan vielä Malesiassa ollessamme ollut varmuutta, vaan meille sanottiin kertoimen olevan 1. </s>"	FALSE				NP is a numeral
+nic.fi	<s> Quenton kertoo Trevorin olevan pikkumies. </s>	TRUE	ACT	PRED	NOM	
+uneasyhappiness.fi	<s> Entä jos mies suureen ääneen kertoo naisen olevan pettymys? </s>	TRUE	ACT	PRED	NOM	
+nic.fi	"<s> Kirurgit ovat heittämässä Scullyn ulos, mutta tri Plant kertoo Scullyn olevan lääkäri. </s>"	TRUE	ACT	PRED	NOM	
+kotisivukone.com	"<s> Hän ainoastaan osoitti eron, joka esim. Akvinolaisen ja Pursiaisen ajattelussa on, vaikka kumpikin voi sanoa Jumalan olevan Oleminen. </s>"	TRUE	ACT	PRED	NOM	
+kotisivukone.com	<s> Rooman kirkko myöntää Jeesuksen olevan pelastajan mutta samaan hengenvetoon se sanoo Marian olevan välittäjätär? </s>	TRUE	ACT	PRED	GEN/NOM	
+wordpress.com	"<s> Kummasti tekee mieli kiskoa peittoa tiukemmin päälle aamulla, kun puhelimen näyttö kertoo ulkolämpötilan olevan +1. </s>"	FALSE				NP is a numeral
+hs.fi	<s> Kuka nykyään voi väittää television olevan luksustuote? </s>	TRUE	ACT	PRED	NOM	
+murhawiki.com	<s> [5] 5. heinäkuuta 2006 chechenpress.co.uk -sivustolla julkaistussa kirjoituksessaan Litvinenko väitti Putinin olevan pedofiili. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Kaiken lisäksi voisin sanoa Irvingin olevan lempikirjailijani. </s>	FALSE				TRUE but ambiguous NOM/GEN
+sley.fi	<s> On yhä liian aikaista väittää Kiinassa olevan uskonnonvapaus. </s>	TRUE	ACT	EXIST	NOM	
+muropaketti.com	"<s> Mikä idea tällasilla vesijäähdykyksillä on kun teho vastaa ilmajäähdytintä, ja hintaa on enemmän, ääntäkin lähtee enemmän, sekä se tosiasia että tuo voi joku päivä vuotaa alleen vieden menessään jotain, kaikki tämä vain sen takia että voi sanoa tietokoneensa olevan vesijäähdytetty? </s>"	TRUE	ACT	PRED	NOM	
+mbnet.fi	"<s> Yleensä kaivaudun niin syvälle anekdoottien alle, että se mikä lopulta tulee esille, on jotain aivan muuta, kuin mistä ihmiset luulivat tarinoissaan olevan kyse. </s>"	TRUE	ACT	EXIST	NOM	"""kyse"" varies in case, cf. ""Uudistuksessa kerrottiin olevan kyseen hallinnollisista järjestelystä"", so it can be GEN"
+blogspot.fi	"<s> SIksi oli hassua lukea, että niin monet luulevat kirjailijan olevan kristitty. </s>"	TRUE	ACT	PRED	NOM	
+proboards.com	"<s> Kysyin muilta, että eihän tämä haitannut, ja nuo sanoivat asian olevan ok. </s>"	TRUE	ACT	PRED	NOM	"NP is ""OK"""
+miesklinikka.com	"<s> Kun oireet eivät hävinneet pariin viikkoon, ostin canesten-voidetta, koska arvelin kyseessä olevan hiivatulehdus. </s>"	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+tiimiakatemia.fi	<s> Minun kohdallani testi kertoi heikkouteni olevan peli. </s>	TRUE	ACT	PRED	NOM	
+teknolelu.fi	"<s> Kaiken kruunaa kyljestä löytyvä LCD-näyttö, joka kertoo käytössä olevan herkkyyden. </s>"	FALSE				This is ambiguous; the Itkonen reading is very unlikely
+mtv.fi	"<s> Entä jos toimittaja olisi pyytänyt pääministeriä vastaamaan kysymykseen, kun kerran mainoskin väittää keskustan olevan asiapuolue? </s>"	TRUE	ACT	PRED	NOM	
+feissarimokat.com	<s> Jätkä on runoilija: ainoo vaan et runosivun profiilissa oleva pieni tunnus ♀ kertoo julkaisijan olevan nainen? </s>	TRUE	ACT	PRED	NOM	
+suomi24.fi	"<s> Jos olet seurannut USAn presidentinvaaleja, niin jopa siellä McCain kertoo Obaman olevan sosialisti. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Katseen palaaminen penistään esittelevään koiraaseen, saattaisi saada koiraan luulemaan kyseessä olevan parittelutuijotus. </s>"	TRUE	ACT	EXIST	NOM	"matrix""luulemaan"", nonfinite"
+blogspot.fi	"<s> Poika kiinnostuu, sillä luulee kyseessä olevan Spidermanin. </s>"	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+blogspot.fi	"<s> Minähän olin tosiaan ohittanut pari ensimmäistä tästä ilmestynyttä blogijuttua, koska luulin kyseessä olevan kauhukirjan. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+metsakoneet.fi	<s> MO : (2013-08-27 09:54:13) Lapin jättirekat kokeilu ei koske ainoastaan asfaltoituja teitä rekat ajavat tulevaisuudessa myös semmoisilla teillä joiden kantaväestö luulee tien olevan valtion . Eräänä kauniina päivänä kutsutaankin sitten paikkakunnan asukkaat tie kokoukseen ja tie yksiköidäänkin yksityistieksi . Tästä toimenpiteestä tulla tupsahtaakin sitten lasku postilaatikkohon . </s>	FALSE				This is ambiguous; the Itkonen reading is very unlikely
+suntuubi.com	"ohjelmia jotka sopivat myös terrylle ja diegolle.aika kävi tylsäksi joten siru lähti safirille ja kira motokolle.minä,naruto,diego ja terry mentiin nannalle(nannalla)pimpotin oveen ja pink tuli avaamaan -moi nita jo etsit kimaraa ja kuplaa ne on täällä pink sanoi. -no oikeastaan tiesin että he ovat teillä ajattelimme tulla vain kylään.vastasin. -ai no kyllä se varmaan sopii nanna on ala kerrassa menin ala kertaan terry ja digo menivät aallon huoneeseen.sitten he huomasivat tytön aallon vieressä.diego lumoutui katsomaan tyttöä.aalto kertoi tytön olevan laila. terry huomasi heti että diegolla oli pää pimeänä ja lähti raidan huoneeseen.raidan huoneessa olikin enemmän tekemistä nimittäin pojat alkoivat pelaamaan playstayson3 sitten tuli ilta ja lähdimme kotiin päin kotona menimme viellä kauppaan ja ostimme toisen lemmikin. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Suomessa tavataan kahta alalajia kevättaskuruohoa, luulisin kuvassa olevan kevätketotaskuruohon. </s>"	TRUE	ACT	EXIST	GEN	
+blogspot.fi	"<s> No eipä ollut ja sekä tuomari, että liikkuri sanoivat järjestyksen olevan istu-seiso-maahan. </s>"	FALSE				NP is a phrase and cannot be case-inflected
+blogspot.fi	"<s> Blogitekstiä olisi syytä korjata siltä osin, kun siinä kerrotaan Suomessa olevan aseenkanto-oikeus. </s>"	TRUE	PASS	EXIST	NOM	
+seurakuntalainen.fi	"<s> Tuossa aiemmin innostuin Hesekielin 48 luvusta laskemaan siellä kuvattujen Jerusalemin muurien pituutta, ja luulin yksikön olevan kyynärä. </s>"	TRUE	ACT	PRED	NOM	
+tuulenvihellys.fi	<s> Se kertoi pokémonin olevan lumineon. </s>	TRUE	ACT	PRED	NOM	
+wordpress.com	<s> Sivuillaan Hima Happiness kertoo Himan olevan mielentila. </s>	TRUE	ACT	PRED	NOM	
+vauva.fi	"<s> ""Vasikka"" nimityskin on oiekasti rikollisesta joka rikollisjenginsä pettää eikä tytöstä joka luuli poikien olevan kaverinsa. </s>"	FALSE				TRUE but ambiguous NOM/GEN
+voima.fi	"<s> Äärirepublikaanit eivät kuitenkaan vielä voi luottaa siihen, että Romney olisi riittävän konservatiivinen ollakseen heidän ehdokkaansa, sillä vuonna 1994 hän sanoi abortin olevan OK. </s>"	TRUE	ACT	PRED	NOM	"NP is ""OK"""
+blogspot.fi	"<s> Jos en olisi tienneeni syöväni sammakkoa, olisin voinut luulla kyseessä olevan kanankoiven. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+blogspot.fi	<s> Millasta toivoisit elämäsi olevan n. 10 vuoden kuluttua? - Unelma olisi asua ulkomailla ja tehdä mahdollisesti sitä työtä mistä oon haaveillut ja omistaa koira ja heppa jne :) </s>	FALSE				"NP is an adverbial ""in 10 years"""
+blogspot.cz	"<s> Olen jo sanonut sinulle, että SCUM-manifestin kirjoittaja on itsekin sanonut teoksen olevan parodia. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Frank Schaefferin Crazy for God -kirjassa (suosittelen lukulistallesi) muistellaan miten Frankin vanhemmat (hartaita uskovaisia ja arvostettuja evankelisoijia) eivät millään ymmärtäneet niitä jotka väittivät homouden olevan valinta. </s>	TRUE	ACT	PRED	NOM	
+uusisuomi.fi	<s> Kukaan ei väitä kannabistuotteiden olevan supermyrkky. </s>	TRUE	ACT	PRED	NOM	
+w2.fi	"<s> Aywa naksautti kieltään, kuin sanoakseen asian olevan itsestäänselvyys. </s>"	TRUE	ACT	PRED	NOM	"matrix ""sanoakseen"", nonfinite"
+evl-slk.fi	"<s> Lapset kiinnittivät huomion siihen, että Raamattu sanoo Getsemanen olevan puutarha. </s>"	TRUE	ACT	PRED	NOM	
+kotipetripaavola.com	"<s> He perustelevat tätä harhaoppia sanomalla, että Jumalan sana sanoo sekä Jeesus sanoi ihmisen olevan jumala. </s>"	TRUE	ACT	PRED	NOM	
+studio55.fi	"<s> Menin yksityiselle neurologille, joka sanoi päänsäryn olevan migreeniä. </s>"	FALSE				NP is PAR
+btcf.fi	<s> Mainittakoon vielä että oma seisonut BMW kilahti katsastuksessa päästöarvoihin ja katsastusmies sanoi katin olevan rikki. </s>	FALSE				"NP is ""rikki"""
+blogspot.fi	"<s> Kun puhuttiin joskus aiheesta koulussa, Iiro sanoi halaamisen olevan muoti-ilmiö. </s>"	TRUE	ACT	PRED	NOM	
+kotipetripaavola.com	"<s> Mosabille sanotaan usein, että onko se Jeesuksen rakkautta, että sanot Islamin olevan valhe. </s>"	TRUE	ACT	PRED	NOM	
+hoitonetti.fi	"<s> Kerran kun lääkäriasemalla hoitsu sai 35,2, sanoi mittarin olevan rikki! </s>"	FALSE 				"NP is ""rikki"""
+wikipedia.org	"<s> George pettyy, kun Jerry ei sanonut Georgen olevan arkkitehti. </s>"	TRUE	ACT	PRED	NOM	
+wikipedia.org	"<s> George on samaisella rannalla kävelyllä entisen luokkalaisensa kanssa, joka siis luulee Georgen olevan meribiologi. </s>"	TRUE	ACT	PRED	NOM	
+hostei.com	"<s> Debbie ei missään nimessä halua maata miehen kanssa, ja pelaa lisäaikaa hieromalla tätä, kunnes Eli tulee ja väittää sisarensa olevan 14. </s>"	FALSE 				NP is a numeral
+nrgm.fi	<s> Minä kun luulin Musen olevan rockyhtye. </s>	TRUE	ACT	PRED	NOM	
+mikanyyssola.fi	<s> Kun sanot käsiesi olevan 47cm. </s>	FALSE 				NP is a numeral
+tampereenmetodistisrk.fi	<s> Miehet toivovat kodin olevan rauhansatama. </s>	TRUE	ACT	PRED	NOM	
+eioototta.fi	"<s> Normaalisti siihen ei tule yhdysviivaa, mutta se kannattaa laittaa, jottei lukija luule sanan olevan syy-silta. </s>"	TRUE	ACT	PRED	NOM	
+proboards.com	<s> Sil tirskahti kun Tuqi sanoi kasuaarin olevan juoksija. </s>	TRUE	ACT	PRED	NOM	
+vasemmisto.fi	"<s> Eikä varsinkaan paikka, jossa nuorille kerrotaan työn olevan rangaistus. </s>"	TRUE	PASS	PRED	NOM	
+timoheinonen.fi	"<s> Eihän kyse kohussa ole siitä että liha on hevosen vaan siitä, että paketissa kerrotaan lihan olevan naudan. </s>"	FALSE 				ellipsis
+blogspot.com.au	"<s> Pari viikkoa sitten vantaalainen perheenäiti otti minun yhteyttä, ja kertoi poikansa olevan koulukiusattu. </s>"	TRUE	ACT	PRED	NOM	
+doria.fi	<s> Antipsykiatrinen kritiikki väittää psykiatrian olevan uskonto. </s>	TRUE	ACT	PRED	NOM	
+wordpress.com	"<s> Olin siis piilossa, mutta kehuin sieltä aina välillä, kun Nina sanoi Nalan olevan ok. </s>"	TRUE	ACT	PRED	NOM	"NP is ""OK"""
+fffin.com	"<s> Hän ei kuitenkaan ollut sanonut sanaakaan matkakumppaneilleen, jotka olisivat varmasti luulleet Andren olevan sekopää. </s>"	TRUE	ACT	PRED	NOM	
+suntuubi.com	<s> Seisahduin katsomaan paikkaa ja ohi kulkeva kissa kertoi paikan olevan päiväkoti. </s>	TRUE	ACT	PRED	NOM	
+kansanuutiset.fi	"<s> Jäin miettimään, mitä kaikkea saamastani leluesittelystä olisi jäänyt puuttumaan, jos olisin kertonut lapsen olevan tyttö . Siis vuoden vanha tyttö. </s>"	TRUE	ACT	PRED	NOM	
+genealogia.fi	"<s> Arvo Ylppö muisteli kirjassaan tavanneensa vuonna 1930 55-vuotiaan synnyttäjän, joka oli ammatiltaan kätilö ja oli mennyt lääkäriin luullessaan vatsassaan olevan kasvaimen. </s>"	TRUE	ACT	EXIST	GEN	"matrix ""luullessaan"", nonfinite"
+blogspot.fi	<s> Käsiohjelma kertoo näytelmän olevan asennekomedia. </s>	TRUE	ACT	PRED	NOM	
+menaiset.fi	<s> Hän sanoo pestin olevan unelmatyö. </s>	TRUE	ACT	PRED	NOM	
+verkkouutiset.fi	"<s> ""Ohjelmien kömpelö rajapinta"" ei kuitenkaan vaikuttanut ja joku oli sanonut puhelimen olevan rikki. </s>"	FALSE 				"NP is ""rikki"""
+kotipuutarhuri.com	"<s> Sain lahjaksi kauniin ""puumaisen"" kasvin ja lahjanantaja kertoi kasvin olevan pippuri. </s>"	TRUE	ACT	PRED	NOM	
+mattiollila.fi	<s> 10:01 Sen verran haluan mahdollisesti korjata tuota että ainakin minä luulisin kyseessä olevan sijaisen. </s>	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+suntuubi.com	<s> Moni lukija väittää Saivartelijan olevan roskalehti. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Huomasin että Claes sanoi autoilun olevan elintasosairaus. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Neuvolassakin sanottiin soijatuotteiden olevan ok. </s>	TRUE	ACT	PRED	NOM	"NP is ""OK"""
+finfanfun.fi	"<s> (Viestin tarkoitus on muistuttaa mua tämän topan olemassaolosta, jos sen joskus unohdan :D) Jos tahdot heittää jo tuonne listaukseen, niin voin melko varmasti sanoa fandomin olevan HP. </s>"	TRUE	ACT	PRED	NOM	
+livejournal.com	<s> Näytön oikea alanurkka väittää ajan olevan nollanolla-kaksoispiste-yksikolme. </s>	FALSE 				NP is a numeral
+elonet.fi	<s> Äkkiä hän mainitsee 11-vuotiaan tyttärensä Marjukan ja sanoo Uskon olevan isä. </s>	TRUE	ACT	PRED	NOM	
+miesklinikka.com	<s> Hei! 80-vuotiaalla ukillani todettiin n.3 vuotta sitten eturauhasessa syöpä (oli jo todettaessa 200gr) nyt on ollut ripulia ja ruoka ei maistu n.2 kuukautta. tutkimuksissa käytiiin juuri tänään ja lääkäri arveli maksassa olevan etäpesäkkeen. </s>	TRUE	ACT	EXIST	GEN	
+blogspot.fi	<s> Vihaan kun ihmiset sanovat tanssin olevan urheilulajin. </s>	TRUE	ACT	PRED	GEN	
+suomi24.fi	<s> Enhän sanonutkaan filan olevan laumanvartija. </s>	TRUE	ACT	PRED	NOM	
+myyverkossa.fi	"<s> Jos sitten ostoskorissa jää maksutapa valitsematta, ja asiakkaalle huomautetaan tästä, asiakas näkee vain että tuli ""joku virheilmoitus"" ja luulee kaupan olevan rikki. </s>"	FALSE 				"NP is ""rikki"""
+tuulilasi.fi	"<s> Kaupankäynnin kannalta on oleellista, että myyjä kertoo auton olevan tuontiauton. </s>"	TRUE	ACT	PRED	GEN	
+blogspot.fi	<s> Anne Savioja tuomaroi ja sanoi radan olevan dementia-testin. </s>	TRUE	ACT	PRED	GEN	
+suntuubi.com	"<s> #Kas, se ei olekaan mikään Kura, Sora, Lika tai vastaava#, hymähdin itsekseni suden kertoessa nimensä olevan Rue. </s>"	TRUE	ACT	PRED	NOM	"matrix ""kertoessa"", nonfinite"
+proboards.com	"<s> Siis, jos aijoit käydä siellä kävelyllä, ja taisit sanoa reitin olevan 2km? </s>"	FALSE 				NP is a numeral
+puhelinvertailu.com	"<s> Aluksi HTC:kin vahvisti kyseessä olevan fyysisen laitevian, mutta tämän jälkeen HTC onkin kertonut kyseessä olevan ohjelmisto-ongelman. </s>"	TRUE	ACT	EXIST	GEN/GEN	"""kyseessä olevan"" NP, two examples!"
+blogspot.cz	"<s> Loukkua katsoessa pitää välillä muistuttaa itseään hengittämään, niin tiukasti elokuva pitää otteessaan, niin paljon katsoja toivoo viisikon onnistuvan ja niin paljon hän pelkää tulokkaan olevan petturi. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Kukaan ei ymmärrä, kun sanon Greyn olevan elämäni. </s>"	FALSE 				TRUE but ambiguous NOM/GEN
+blogspot.fi	<s> Osaan peittää tunteet et muut luulee mun olevan ok. </s>	TRUE	ACT	PRED	NOM	"NP is ""ok"""
+jatkoaika.com	"<s> XP:n Network Magic, taas näytti Vistan jaot, mutta väitti koneen olevan offline. </s>"	FALSE 				"NP is ""offline"""
+blogspot.cz	"<s> Jos tämä puhelu olisi tullut 1.4., olisin arvellut soiton olevan aprillipilan. </s>"	TRUE	ACT	PRED	GEN	
+blogspot.fi	"<s> Julistettiin sotia, väitettiin omien etujen ajajaksi sekä pyrkyriksi ja sanottiin tehtävän olevan suojatyöpaikka. </s>"	TRUE	PASS	PRED	NOM	
+film-o-holic.com	<s> Tom väittää motiivinsa olevan rakkaus. </s>	TRUE	ACT	PRED	NOM	
+vauva.fi	"<s> Muutaman kuukauden jälkeen miehelle tuli omituisia patteja, kävi urologilla ja hänelle sanottiin kyseessä olevan kondylooma. </s>"	TRUE	PASS	EXIST	NOM	"""kyseessä olevan"" NP"
+voima.fi	"<s> Ja niitäkin kommentteja tulee, että ihmiset väittävät sterilisoinnin olevan eläinoikeusrikkomus. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Tapasin myös tämän kapteenin, joka kertoi nimensä olevan Kaloris. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Sinfoniaorkesterin sijaan asialla on vaskikvintetti Quinsonitus , eli musiikkitermejä tuntemattomille kerrottakoon kyseessä olevan puhallinsoitinorkesteri. </s>"	TRUE	PASS	EXIST	NOM	"""kyseessä olevan"" NP"
+blogspot.fi	"<s> Matkalla illalliselle Tässä vielä naurattaa kun luulin kävelymatkan olevan n. 5 minuutin mittainen, mutta se olikin nelin-viisinkertainen ja tällä rantakadulla oli vielä hyvä kävellä, mutta muualla kun ne kadut on tällaisia: </s>"	TRUE	ACT	PRED	NOM	
+amazeme.fi	"<s> Optigenistä tuli tänään sähköpostiviesti, joka kertoi Kiian olevan CEA-kantaja. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Kun Linneus oli viimein kertomassa isällensä, että olisi homo, Sabas kertoi pojan olevan perijä. </s>"	TRUE	ACT	PRED	NOM	
+wordpress.com	"<s> Yksikään oppineista ei ole sanonut että se ei olisi hyväksytty tai pätevä, vaan he kielsivät sen johtuen niistä seurauksista, jotka väistämättä vaikuttavat naiseen, ja koska se on alentavaa hänelle, ja se vaikuttaa yhteiskuntaan kun pahat ihmiset käyttävät tällaista avioliittosopimusta hyväkseen, sillä nainen voi väittää poikaystävän olevan aviomies. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Juoksin ilman nastoja, koska luulin metsän olevan sulan. </s>"	TRUE	ACT	PRED	GEN	
+wordpress.com	<s> Ja Teemu Pukki voisi tosiaan yrittää päästä edes siinä mikkihiirijengissä kentälle ennen kuin kertoo Arsenalin olevan pikkuseura. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Mun täytyy nyt olla otettu nuorekkuudestani ;)- yksi nainen bussiin mennessä luuli mun olevan opiskelija. :) Tai kyllähän ihmiset opiskelevat elämänsä eri vaiheissa, joten en suoraan tiedä, pidettiinkö mua ikäistäni nuorempana.;) </s>"	TRUE	ACT	PRED	NOM	
+iltasanomat.fi	<s> Mikäli joku esim. lyö toista tai potkaisee munille niin luulisi kyseessä olevan pahoinpitely. </s>	TRUE	ACT	EXIST	NOM	
+kossit.com	"<s> Yksissä tuumin arvelimme kalan olevan n. 2,5 – 3kg kala. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Nytkin kyselyn mukaan joka kolmas suomalainen luulee demareiden olevan hallituspuolue. </s>	TRUE	ACT	PRED	NOM	
+tusky.fi	<s> Justin kieltäytyi ottamasta vastaan rahaa ja sanoi kannabiksen olevan lahja. </s>	TRUE	ACT	PRED	NOM	
+kotipetripaavola.com	"<s> Reimarus perusti uskonsa ihmisviisauteen, siksi hän luuli Raamatun olevan satukirja. </s>"	TRUE	ACT	PRED	NOM	
+hangonrintama.fi	<s> Toisen kerrotaan siviiliammatiltaan olevan turkismetsästäjän. </s>	TRUE	PASS	PRED	GEN	
+blogspot.fi	"<s> Välillä mennään niin yli, että voisi luulla kyseessä olevan parodian. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP, matrix ""luulla"", nonfinite"
+liekkitytot.fi	<s> Ristin muoto kertoo taustayhteisömme olevan seurakunta. </s>	TRUE	ACT	PRED	NOM	
+japo.fi	"<s> Shaikovkasta lähtiessäni Fiatin etupyörästä alkoi kuulua äänekästä rahinaa, ja arvelin laakerin olevan rikki. </s>"	FALSE 				"NP is ""rikki"""
+kpnet.fi	"<s> Kyllä he ansaitsevat sitä siinä, koska he kieltävät kasteen armonvälineenä ja Jumalan pelastustekona sekä suoraan että väittämällä kasteen olevan kuuliaisuudenteko. </s>"	TRUE	ACT	PRED	NOM	"matrix ""väittämällä"", nonfinite"
+drmouse.fi	"<s> Vein koiran lääkäriin, joka arveli kyseessä olevan panosteiitin. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+novelli.fi	<s> Nainen oli sanonut mulkun olevan muistoesine. </s>	TRUE	ACT	PRED	NOM	
+luontoportti.fi	<s> Birdlifen Lauri Hänninen kertoi kyseessä olevan viirupöllö. </s>	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+alexstubb.com	"<s> Jizhah Rabin, työväenpuolueen mies oli itse vielä 1987 alkaneen ensimmäisen terrori-intifadan aikana sanonut Jordanian olevan palestiinalaisvaltio. </s>"	TRUE	ACT	PRED	NOM	
+nyysisuomi.fi	"<s> En muista lähdettä, mutta Bloomberg on sanonut rahan olevan mittanauha. </s>"	TRUE	ACT	PRED	NOM	
+ning.com	"<s> Opiskelemalla devayogan pääteoriaa löydetään kuitenkin halu mudran osapuolien välistä, ja sen merkitys on selitettävä, vaikka luulisi kyseessä olevan harjoitus. </s>"	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+blogspot.fi	<s> Moni sanoo hevosten olevan elämäntapa. </s>	TRUE	ACT	PRED	NOM	
+e-savuke.com	"<s> Tuotekuvaukset ja kuvat olivat kuitenkin samat kuin perusversiossa, joten luulin kyseessä olevan kirjoitusvirheen. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+blogspot.fi	"<s> Sain Muutoksia lahjaksi ja päätin lukea sen, ja vielä kirjaa aloittaessani - tämä on vähän noloa myöntää - luulin Franzenin olevan britti. *blush* No, joka tapauksessa, en siis tiennyt kirjailijasta paljon mitään ja vielä vähemmän kirjasta, ja rakastuin. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Maf on siis toisaalta oman atomipommipelkoisen aikansa tulkki, mutta toisaalta hän koiramaiseen tyyliin laittaa elämänsä puistot paremmuusjärjestykseen ja sanoo Lassien olevan ihannetyttönsä. </s>"	FALSE 				TRUE but ambiguous NOM/GEN
+blogspot.fi	"<s> Uteliaisuudesta kysyin eräältä leipojatytöltä, että mistä on kyse ja hän kertoi kyseessä olevan challah-leivän. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+blogspot.fi	<s> Lippuja jäi kassaan meidän jälkeemme enää kuusi kappaletta ja seuraavana päivänä kaikkien näytösten kerrottiin lehdessä olevan loppuunmyytyjä. </s>	FALSE 				NP is PAR
+blogspot.fi	<s> Ei syyttäjä valittanut päätöksestä vaan sanoi asian olevan loppuunkäsitelty. </s>	TRUE	ACT	PRED	NOM	
+muropaketti.com	<s> C#-kieltä sen tekemiseen joka tapauksessa vaaditaan vaikka MS joskus yrittikin väittää Metron olevan html5-kehys. </s>	TRUE	ACT	PRED	NOM	
+sektori.com	<s> Käräjiä käynnistellessään Microsoftille ilmeisesti oli aivan selvää tuon windows-nimen merkitys ja luulivat käsittelyn olevan läpihuutojuttu. </s>	TRUE	ACT	PRED	NOM	
+menaiset.fi	"<s> Mainonnan tulee olla tunnistettavaa, vrt. telkkari ja ohjelma sisältöön tuotesijoittelua -ilmoitukset. eräs bloggari ketoi saavansa päivittäisiä kierteleviä pyyntöjä sähköpostitse kehaista milloin kenenkin valmistajan tuotetta, mainitsematta että pyyntö on tullut tältä valmistajalta, ettei kerrottaisi kyseessä olevan mainoksen. </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+blogspot.fi	"<s> Hän ei mitenkään suostunut uskomaan, kun väitimme jälkiruoan olevan Snickersiä . Makeat miehet kun viipottivat jälkiruokien kanssa luoksemme ja kertoivat lautaseltamme löytyvän ""Snickersiä"" ja karamellijäätelöä, oli Pinjan ilme näkemisen arvoinen. </s>"	FALSE 				NP is PAR
+btcf.fi	<s> Niin siis sitä ihmettelin että milläs ihmeellä siellä voi olla vikakoodi joka kertoo katalysaattoreiden olevan rikki. </s>	FALSE 				"NP is ""rikki"""
+flockler.com	<s> Siinä sanotaan hillasesongin olevan 15-25.7. </s>	FALSE 				NP is a numeral
+kuluttajavirasto.fi	"<s> Markkinaoikeuden päätöksen mukaan Rentmar Oy ei saa jatkossa kutsua kuluttajia osakkeiden myyntitilaisuuteen arpajaisvoiton varjolla ilman, että se kertoo kyseessä olevan kaupantekotilaisuus. </s>"	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+wordpress.com	"<s> Kaikki viittaa onnettomaan tapaturmaan, mutta jutun harteilleen saava äreä komisario Palmu väittää kyseessä olevan murha. </s>"	TRUE	ACT	EXIST	NOM	
+blogspot.fi	<s> Leskirouva arveli kyseessä olevan kummituksen. </s>	TRUE	ACT	EXIST	GEN	
+suntuubi.com	<s> Onko se vahinko vai oletko luullut sanan olevan joukkoe? </s>	TRUE	ACT	PRED	NOM	
+mattiollila.fi	"<s> Luulen nimimerkin viittaavan sinänsä samaan aihepiiriin, josta kerroin asianajokulun olevan pikkuasia. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Saavuimme ravintolaan keskiviikkona 20 vaille kuusi ja meille sanottiin odotusajan olevan n. 35 minuuttia. </s>	FALSE 				NP is a numeral
+blogspot.fi	"<s> On kuvaavaa, että miestä loukatakseen nainen sanoo miehen olevan naismainen. </s>"	TRUE	ACT	PRED	NOM	
+plaza.fi	"<s> Erityisen vastenmieliseltä tietysti tuntuu ajatus, että joku kiihkouskovainen lastenraisakaaja osallistuu muslimivihan lietsomiseen väittämällä islamin olevan pedofiiliuskonto. </s>"	TRUE	ACT	PRED	NOM	"matrix ""väittämällä"", nonfinite"
+blogspot.fi	<s> molemmat lapsemme ovat syntyneet sateella. myös heti kihlauduttuamme ja vihkiydyttyämme antoi taivas sadetta. sanovat sateen olevan siunaus. sen tuovan onnea. minä katsoin ilmatieteen laitokselta. huomenna yhdeksän ja viidentoista välillä oli sadetta luvassa. että ehkä silloin! </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Samat tyypit sanovat karppauksen olevan uskonto. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Psalmien maininta Jumalasta ""turvakalliona,"" ei väitä Jumalan olevan kivikasa. </s>"	TRUE	ACT	PRED	NOM	
+ellit.fi	<s> Ja missä Wagnerin morsian väittäisi rouvan olevan arvonimi? </s>	TRUE	ACT	PRED	NOM	
+suntuubi.com	<s> En ollut kertonut sisareni olevan pentu. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Miettimään, että mitä se tarkoittaa, kun sanotaan lapsissa olevan tulevaisuuden. </s>"	TRUE	PASS	EXIST	GEN	
+wordpress.com	"<s> Levitysmahdollisuuksien puuttuminen vaihtoehtoisiksi mielletyiltä elokuvilta (kuka sanoikaan vaihtoehtojen olevan rikkaus? ) ei ole sen paremmin Tarrin kuin Hännisenkään syytä, ja olemme köyhempiä, kun meillä ei ole mahdollisuutta nähdä näitä ja muita valtavirran ulkopuolella tehtyjä elokuvia kankaalla. </s>"	TRUE	ACT	PRED	NOM	
+iltalehti.fi	<s> Juttua muokattu 17.2. kello: 17.00: Jutussa kerrottiin Rukajärven olevan olympiavoittaja. </s>	TRUE	PASS	PRED	NOM	
+blogspot.cz	"<s> Ensimmäinen ongelma ilmeni heti paketin saavuttua, kun emme saaneet tikkua toimimaan ja luulimme kaukosäätimen olevan rikki. </s>"	FALSE 				"NP is ""rikki"""
+hs.fi	"<s> Mutta tuossa LA Galaxya vastaan tehdyssä kantapäätempussa oli kai kyse siitä, että Mario luuli kyseessä olevan paitsion? </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+kepa.fi	"<s> ""Viranomaiset sanovat koulutuksen olevan prioriteetti. </s>"	TRUE	ACT	PRED	NOM	
+e-savuke.com	"<s> Jännä, tuli hirveä pakokauhu ja nikkis, kun luulin akun olevan paskana. </s>"	FALSE 				NP is ESS
+blogspot.fi	<s> Äitini oli makeankipeä ja luuli pussissa olevan karamellejä. </s>	FALSE 				NP is PAR
+blogspot.fi	"<s> Koska betamiehen lahjakkuudet ovat muualla, hänellä ei ole sosiaalista dominanssia saada (tai pitää) naisia feministisessä yhteiskunnassa, vaan naiset toivoisivat betamiehen olevan homo. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Minulle myynyt henkilö sanoi kuivahtamisenkin olevan ok. </s>	TRUE	ACT	PRED	NOM	"NP is ""ok"""
+lepakkolaakso.net	"<s> Ks. elokuvan Crying Game kohtaus, jossa heteromies huomaa naiseksi luulemansa ihmisen olevan mies. </s>"	TRUE	ACT	PRED	NOM	
+timovirtala.net	"<s> Hänen teepaitansa sanoma on kulunut lukukelvottomaksi, mutta arvelen kyseessä olevan kaljamainos. </s>"	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+aeronaut.fi	"<s> Esimerkiksi Mikko Uola: Suomen Ilmailuliitto 75 vuotta, Helsinki 1994 s.11 kuvateksti väittää kuvassa olevan kuumailmapallon. </s>"	TRUE	ACT	EXIST	GEN	
+shoutwiki.com	"<s> Kenobi lähetettiin Rodialle , missä hänen piti noutaa Wee Dunn . Saapuessaan paikalle Dunnin äiti Mahtee Dunn uhkasi Kenobia aseella, sillä Bane oli pukeutunut jediksi, vienyt lapsen ja kertonut Kenobin olevan huijari. </s>"	TRUE	ACT	PRED	NOM	
+suntuubi.com	<s> Kasvattajat myös toivoivat varsan olevan tamma. </s>	TRUE	ACT	PRED	NOM	
+sathy.fi	<s> Poliisi sanoo koiran olevan pitbullterrieri. </s>	TRUE	ACT	PRED	NOM	
+sathy.fi	"<s> Koiran omistajat sanovat koiran olevan amerikanstaffordshirenterrieri mutta koira-asiantuntijat, jotka ottivat koiran haltuunsa onnettomuuden jälkeen väittävät koiran olevan pitbullterrieri. </s>"	TRUE	ACT	PRED	NOM/NOM	two examples!
+stara.fi	<s> Twilight-kaunotar Kristen Stewart on puolestaan kertonut erikoistaitonsa olevan jonglööraaminen. </s>	TRUE	ACT	PRED	NOM	
+orionsydan.fi	"<s> Kuten edeltä käy ilmi, niin en voi sanoa syksyn olevan lempivuodenaikani. </s>"	FALSE 				TRUE but ambiguous NOM/GEN
+kotipetripaavola.com	"<s> Isän Kaikkivaltius ei tietenkään vie pois Jeesukselta Jumaluutta, sillä Jumala itse sanoo Jeesuksen olevan Jumala. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Garmin sanoi matkan olevan 1000m. </s>	FALSE 				NP is a numeral
+munpalsta.com	"<s> April ei ehkä kiinnittänyt siihen huomiota, hän vain kertoi esineen olevan porttiavain. </s>"	TRUE	ACT	PRED	NOM	
+sektori.com	<s> Enkä väittänytkään kyseessä olevan paremmuusväittelyn. </s>	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+blogspot.fi	"<s> EDIT: huomaisnpa, etten tuossa esikoisen tarinassa vielä kertonut siemenisän olevan homo. </s>"	TRUE	ACT	PRED	NOM	
+anssikela.com	"<s> Rolling Stone -lehti haukkui 70-luvulla Loun Berlin-albumin, mutta vuosia myöhemmin tuo arvostelu oikaistiin, ja sanottiin kyseessä olevan mestariteoksen. </s>"	TRUE	PASS	EXIST	GEN	
+feissarimokat.com	<s> Ei se mitään tieteellisyyttä ole että naiset väittävät persikan olevan väri. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Tarkastelen kolmea osaa: alkua eli Helvetialaissotaa, sitten loppupuolen taistelua Vercingetorixia vastaan, ja lopuksi teoksen loppua, missä Caesar kertoo Caesarin olevan omnipotentti. </s>"	TRUE	ACT	PRED	NOM	
+spinneri.fi	"<s> Lisätietona mainittakoon sekin, että 4A-FE ja 4A-GE moottorit eroavat perustaltaankin toisistaan; F-kirjan tyyppikoodissa kertoo kyseessä olevan kahdella kannen yläpuolisella nokka-akselilla (DOHC) varustettu moottori, mutta sen eräänlainen economy-versio, kun taas G-kirjain kertoo kyseessä olevan performance-versio. </s>"	TRUE	ACT	EXIST	NOM/NOM	"""kyseessä olevan"" NP, two examples!"
+jatkoaika.com	"<s> Ei yhtään, siis ei yhtään, nimeä ole heitetty ilmoille kuka se syyllinen voisi olla, ennenkuin Sport kertoi pelaajan olevan Kuusisto. </s>"	TRUE	ACT	PRED	NOM	
+tritolonen.fi	"<s> Kirjoittajan nimimerkki JP:n tietämättömyys aiheesta ilmenee heti kirjoituksen toisessa virkkeessä (klikkaa alla olevaan linkkiin), jossa hän väittää linolihapon olevan omega-3-rasvahappo. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Johtokunnan naispuolinen ihmetteli pientä karvatuppea vatsapoimuissani, mutta hänelle kerrottiin kyseessä olevan navan. </s>"	TRUE	PASS	EXIST	GEN	"""kyseessä olevan"" NP"
+ircquotes.fi	"<s> Tulen kyllä hulluksi näiden Kajaanilaisten kanssa, meinasin ruveta riehumaan jo viime talvena kun K-Kaupassa ei ruvettu myymään mulle paria saunaolutta koska se kassalla istunut mummeli arveli ajokorttini olevan väärennös. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Onko joku teijän läheinen kuollu sen takia että joku sanoo vaatekokonsa olevan S-M? </s>	TRUE	ACT	PRED	NOM	
+blogspot.cz	"<s> Hengitin sitä samaa surua, niin kauan että lopulta luulin unissa olevan kotini. </s>"	FALSE 				TRUE but ambiguous NOM/GEN
+blogspot.fi	<s> Onko joku väittänyt naisten olevan marginaaliryhmä? </s>	TRUE	ACT	PRED	NOM	
+vantaanlauri.fi	<s> Suuri joukko heistä sanoo haaveammattinsa olevan julkkis. </s>	TRUE	ACT	PRED	NOM	
+suntuubi.com	<s> Yhdessä Missourin kanssa alukset tulittivat Faylakan saarta tarkoituksenaan harhauttaa irakilaisia luulemaan tulossa olevan maihinnousun. </s>	TRUE	ACT	EXIST	GEN	"matrix ""luulemaan, nonfinite"
+vikakerta.fi	<s> Kehuin häntä ja hän sanoi suihinoton olevan suosikkinsa. </s>	FALSE 				TRUE but ambiguous NOM/GEN
+enterprisesuomi.fi	<s> Suurin osa asiakaskunnasta on käynyt Kuokkasen luona useita vuosia ja hän kertoo vakioasiakkaan olevan siunaus. – Toivotan niin uudet kuin vanhatkin asiakkaat lämpimästi tervetulleiksi meille nauttimaan monipuolisista kauneuspalveluistamme. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Mutta se pelisääntö on reilu, että postauksessa saa kertoa kyseessä olevan yhteistyö! </s>"	TRUE	ACT	EXIST	NOM	
+uusisuomi.fi	<s> Kesken rapsutuksen viereen ilmestyi kolme poliisia ja kertoi koiran olevan huume-koira. </s>	TRUE	ACT	PRED	NOM	
+city.fi	"<s> Koeasetelmassa opettajat antoivat samasta vastauksesta paremmat pisteet, kun luulivat vastaajan olevan poika kuin silloin kun luulivat vastaajan olevan tyttö. </s>"	TRUE	ACT	PRED	NOM/NOM	two examples!
+ellit.fi	"<s> Kummastelin autossa lojuvia naisten kenkäpareja, mutta hän kertoi auton olevan äidin. </s>"	FALSE 				ellipsis
+suntuubi.com	"<s> Vampyyrijumala, se sanoi Lucyn olevan jumala. </s>"	TRUE	ACT	PRED	NOM	
+verkata.com	"<s> Väestöstä 63,5 % kertoi äidinkielensä olevan serbia. </s>"	TRUE	ACT	PRED	NOM	
+suntuubi.com	<s> Cassie sanoi paikan olevan yllätys. </s>	TRUE	ACT	PRED	NOM	
+freehostia.com	"<s> Kun Marlena tuli raskaaksi, hän luuli lapsen olevan Romanin. </s>"	FALSE 				ellipsis
+stipendiblogi.fi	<s> Todella tärkeistä uutisaiheista ei luulisi nykymaailmassa olevan puute. </s>	FALSE 				"NP is ""puute"""
+perhoboxi.com	"<s> Esitin hänelle asiani, ei suostunut hänkään, mutta sanoi vaimon olevan eläinlääkäri. </s>"	TRUE	ACT	PRED	NOM	
+teleportaasi.fi	"<s> Mikä on Exoduksen erikoisuus? – Meillä ei ole mitään erikoisjuomia, mutta sanoisin erikoisuuden olevan musiikki. </s>"	TRUE	ACT	PRED	NOM	
+bellablogit.fi	<s> Kiihkoilijaksi en tunnustaudu ja kysyttäessä toki kerron lapsen olevan poika. </s>	TRUE	ACT	PRED	NOM	
+shoutwiki.com	"<s> Sairaanhoitajat kertoivat planeetan olevan Maa . Ja hänen vieressään oli maannut toinen mies, joka oli esitellyt itsensä hänelle Jack D. </s>"	TRUE	ACT	PRED	NOM	
+siemens.fi	"<s> Kuten kaikki SITOP SMART teholähteet, uudet yksivaiheiset PSU100S teholähteet omaavat potentiaali vapaan signaalikontaktin kertomaan ulostulojännitteen olevan OK. </s>"	TRUE	ACT	PRED	NOM	"NP is ""OK"", matrix ""kertomaan"", nonfinite"
+jyu.fi	"<s> Käytännössä hyödyllinen voisi olla lähinnä charmap , joka kertoo käytössä olevan merkistön. </s>"	FALSE 				This is ambiguous; the Itkonen reading is very unlikely
+omakustanne.fi	"<s> Meri tarkoitti etelää, ja etelätuulen puhaltaessa sanottiin tuulen olevan meresä. </s>"	FALSE 				NP is INE
+kauppalehti.fi	<s> Sanot aluepolitiikan olevan vika. </s>	TRUE	ACT	PRED	NOM	
+nic.fi	<s> Hän pyytää apua ja sanoo kyseessä olevan hätätilanne. </s>	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+nettisanomat.fi	<s> Edelleen tietokulma kertoo virhemarginaalin olevan v? h?n yli kolme prosenttiyksikk??. </s>	FALSE 				NP is a numeral
+wikipedia.org	"<s> "", isä sanoi lampun olevan rikki. </s>"	FALSE 				"NP is ""rikki"""
+hannuoskala.fi	"<s> Tänään uutisoitiin Uschanovinkin kirjassaan mainitsema tieto siitä, että kolmannes suomalaisista luulee demareiden olevan hallituspuolue. </s>"	TRUE	ACT	PRED	NOM	
+fffin.com	"<s> Vasempaan polveen 6kpl (tapaus oli niin että löin itseäni vesurilla [niille jotka asuvat *piip* voin kertoa vesurin olevan n. 30cm terällä varustettu, ranteen paksuisten puiden pilkkomiseen tarkoitettu kirveen sukulainen]). </s>"	TRUE	ACT	PRED	NOM	
+filmgoer.fi	"<s> Micah''n vastustuksesta huolimatta Katie kutsuu kylään meedion, joka kertoo kyseessä olevan demoni. </s>"	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+munpalsta.com	"<s> Ääni oli kait Sadien, se kertoo lääkärin olevan mörkö. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Toivoisin elämän olevan seikkailu. </s>	TRUE	ACT	PRED	NOM	
+oikeus.fi	<s> A on kertonut ammattinsa olevan muusikko. </s>	TRUE	ACT	PRED	NOM	
+geekgirls.fi	"<s> Sanotaan näin, että jollei kyseessä olisi Space Hulk väittäisin pelin olevan rikki. </s>"	FALSE 				"NP is ""rikki"""
+konnunkodon.fi	"<s> Tekee järkyttävän pahaa ajatella, että maailman sivu esimerkiksi valkoisena syntyneitä boksereita on surutta lopetettu vastasyntyneitä, koska rotumääritelmä sanoo värin olevan virhe. </s>"	TRUE	ACT	PRED	NOM	
+feissarimokat.com	"<s> Piti lukea juttu moneen kertaan, mutta en mä ainakaan missään kohtaa huomannut, että kerrottaisiin kirjoittajan olevan nainen. </s>"	TRUE	PASS	PRED	NOM	
+plaza.fi	"<s> Erittäin suuressa määrin voi sanoa kyseessä olevan makuasian. ;) Mutta vakavasti puhuen, kannibalismiin yleensä liittyy toisen ihmisen suunnitelmallinen tappaminen (ei niitä vanhuuteen tai tapaturmaisesti kuolleita syödä). </s>"	TRUE	ACT	EXIST	GEN	"""kyseessä olevan"" NP"
+blogspot.fi	<s> Kokkonen kertoo kysymyksessä olevan anttikristus. </s>	TRUE	ACT	EXIST	NOM	"""kysymyksessä olevan"" NP"
+nettiet.fi	"<s> Pit tulla ilmottautumaan, ettettä luule miun olevan suutuksis. </s>"	FALSE 				"NP is ""suutuksissa"""
+blogspot.fi	<s> Nyt jos koskaan toivoisin Venäjän olevan Äiti-Venäjä. </s>	TRUE	ACT	PRED	NOM	
+blogspot.fi	"<s> Mielenkiintoista muuten on, että jos mies keräilisi tolkuttomasti kenkiä ja valokuvailisi niitä nettiin, sanottaisiin kyseessä olevan kenkäfetissi. </s>"	TRUE	PASS	EXIST	NOM	
+flockler.com	"<s> Nimittäin tässä tilaisuudessa tuli esiin, että niiin Kreikassa kuin myös Portugalissa on viety rahaa rutkasti veropara-tiiseihin, Portugalissa arvellaan summan olevan n. 130 miljardia euroa eli niistä jäämättä saadut verotulot ovat huomattava summa. </s>"	FALSE 				NP is a numeral
+blogspot.fi	<s> Esimerkiksi tämän artikkelin ensimmäinen kommentoija TOIVOI jutun olevan vitsi. </s>	TRUE	ACT	PRED	NOM	
+suntuubi.com	"<s> Muistin, että olin kuullut jonkin sanovan maastossa olevan rannan. </s>"	TRUE	ACT	EXIST	GEN	"matrix ""sanovan"", nonfinite,  a recursive Itkonen structure"
+voima.fi	"<s> Odotan haastattelun alkua Amnesty Internationalin Suomen-päämajassa Helsingissä ja hipelöin paitoja, pinssejä sekä koruja, jotka kertovat rakkauden olevan ihmisoikeus. </s>"	TRUE	ACT	PRED	NOM	
+mtv.fi	<s> On sitten sama ryhtyä väittämään maapallon olevan pannukakku. </s>	TRUE	ACT	PRED	NOM	"matrix is ""väittämään"", nonfinite"
+iltasanomat.fi	"<s> Ja nyt Ben tykkää Sebusta tosi paljon, kun Sebu sanoi Benin olevan supersankari. </s>"	TRUE	ACT	PRED	NOM	
+suntuubi.com	<s> Dottie ei ilmeisesti kuullut risausta ja luullut munan olevan kuoriutumassa. </s>	FALSE 				"NP is ""kuoriutumassa"""
+wordpress.com	"<s> Kuten kuinka trollausherkkiä rasti ruutuun- kyselyn tulokset voivat olla, kuinka ympäripyöreitä kysymykset ovat sekä kuinka kyseenalaistettava paikka ilmiötä on tutkia imageboardilla jossa joka toinen luulee ilmiön olevan vitsi. </s>"	TRUE	ACT	PRED	NOM	
+hardware.fi	"<s> OcUK kertoo suositushinnan olevan n. 350£, mikä tarkoittanee Suomessa n. 450 euron hintalappua. </s>"	FALSE 				NP is a numeral
+plaza.fi	"<s> Onko missään kielessä jotain sellaista kirjaimeen (konsonanttiin) lisättävää koukeroa, joka kertoo kyseessä olevan kaksoiskonsonantti? </s>"	TRUE	ACT	EXIST	NOM	"""kyseessä olevan"" NP"
+blogspot.cz	"<s> Olen 22-vuotias cosplayn harrastaja, vaikkakin tunteita säästämättä voisin jopa sanoa cosplayn olevan elämäntapa. </s>"	TRUE	ACT	PRED	NOM	
+blogspot.fi	<s> Viittaamassasi linkissä väitetään Krugerin olevan tiedemiehen. </s>	TRUE	PASS	PRED	GEN	
+blogspot.fi	"<s> Se ei IKINÄ ole kirjastossa paikalla eikä se ole aiemmin tullut missään kaupassakaan vastaan, siksipä luulin painoksenkin olevan loppu. </s>"	FALSE 				"NP is ""loppu"""
+blogspot.fi	<s> paitsi kaksi on sanonut tulokkaan olevan poika. </s>	TRUE	ACT	PRED	NOM	
+suomi24.fi	"<s> Nyppii suunnattomasti HYVÄ HYVÄ kommentit, ei kukaan ole niin sokea että vois sanoa asioiden olevan ok. </s>"	TRUE	ACT	PRED	NOM	"NP is ""ok"""
+blogspot.fi	<s> He kutsuvat sitä tieteeksi koska toivovat plasebon olevan plasebota. </s>	FALSE 				NP is PAR

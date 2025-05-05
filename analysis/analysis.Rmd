@@ -63,6 +63,7 @@ library(rmdformats) # For the custom html output
 library(shiny) # interactive tabls
 library(lingglosses)
 library(sparkline)
+library(ggpubr)
 
 # Here's some custom visual styling stuff
 
@@ -291,7 +292,7 @@ ReplicationOnly <- itkonen %>%
 ```{r include=FALSE}
 replicationItems <- ReplicationOnly %>% 
   group_by(item,voice,type,responseCase) %>% 
-  count() %>% 
+  dplyr::count() %>% 
   pivot_wider(names_from = responseCase,values_from = n) %>% 
   replace_na(list(gen=0)) %>% 
   summarize(itemNomRate = nom/(nom+gen),
@@ -318,7 +319,8 @@ In our faithful replication of Itkonen's original study, we find similar pattern
 
 **Model Structure**
 
-We fit a logistic mixed effects model which predicted nominative responses from fixed effects of voice (binary, reference level: "active"), structure type (binary, reference level:"existential"). Finally, we included random intercepts for participant and lexical item. 
+We fit a logistic mixed effects model which predicted nominative responses from fixed effects of voice (binary, reference level: "active"), structure type (binary, reference level:"existential"). Finally, we included random intercepts for participant and lexical item.
+
 
 ```{r include=FALSE}
 ReplicationOnly <- ReplicationOnly %>% 
@@ -334,11 +336,38 @@ ReplicationOnly$type = relevel(ReplicationOnly$type, ref="existential")
 
 
 ```{r include=FALSE}
-mixedModelReplication <- glmer(as.factor(responseBinary)~voice*type + (1|workerid) + (1|item), data=ReplicationOnly, family="binomial")
+mixedModelReplication <- glmer(as.factor(responseBinary)~voice + type + age + (1|workerid) + (1|item), data=ReplicationOnly, family="binomial")
 ```
 
 ```{r echo=FALSE}
 summary(mixedModelReplication)
+```
+
+
+Report this model with no interactions. When you add an interaction, you get diminishing returns on the additive effects. There is really no reason to add an interaction, because we don't expect these two parts of the grammar to be in conversation with each other; 
+
+```{r include=FALSE}
+mixedModelReplication <- brm(as.factor(responseBinary)~voice*type + (1|workerid) + (1|item), data=ReplicationOnly, family="bernoulli")
+```
+
+```{r echo=FALSE}
+mixedModelReplication
+```
+
+
+```{r}
+ReplicationOnly <- ReplicationOnly %>% 
+ mutate(cStructure = as.numeric(as.factor(type)) - mean(as.numeric(as.factor(type))),
+  cVoice = as.numeric(as.factor(voice)) - mean(as.numeric(as.factor(voice))))
+```
+
+
+```{r include=FALSE}
+mixedModelReplicationCentered <- brm(as.factor(responseBinary)~cVoice*cStructure + (1|workerid) + (1|item), data=ReplicationOnly, family="bernoulli")
+```
+
+```{r}
+mixedModelReplicationCentered
 ```
 
 
@@ -360,16 +389,22 @@ ReplicationOnly %>%
   ) %>% 
   mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
   ggplot(aes(x=voice,y=nomRate, fill=voice)) + 
-  geom_bar(stat="identity") + 
+  geom_bar(stat="identity",color="black") + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
   geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
-  labs(x="Voice",y="Proportion of Nominative Responses",title="Replication Results: Voice") + 
+  labs(x="Voice",y="Proportion of nom. responses") + 
   ylim(0,1) + 
-  geom_text(aes(x=voice,y=nomRate, vjust =-2, label=trunc(nomRate*10^2)/(10^2))) + 
+  geom_text(aes(x=voice,y=nomRate, vjust = -0.7, label=trunc(nomRate*10^2)/(10^2)), size=8) + 
   scale_fill_manual(values=voice_palette) + 
-  theme_classic() +
-  theme(legend.position = "none") 
+  theme_bw() +
+  theme(legend.position = "none") + 
+  theme(text=element_text(size=26))
 ```
+
+```{r}
+ggsave("figures/ReplicationVoice.png",width=12,height=6)
+```
+
 
 ### Structure
 
@@ -389,16 +424,21 @@ ReplicationOnly %>%
   ) %>% 
   mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
   ggplot(aes(x=type,y=nomRate, fill=type)) + 
-  geom_bar(stat="identity") + 
+  geom_bar(stat="identity",color="black") + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
   geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
-  labs(x="Structure",y="Proportion of Nominative Responses",title="Replication Results: Structure") + 
-  ylim(0,1) + 
-  geom_text(aes(x=type,y=nomRate, vjust =-1.5, label=trunc(nomRate*10^2)/10^2)) + 
+  labs(x="Structure",y="Proportion of nom. responses") + 
+  ylim(0,1.1) + 
+  geom_text(aes(x=type,y=nomRate, vjust =-0.7, label=trunc(nomRate*10^2)/10^2),size=8) + 
   scale_fill_manual(values = type_palette) + 
-  theme_classic() + 
-  theme(legend.position = "none") 
+  theme_bw() + 
+  theme(legend.position = "none", text=element_text(size=26)) 
 ```
+
+```{r}
+ggsave("figures/structureReplication.png",width=12,height=6)
+```
+
 
 ### Crossed Voice x Structure
 
@@ -416,15 +456,15 @@ ReplicationOnly %>%
   ) %>% 
   mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
   ggplot(aes(x=reorder(type, nomRate),y=nomRate, fill=type)) + 
-  geom_bar(stat="identity") + 
+  geom_bar(stat="identity",color="black") + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
-  geom_text(aes(x=type,y=nomRate, vjust =-1.3, label=trunc(nomRate*10^2)/10^2)) +
-  labs(x="Item", y="Proportion of Nominative Responses", title="Nominative Rates of Replication Items: Voice x Structure") + 
+  geom_text(aes(x=type,y=nomRate, vjust =-0.7, label=trunc(nomRate*10^2)/10^2),size=8) +
+  labs(x="Item", y="Proportion of nom. responses") + 
   scale_fill_manual(values=type_palette) + 
   facet_wrap(~voice) + 
-  theme_classic() +
-  ylim(0,1) + 
-  theme(legend.position = "none") 
+  theme_bw() +
+  ylim(0,1.1) + 
+  theme(legend.position = "none", text=element_text(size=26)) 
 ```
 
 
@@ -524,16 +564,114 @@ ReplicationOnly %>%
   ) %>% 
   mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
   ggplot(aes(x=reorder(item, -nomRate),y=nomRate, fill=item)) + 
-  geom_bar(stat="identity") + 
+  geom_bar(stat="identity", color="black") + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
   geom_text(aes(x=item,y=nomRate, vjust =4, label=trunc(nomRate*10^2)/10^2)) +
   geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
-  labs(x="Item", y="Proportion of Nominative Responses", title="Nominative Rates of Replication Items: Active Only") + 
+  labs(x="Item", y="Proportion of Nominative Responses") +
+  scale_x_discrete(labels = c("persoonallinen" = "suhde", "harvinainen" = "erikoistapaus", "jokin" = "maininta", "kappalainen" = "kappalainen", "tulipalo" = "tulipalo", "persikka" = "persikka", "valtio" = "valtio")) +
   scale_fill_brewer(palette="Paired") +
   theme_classic() +
   ylim(0,1) + 
-  theme(legend.position = "none")
+  theme(legend.position = "none", text=element_text(size=18)) 
 ```
+
+```{r}
+ggsave("figures/ItkonenItems.png",width=12,height=6)
+```
+
+
+```{r}
+PapineauItemsGrouped <- ReplicationOnly %>% 
+  mutate(responseBinary = case_when(
+    responseCase == "nom" ~ 1,
+    responseCase == "gen" ~ 0,
+  )) %>% 
+  group_by(item,type,voice) %>% 
+  summarize(
+    nomRate = mean(responseBinary),
+    CI.Low = ci.low(responseBinary),
+    CI.High = ci.high(responseBinary),
+  ) %>% 
+  mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
+  ggplot(aes(x=item, y=nomRate, fill=item)) + 
+  geom_bar(position = position_dodge(0.9), stat="identity", color="black") + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  scale_x_discrete(labels = c("persoonallinen" = "suhde", "harvinainen" = "erikoistapaus", "jokin" = "maininta", "kappalainen" = "kappalainen", "tulipalo" = "tulipalo", "persikka" = "persikka", "valtio" = "valtio")) +
+  facet_grid(voice~type, scales = "free", space = "free") + 
+  theme_bw() + 
+  theme(legend.position = "none", axis.text.y = element_blank(), axis.title.y = element_blank(), axis.ticks.y = element_blank()) + 
+  coord_flip() + 
+  labs(x="Stimulus Item", y="Proportion of nominative responses") + 
+  ylim(0,1) + 
+  ggtitle("Papineau et al (2025)") + 
+  scale_fill_brewer(palette="Paired") 
+  
+```
+
+```{r}
+ItkonenItemsGrouped <- itkonenOriginal %>% 
+  group_by(type,voice,item) %>% 
+  ggplot(aes(x=item,fill=item,y=itemNomRateOriginal)) + 
+  geom_bar(stat="identity", color="black") + 
+  scale_x_discrete(labels = c("persoonallinen" = "suhde", "harvinainen" = "erikoistapaus", "jokin" = "maininta", "kappalainen" = "kappalainen", "tulipalo" = "tulipalo", "persikka" = "persikka", "valtio" = "valtio")) + 
+  facet_grid(voice~type, scales = "free", space = "free") + 
+  theme(legend.position = "none", strip.text.y = element_blank()) + 
+  coord_flip() + 
+  labs(x="Stimulus Item", y="Proportion of nominative responses") + 
+  ylim(0,1) + 
+  ggtitle("Itkonen (1976)") + 
+  scale_fill_brewer(palette="Paired") 
+```
+
+
+```{r}
+ItkonenItemsGrouped + PapineauItemsGrouped +
+  plot_layout(ncol = 2, 
+              widths = c(2, 2),
+              axis_titles = "collect") +
+  plot_annotation(caption = "Note: error bars for Itkonen's data are unavailable as the data is only provided in aggregate")
+```
+
+```{r}
+ggsave(width=12, height=6,"CompItemDiffs.png")
+```
+
+
+
+```{r}
+ReplicationOnly %>% 
+  mutate(responseBinary = case_when(
+    responseCase == "nom" ~ 1,
+    responseCase == "gen" ~ 0,
+  )) %>% 
+  group_by(item, type, voice) %>% 
+  summarize(
+    nomRate = mean(responseBinary),
+    CI.Low = ci.low(responseBinary),
+    CI.High = ci.high(responseBinary),
+  ) %>% 
+  mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
+  ggplot(aes(x=item, y=nomRate, fill=interaction(type, voice))) + 
+  geom_bar(position = position_dodge(0.9), stat="identity", color="black") + 
+  geom_errorbar(aes(ymin=YMin, ymax=YMax), width=.25, position = position_dodge(0.9)) + 
+  scale_x_discrete(labels = c(
+    "persoonallinen" = "suhde", "harvinainen" = "erikoistapaus", 
+    "jokin" = "maininta", "kappalainen" = "kappalainen", 
+    "tulipalo" = "tulipalo", "persikka" = "persikka", 
+    "valtio" = "valtio"
+  )) +
+  theme_bw() + 
+  labs(x="Stimulus Item", y="Proportion of nominative responses") + 
+  ylim(0,1) + 
+  ggtitle("Papineau et al (2025)") + 
+  scale_fill_brewer(name="Type & Voice")
+
+```
+
+If we think about english loans like "se on OK" it doesn't participate 
+
+
 
 
 ```{r, echo=FALSE, fig.align = 'center'}
@@ -569,7 +707,7 @@ Finally, we found a main effect of age, such that the younger a participant was,
 ```{r include=FALSE}
 nomRates <- ReplicationOnly %>% 
   group_by(workerid,responseCase) %>% 
-  count() %>% 
+  dplyr::count() %>% 
   pivot_wider(names_from = responseCase,values_from = n) %>% 
   summarize(NomRate = nom/22)
 ```
@@ -580,14 +718,20 @@ ReplicationOnly <- left_join(ReplicationOnly,nomRates)
 
 ```{r rep-age, echo=FALSE, message=FALSE, fig.align = 'center', fig.cap="Replication Results: nominative proportion by participant age"}
 ReplicationOnly %>% 
+  select(c("workerid","NomRate","gender","age")) %>% 
+  unique() %>% 
   filter(!is.na(age)) %>% 
-#  filter(age < 60) %>% 
-  ggplot(aes(x=age,y=NomRate)) + 
-  geom_point() + 
-  geom_smooth(method="lm") + 
-  geom_hline(yintercept=.5, linetype="dashed", color = "black") + 
-  labs(y="Proportion of Nominative Responses",title="Replication Results: Age") + 
-  ylim(0,1) 
+  ggplot(aes(x = age, y = NomRate)) + 
+  geom_point(aes(), alpha = 0.3, size=2) + 
+  geom_smooth(method = "lm", color="grey") + 
+  geom_hline(yintercept = 0.5, linetype = "dashed", color = "black") + 
+  labs(y = "Proportion of Nominative Responses", color = "Gender", x = "Participant Age") + 
+  ylim(0, 1) + 
+  theme(text = element_text(size=18))
+```
+
+```{r}
+ggsave("figures/ItkonenRepAgender.png", height=6, width=12)
 ```
 
 
@@ -714,16 +858,34 @@ dodge = position_dodge(.9)
 ```{r rep-itkonen-change, echo=FALSE, fig.align = 'center', fig.cap="Proportion of nominative responses by voice (x axis) and structure (facet) in Itkonen (1976; coral) and O'Reilly-Brown & Papineau (2022; teal)"}
 compConditions %>% 
   ggplot(aes(x=voice,y=nomRate,fill=year)) +
-  geom_bar(stat="identity",position=position_dodge()) + 
-  geom_text(aes(x=voice,y=nomRate,label=trunc(nomRate*10^2)/10^2),position=dodge) + 
+  geom_bar(stat="identity",position=position_dodge(),color="black") + 
+  geom_text(aes(x=voice,y=nomRate, vjust =-0.5, label=trunc(nomRate*10^2)/10^2), position=dodge, size=8) + 
   facet_wrap(~type) + 
   labs(x="Voice",y="Proportion of Nominative Responses",fill="Year") + 
   scale_fill_brewer(palette = "Set1") + 
-  theme(text = element_text(size=14))
+  theme(text = element_text(size=28)) + 
+  ylim(0,1)
 ```
 
 ```{r}
-ggsave("Itkonen50YearsOn.png")
+ggsave("Itkonen50YearsOn.png", heigh=8, width=14)
+```
+
+```{r}
+itkonenConditions %>% 
+  ggplot(aes(x=voice,y=nomRate,fill=voice)) +
+  geom_bar(stat="identity",position=position_dodge(), color="black") + 
+  geom_text(aes(x=voice,y=nomRate,label=trunc(nomRate*10^2)/10^2,vjust = -0.5,size=18),position=dodge) + 
+  facet_wrap(~type) + 
+  labs(x="Voice",y="Proportion of Nominative Responses",fill="Year") + 
+  scale_fill_manual(values = type_palette) +
+  theme(text = element_text(size=18)) + 
+  ylim(0,1) + 
+  theme(legend.position = "none")
+```
+
+```{r}
+ggsave("ItkonenOriginal.png",width=12,height=6)
 ```
 
 
@@ -1045,4 +1207,141 @@ ReplicationOnly %>%
   group_by(comments) %>% 
   summarize(comments = paste(unique(comments)))
 ```
+
+# Demographics 
+
+```{r}
+ReplicationOnly %>% 
+  select(c("workerid","age","gender","education","region")) %>% 
+  unique() %>% 
+  summary()
+```
+
+```{r}
+summary(ReplicationOnly)
+```
+
+
+## Age
+
+
+
+```{r}
+Age_Vals <- ReplicationOnly %>% 
+  filter(age != "NA") %>% 
+  select(c("workerid","age")) %>% 
+  group_by(workerid,age) %>% 
+  unique() %>% 
+  mutate(age = as.numeric(age))
+```
+
+```{r}
+mean(Age_Vals$age)
+```
+
+```{r}
+Genders <- ReplicationOnly %>% 
+  filter(gender != "NA") %>% 
+  select(c("workerid","gender"))
+```
+
+```{r}
+Genders %>% 
+  summary()
+```
+
+```{r}
+Regions <- ReplicationOnly %>% 
+  select(workerid,region) %>% 
+  group_by(workerid,region) %>% 
+  unique() %>% 
+  group_by(region) %>% 
+  count()
+```
+
+## Education
+
+```{r}
+ReplicationOnly %>% 
+  select(workerid,education) %>% 
+  group_by(education) %>% 
+  unique() %>% 
+  count()
+```
+
+
+
+# Corpus Data
+
+```{r}
+CorpusData <- read_tsv("corpus.tsv")
+```
+
+
+```{r}
+summary(CorpusData)
+```
+
+```{r}
+CorpusDataCritical <- CorpusData %>% 
+  filter(Itkonen == "TRUE")
+
+summary(CorpusDataCritical)
+```
+
+
+```{r}
+CorpusData %>% filter(Itkonen == "TRUE") %>% 
+  filter(Case == "GEN" | Case == "NOM") %>%
+  mutate(CaseBinary = case_when(
+    Case == "NOM" ~ 1,
+    Case == "GEN" ~ 0
+  )) %>% 
+  group_by(Matrix,Embed) %>% 
+  summarize(count = n(),
+            NomProp = mean(CaseBinary))
+```
+
+```{r}
+CorpusData %>% 
+  filter(Itkonen == "TRUE") %>% 
+  filter(Case == "GEN" | Case == "NOM") %>%
+  mutate(responseBinary = case_when(
+    Case == "NOM" ~ 1,
+    Case == "GEN" ~ 0,
+  )) %>% 
+  group_by(Matrix,Embed) %>% 
+  summarize(
+    nomRate = mean(responseBinary),
+    CI.Low = ci.low(responseBinary),
+    CI.High = ci.high(responseBinary),
+    count = n()
+  ) %>% 
+  mutate(YMin = nomRate - CI.Low, YMax = nomRate + CI.High) %>%
+  ggplot(aes(x=reorder(Matrix, nomRate),y=nomRate, fill=Matrix)) + 
+  geom_bar(stat="identity", color="black") + 
+  # geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  geom_text(aes(x=Matrix,y=nomRate, vjust =-0.5, label=trunc(nomRate*10^2)/10^2, size=18)) +
+  labs(x="Voice", y="Proportion of Nominative Tokens") + 
+  scale_fill_manual(values=type_palette) + 
+  facet_wrap(~Embed) + 
+  theme_bw() +
+  ylim(0,1) + 
+  theme(legend.position = "none", text=element_text(size=18)) + 
+  scale_x_discrete(labels=c("ACT" = "active", "PASS" = "passive"))
+```
+
+```{r}
+ggsave("ItkonenCorpus.png",width=12,height=6)
+```
+
+
+# Misc
+
+```{r}
+compItems %>% 
+  ggplot(aes(x=itemNomRateOriginal,y=itemNomRate, shape=voice, color=type)) + 
+  geom_point()
+```
+
 
